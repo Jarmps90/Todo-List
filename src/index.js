@@ -2,13 +2,32 @@ import { removeTodo } from './objects.js';
 
 
 
+function modal() {
+  const container = document.querySelector('#container');
+
+  const addBtn = document.createElement('button');
+  addBtn.classList.add('addBtn');
+  addBtn.textContent = 'Add'
+  container.appendChild(addBtn);
+
+  addBtn.addEventListener('click', () => {
+    const modal = document.createElement('div');
+    modal.classList.add('modal');
+    container.appendChild(modal);
+  });
+
+
+
+
+};
 
 function domControll() {
-//Gomes two functions one that renders todos
-// and one that renders user interface
+
 };
 
 function userInput() {
-//Function that takes and sends user inputs to object
-// creation
+
 };
+
+
+modal();
