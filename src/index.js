@@ -14,7 +14,7 @@ function modal() {
 
   addBtn.addEventListener('click', () => {
     container.appendChild(dialog);
-    dialog.show();
+    dialog.showModal();
   });
 
 
