@@ -4,16 +4,17 @@ import { removeTodo } from './objects.js';
 
 function modal() {
   const container = document.querySelector('#container');
-
+  const dialog = document.createElement('dialog');
   const addBtn = document.createElement('button');
+
+  dialog.classList.add('modal');
   addBtn.classList.add('addBtn');
-  addBtn.textContent = 'Add'
+  addBtn.textContent = 'Add';
   container.appendChild(addBtn);
 
   addBtn.addEventListener('click', () => {
-    const modal = document.createElement('div');
-    modal.classList.add('modal');
-    container.appendChild(modal);
+    container.appendChild(dialog);
+    dialog.show();
   });
 
 
