@@ -14,6 +14,7 @@ const modal = (function() {
     const descriptionLabel = document.createElement('label');
     const dueDateInput = document.createElement('input')
     const dueDateLabel = document.createElement('label');
+    const radioButtons = document.createElement('fieldset');
     const priorityLowInput = document.createElement('input');
     const priorityLowLabel = document.createElement('label');
     const priorityMediumInput = document.createElement('input');
@@ -21,6 +22,7 @@ const modal = (function() {
     const priorityHighInput = document.createElement('input');
     const priorityHighLabel = document.createElement('label');
 
+    radioButtons.classList.add('priorityBtns');
     form.setAttribute('method', 'post');
     dialog.classList.add('modal');
 
@@ -39,21 +41,30 @@ const modal = (function() {
     dueDateInput.setAttribute('type', 'date');
     dueDateInput.setAttribute('id', 'dueDate');
 
-    priorityLowLabel('for', 'priorityLow');
+    priorityLowLabel.setAttribute('for', 'priorityLow');
     priorityLowLabel.textContent = 'Low';
-    priorityLowInput('type', 'radio');
-    priorityLowInput('id', 'priorityLow');
+    priorityLowInput.setAttribute('type', 'radio');
+    priorityLowInput.setAttribute('id', 'priorityLow');
+    priorityLowInput.setAttribute('name', 'priority');
+    priorityLowInput.setAttribute('value', 'low')
 
-    priorityMediumLabel('for', 'priorityMedium');
+    priorityMediumLabel.setAttribute('for', 'priorityMedium');
     priorityMediumLabel.textContent = 'Medium';
-    priorityMediumInput('type', 'radio');
-    priorityMediumInput('id', 'priorityMedium');
+    priorityMediumInput.setAttribute('type', 'radio');
+    priorityMediumInput.setAttribute('id', 'priorityMedium');
+    priorityLowInput.setAttribute('name', 'priority');
+    priorityLowInput.setAttribute('value', 'medium')
 
-    priorityHighLabel('for', 'priorityHigh');
+
+    priorityHighLabel.setAttribute('for', 'priorityHigh');
     priorityHighLabel.textContent = 'High';
-    priorityHighInput('type', 'radio');
-    priorityHighInput('id', 'priorityHigh');
+    priorityHighInput.setAttribute('type', 'radio');
+    priorityHighInput.setAttribute('id', 'priorityHigh');
+    priorityLowInput.setAttribute('name', 'priority');
+    priorityLowInput.setAttribute('value', 'high')
 
+
+    form.appendChild(radioButtons);
     dialog.appendChild(form);
     container.appendChild(dialog);
 
@@ -63,12 +74,12 @@ const modal = (function() {
     form.appendChild(descriptionInput);
     form.appendChild(dueDateLabel);
     form.appendChild(dueDateInput);
-    from.appendChild(priorityLowLabel);
-    from.appendChild(priorityLowInput);
-    from.appendChild(priorityMediumLabel);
-    from.appendChild(priorityMediumInput);
-    from.appendChild(priorityHighLabel);
-    from.appendChild(priorityHighInput);
+    radioButtons.appendChild(priorityLowLabel);
+    radioButtons.appendChild(priorityLowInput);
+    radioButtons.appendChild(priorityMediumLabel);
+    radioButtons.appendChild(priorityMediumInput);
+    radioButtons.appendChild(priorityHighLabel);
+    radioButtons.appendChild(priorityHighInput);
 
     dialog.showModal();
   };
