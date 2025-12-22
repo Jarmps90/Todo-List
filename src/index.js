@@ -100,7 +100,13 @@ const modal = (function() {
   return {modalCreate, createTodoBtn}
 })();
 
+class ElementCreate {
+  constructor(type) {
+    const el = document.createElement(type);
 
+  };
+
+};
 
 function domControll() {
 
@@ -109,5 +115,7 @@ function domControll() {
 function userInput() {
 
 };
+
+
 
 const runButton = modal.createTodoBtn();
