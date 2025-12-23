@@ -27,7 +27,7 @@ function createTodo(title, description, duedate, priority) {
 createTodo('building', 'Building house', '12.12.2025', 'Medium' );
 createTodo('workout', 'running till legs fall of', '11.12.2025', 'low');
 
-export function removeTodo() {
+function removeTodo() {
   let title = localStorage.getItem(title);
 
   console.log(title);
