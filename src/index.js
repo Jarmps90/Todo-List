@@ -5,6 +5,11 @@
 const modal = (function() {
   const container = document.querySelector('#container');
 
+  class DomElementCreate {
+    constructor(type) {
+
+    };
+  };
   const modalCreate = () => {
 
 
@@ -27,13 +32,7 @@ const modal = (function() {
   return {modalCreate, createTodoBtn}
 })();
 
-class ElementCreate {
-  constructor(type) {
-    const el = document.createElement(type);
 
-  };
-
-};
 
 function domControll() {
 
