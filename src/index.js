@@ -6,14 +6,35 @@ const modal = (function() {
   const container = document.querySelector('#container');
 
   class DomElementCreate {
-    constructor(type) {
+    constructor(id, type) {
+      this.type = type;
+      this.id = id;
 
     };
+
+
+
+    get labelElemnts() {
+      const labelEl = document.createElement('label');
+      const inputEl = document.createElement('input');
+
+      labelEl.htmlFor = this.id;
+      inputEl.id = this.id
+
+      return labelEl
+    };
+
+
   };
+
   const modalCreate = () => {
+    let labelElement = new DomElementCreate('title');
 
 
-    dialog.showModal();
+    container.appendChild(labelElement.labelElemnts)
+
+
+
   };
 
   const createTodoBtn = () => {
@@ -24,7 +45,7 @@ const modal = (function() {
     container.appendChild(addBtn);
 
     addBtn.addEventListener('click', () => {
-      modalCreate()
+      modalCreate();
 
     });
   };
