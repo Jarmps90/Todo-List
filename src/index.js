@@ -4,46 +4,31 @@
 
 const modal = (function() {
   const container = document.querySelector('#container');
+  const dialog = document.createElement('dialog');
+  const form = document.createElement('form');
 
-  // class DomElementCreate {
-  //   constructor(id, type) {
-  //     this.type = type;
-  //     this.id = id;
+  function InputElements(type, id, name) {
+    const el = document.createElement('input');
+    el.type = type;
+    el.id = id;
+    el.name = name;
 
-  //   };
-
-
-
-  //   get labelElemnts() {
-  //     const labelEl = document.createElement('label');
-  //     const inputEl = document.createElement('input');
-
-  //     labelEl.htmlFor = this.id;
-  //     inputEl.id = this.id
-
-  //     return labelEl
-  //   };
-
-
-  // };
-  function InputElements(type, id) {
-
+    return container.appendChild(el);
   };
 
-  function LabelElements(labelFor) {
+
+  function LabelElements(labelFor, text) {
     const el = document.createElement('label');
     el.htmlFor = labelFor;
+    el.textContent = text;
 
     return container.appendChild(el);
   };
 
 
   const modalCreate = () => {
-    let labelElement = new DomElementCreate('title');
-
-
-    container.appendChild(labelElement.labelElemnts)
-
+    const titleLabel = LabelElements('title', 'Title:')
+    const titleInput = InputElements('text', 'title', 'title');
 
 
   };
