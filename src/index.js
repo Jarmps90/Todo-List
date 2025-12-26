@@ -41,7 +41,7 @@ const modal = (function() {
     container.appendChild(addBtn);
 
     addBtn.addEventListener('click', () => {
-      modalCreate();
+
 
     });
   };
