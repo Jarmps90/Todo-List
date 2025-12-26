@@ -29,8 +29,8 @@ const modal = (function() {
   const modalCreate = () => {
     const titleLabel = LabelElements('title', 'Title:')
     const titleInput = InputElements('text', 'title', 'title');
-
-
+    const textLabel = LabelElements('description', 'Desctioption:');
+    const textInput = InputElements('text', 'description', 'description');
   };
 
   const createTodoBtn = () => {
