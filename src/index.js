@@ -50,14 +50,20 @@ const modal = (function() {
     const lowPrioriy = CreateSelect('low', 'Low');
     const mediumPriority = CreateSelect('medium', 'Medium');
     const highPriority = CreateSelect('high', 'High');
+    const submitButton = document.createElement('button');
 
+    submitButton.type = 'submit';
+    submitButton.id = 'submitBtn';
+    submitButton.textContent = 'Add';
     dialog.id = 'todoModal';
     prioritySelect.id = 'priority-select';
     prioritySelect.name = 'priority';
     form.appendChild(prioritySelect);
     container.appendChild(dialog);
     dialog.appendChild(form);
+    form.appendChild(submitButton);
   };
+
 
   const createTodoBtn = () => {
     const addBtn = document.createElement('button');
