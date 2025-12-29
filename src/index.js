@@ -55,6 +55,7 @@ const modal = (function() {
     // submitButton.type = 'submit';
     submitButton.id = 'submitBtn';
     submitButton.textContent = 'Add';
+    submitButton.onclick = submitBtn(e);
     dialog.id = 'todoModal';
     form.action = '#';
     prioritySelect.id = 'priority-select';
