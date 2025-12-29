@@ -1,4 +1,4 @@
-// import { removeTodo } from './objects.js';
+import { createTodo } from './objects.js';
 
 
 
@@ -52,16 +52,18 @@ const modal = (function() {
     const highPriority = CreateSelect('high', 'High');
     const submitButton = document.createElement('button');
 
-    submitButton.type = 'submit';
+    // submitButton.type = 'submit';
     submitButton.id = 'submitBtn';
     submitButton.textContent = 'Add';
     dialog.id = 'todoModal';
+    form.action = '#';
     prioritySelect.id = 'priority-select';
     prioritySelect.name = 'priority';
     form.appendChild(prioritySelect);
     container.appendChild(dialog);
     dialog.appendChild(form);
     form.appendChild(submitButton);
+
   };
 
 
@@ -73,13 +75,29 @@ const modal = (function() {
     container.appendChild(addBtn);
 
     addBtn.addEventListener('click', () => {
-      dialog.textContent = "";
+
       modalCreate();
       dialog.showModal();
+      submitBtn();
+
     });
   };
 
-  return {modalCreate, createTodoBtn}
+  const submitBtn = () => {
+    const submitBtn = dialog.querySelector('button');
+    const titleInput = document.querySelector('#title');
+
+    const string = JSON.stringify(titleInput);
+    localStorage.setItem('title', string);
+    // submitBtn.addEventListener('click', () => {
+    //   const string = JSON.stringify(titleInput);
+    //   localStorage.setItem(string);
+
+    // });
+
+  };
+
+  return {modalCreate, createTodoBtn, submitBtn}
 })();
 
 
