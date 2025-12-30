@@ -52,19 +52,19 @@ const modal = (function() {
     const highPriority = CreateSelect('high', 'High');
     const submitButton = document.createElement('button');
 
-    // submitButton.type = 'submit';
     submitButton.id = 'submitBtn';
     submitButton.textContent = 'Add';
-    submitButton.onclick = submitBtn(e);
+
     dialog.id = 'todoModal';
     form.action = '#';
+
     prioritySelect.id = 'priority-select';
     prioritySelect.name = 'priority';
     form.appendChild(prioritySelect);
     container.appendChild(dialog);
     dialog.appendChild(form);
     form.appendChild(submitButton);
-
+    submit();
   };
 
 
@@ -79,26 +79,27 @@ const modal = (function() {
 
       modalCreate();
       dialog.showModal();
-      submitBtn();
+
 
     });
   };
 
-  const submitBtn = () => {
-    const submitBtn = dialog.querySelector('button');
-    const titleInput = document.querySelector('#title');
 
-    const string = JSON.stringify(titleInput);
-    localStorage.setItem('title', string);
-    // submitBtn.addEventListener('click', () => {
-    //   const string = JSON.stringify(titleInput);
-    //   localStorage.setItem(string);
 
-    // });
+  const submit = () => {
+    const submitButton = document.querySelector('#submitBtn');
+    const title = document.getElementById('title').value;
+
+
+    submitButton.addEventListener('click', (event) => {
+      if (event.target.id === 'submitBtn') {
+
+      };
+    });
 
   };
 
-  return {modalCreate, createTodoBtn, submitBtn}
+  return {modalCreate, createTodoBtn, submit}
 })();
 
 
