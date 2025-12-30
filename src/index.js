@@ -84,7 +84,12 @@ const modal = (function() {
     });
   };
 
-
+  const preventSubmit = () => {
+    form.onsubmit = function (e) {
+      submit();
+      e.preventDefault();
+    };
+  };
 
   const submit = () => {
     const submitButton = document.querySelector('#submitBtn');
@@ -93,13 +98,13 @@ const modal = (function() {
 
     submitButton.addEventListener('click', (event) => {
       if (event.target.id === 'submitBtn') {
-
+        console.log(title);
       };
     });
 
   };
 
-  return {modalCreate, createTodoBtn, submit}
+  return {modalCreate, createTodoBtn, submit, preventSubmit}
 })();
 
 
