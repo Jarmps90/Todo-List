@@ -55,16 +55,17 @@ const modal = (function() {
     submitButton.id = 'submitBtn';
     submitButton.textContent = 'Add';
 
-    dialog.id = 'todoModal';
-    form.action = '#';
 
+    dialog.id = 'todoModal';
+
+    form.onsubmit = submit();
     prioritySelect.id = 'priority-select';
     prioritySelect.name = 'priority';
     form.appendChild(prioritySelect);
     container.appendChild(dialog);
     dialog.appendChild(form);
     form.appendChild(submitButton);
-    submit();
+
   };
 
 
@@ -84,27 +85,25 @@ const modal = (function() {
     });
   };
 
-  const preventSubmit = () => {
-    form.onsubmit = function (e) {
-      submit();
-      e.preventDefault();
-    };
-  };
 
   const submit = () => {
     const submitButton = document.querySelector('#submitBtn');
-    const title = document.getElementById('title').value;
 
 
-    submitButton.addEventListener('click', (event) => {
+    // submitButton.addEventListener('click', () => {
+    //   console.log('Hello world')
+    // });
+    form.addEventListener('click', (event) => {
       if (event.target.id === 'submitBtn') {
+        const title = document.getElementById('title').value;
         console.log(title);
+        event.preventDefault();
       };
     });
 
   };
 
-  return {modalCreate, createTodoBtn, submit, preventSubmit}
+  return {modalCreate, createTodoBtn, submit}
 })();
 
 
