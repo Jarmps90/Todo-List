@@ -55,19 +55,17 @@ const modal = (function() {
 
     submitButton.id = 'submitBtn';
     submitButton.textContent = 'Add';
-
-
     dialog.id = 'todoModal';
-
-
+    form.id = 'todoForm';
+    form.onsubmit = userInputFunc.submit();
     prioritySelect.id = 'priority-select';
     prioritySelect.name = 'priority';
+
     form.appendChild(prioritySelect);
     container.appendChild(dialog);
     dialog.appendChild(form);
     form.appendChild(submitButton);
-    form.id = 'todoForm';
-    form.onsubmit = userInputFunc.submit();
+
   };
 
 
@@ -82,12 +80,8 @@ const modal = (function() {
 
       modalCreate();
       dialog.showModal();
-
-
     });
   };
-
-
 
   return {modalCreate, createTodoBtn}
 })();
