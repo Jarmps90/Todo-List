@@ -7,6 +7,7 @@ const modal = (function() {
   const dialog = document.createElement('dialog');
   const form = document.createElement('form');
   const prioritySelect = document.createElement('select');
+  const userInputFunc = userInput();
 
   //To create input elements
   function InputElements(type, id, name) {
@@ -58,14 +59,15 @@ const modal = (function() {
 
     dialog.id = 'todoModal';
 
-    form.onsubmit = submit();
+
     prioritySelect.id = 'priority-select';
     prioritySelect.name = 'priority';
     form.appendChild(prioritySelect);
     container.appendChild(dialog);
     dialog.appendChild(form);
     form.appendChild(submitButton);
-
+    form.id = 'todoForm';
+    form.onsubmit = userInputFunc.submit();
   };
 
 
@@ -86,24 +88,8 @@ const modal = (function() {
   };
 
 
-  const submit = () => {
-    const submitButton = document.querySelector('#submitBtn');
 
-
-    // submitButton.addEventListener('click', () => {
-    //   console.log('Hello world')
-    // });
-    form.addEventListener('click', (event) => {
-      if (event.target.id === 'submitBtn') {
-        const title = document.getElementById('title').value;
-        console.log(title);
-        event.preventDefault();
-      };
-    });
-
-  };
-
-  return {modalCreate, createTodoBtn, submit}
+  return {modalCreate, createTodoBtn}
 })();
 
 
@@ -113,7 +99,21 @@ function domControll() {
 };
 
 function userInput() {
+  const container = document.querySelector('#container');
 
+  const submit = () => {
+
+    container.addEventListener('click', (event) => {
+      if (event.target.id === 'submitBtn') {
+        const todoTilet = document.getElementById('title').value;
+        const todoDescription = document.querySelector('#description').value;
+        console.log(todoDescription);
+        event.preventDefault();
+      };
+    });
+
+  };
+  return { submit };
 };
 
 
