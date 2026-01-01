@@ -95,14 +95,21 @@ function domControll() {
 function userInput() {
   const container = document.querySelector('#container');
 
+
   const submit = () => {
 
     container.addEventListener('click', (event) => {
       if (event.target.id === 'submitBtn') {
-        const todoTilet = document.getElementById('title').value;
-        const todoDescription = document.querySelector('#description').value;
-        console.log(todoDescription);
+
+        const dialog = document.querySelector('dialog');
+        const todoTitle = document.getElementById('title').value;
+        const todoDescription = document.getElementById('description').value;
+        const todoDueDate = document.getElementById('dueDate').value;
+        const todoPriority = document.getElementById('priority-select').value;
+
+        createTodo(todoTitle, todoDescription, todoDueDate, todoPriority);
         event.preventDefault();
+        dialog.close();
       };
     });
 
