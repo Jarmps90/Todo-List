@@ -1,6 +1,6 @@
 
 
-function createTodo(title, description, duedate, priority) {
+export function createTodo(title, description, duedate, priority) {
 
   class Todo {
     constructor(title, description, duedate, priority) {
