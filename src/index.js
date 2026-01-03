@@ -89,6 +89,9 @@ const modal = (function() {
 
 
 function domControll() {
+  const contaniner = document.querySelector('#container');
+  contaniner.innerHTML = "";
+
 
 };
 
