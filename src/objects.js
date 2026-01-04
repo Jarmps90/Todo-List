@@ -16,11 +16,15 @@ export function createTodo(title, description, duedate, priority) {
 
 };
 
-export function todoControl(key) {
+export function todoControl() {
   let todoArray = [];
-  const stringsToObj = todoArray.push(JSON.parse(localStorage.getItem(key)));
+  let keys = Object.keys(localStorage);
+
+  keys.forEach((key) => {
+    todoArray.push(JSON.parse(localStorage.getItem(key)));
+  });
 
   const getTodoArray = () => todoArray;
 
-  return { getTodoArray};
+  return {getTodoArray};
 };
