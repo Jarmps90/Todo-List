@@ -1,5 +1,4 @@
-import { createTodo } from './objects.js';
-
+import { createTodo, todoControl } from './objects.js';
 
 
 const modal = (function() {
@@ -87,17 +86,38 @@ const modal = (function() {
 })();
 
 
-
 function domControll() {
-  const contaniner = document.querySelector('#container');
-  contaniner.innerHTML = "";
+  const container = document.querySelector('#container');
 
+  const todo = todoControl('Hello');
+  const todoArray = todo.getTodoArray();
+  container.innerHTML = '';
 
+    for (let i = 0; i < todoArray.length; i++) {
+      const todoCard = document.createElement('div');
+      todoCard.id = 'todoCard';
+
+      const title = document.createElement('p');
+      const description = document.createElement('p');
+      const dueDate = document.createElement('p');
+      const priority = document.createElement('p');
+
+      title.innerText = `Title: ${todoArray[i].title}`;
+      description.innerText = `Description: ${todoArray[i].description}`;
+      dueDate.innerText = `Due Date: ${todoArray[i].dueDate}`;
+      priority.innerText = `Priority: ${todoArray[i].priority}`;
+
+      todoCard.appendChild(title);
+      todoCard.appendChild(description);
+      todoCard.appendChild(dueDate);
+      todoCard.appendChild(priority);
+
+      container.appendChild(todoCard);
+    };
 };
 
 function userInput() {
   const container = document.querySelector('#container');
-
 
   const submit = () => {
 
@@ -115,11 +135,8 @@ function userInput() {
         dialog.close();
       };
     });
-
   };
   return { submit };
 };
-
-
 
 const runButton = modal.createTodoBtn();
