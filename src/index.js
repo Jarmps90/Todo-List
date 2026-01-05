@@ -1,5 +1,5 @@
 import { createTodo, todoControl } from './objects.js';
-
+import './style.css';
 
 const modal = (function() {
   const container = document.querySelector('#container');
@@ -76,7 +76,7 @@ const modal = (function() {
     container.appendChild(addBtn);
 
     addBtn.addEventListener('click', () => {
-
+      form.innerHTML = "";
       modalCreate();
       dialog.showModal();
     });
@@ -89,11 +89,12 @@ const modal = (function() {
 function domControll() {
   const container = document.querySelector('#container');
 
-  const todo = todoControl('Hello');
+  const todo = todoControl();
   const todoArray = todo.getTodoArray();
-  container.innerHTML = '';
+  container.innerHTML = "";
+  const runButton = modal.createTodoBtn();
 
-    for (let i = 0; i < todoArray.length; i++) {
+  for (let i = 0; i < todoArray.length; i++) {
       const todoCard = document.createElement('div');
       todoCard.id = 'todoCard';
 
@@ -133,10 +134,11 @@ function userInput() {
         createTodo(todoTitle, todoDescription, todoDueDate, todoPriority);
         event.preventDefault();
         dialog.close();
+        domControll();
       };
     });
   };
   return { submit };
 };
 
-const runButton = modal.createTodoBtn();
+domControll();
