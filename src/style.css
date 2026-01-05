@@ -1,0 +1,9 @@
+#todoCard {
+    width: fit-content;
+    border: 1px solid red;
+}
+
+#container {
+    display: grid;
+    gap: 10px;
+}
