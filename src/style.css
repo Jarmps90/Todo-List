@@ -1,6 +1,8 @@
 #todoCard {
     width: fit-content;
     border: 1px solid red;
+    margin: 10px;
+    padding: 5px;
 }
 
 #container {
