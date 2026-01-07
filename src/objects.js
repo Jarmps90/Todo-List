@@ -1,4 +1,10 @@
-
+export function CreateProject(name) {
+  const project = {
+    projectName: name,
+    todos: []
+  };
+  return project;
+};
 
 export function createTodo(title, description, duedate, priority) {
 
