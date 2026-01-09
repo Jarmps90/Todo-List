@@ -36,6 +36,8 @@ const modal = (function() {
     return prioritySelect.appendChild(el);
   };
 
+  const projectModal = () => {
+  };
 
   const modalCreate = () => {
 
@@ -66,7 +68,13 @@ const modal = (function() {
     form.appendChild(submitButton);
 
   };
+  const createProjectBtn = () => {
+    const projectModalBtn = document.createElement('button');
 
+    projectModalBtn.id = 'projectModal';
+    projectModalBtn.textContent = 'Create project';
+    container.appendChild(projectModalBtn);
+  };
 
   const createTodoBtn = () => {
     const addBtn = document.createElement('button');
@@ -83,7 +91,7 @@ const modal = (function() {
   };
 
   return {modalCreate, createTodoBtn}
-})();
+});
 
 
 function domControll() {
