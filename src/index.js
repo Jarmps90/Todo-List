@@ -90,8 +90,8 @@ const modal = (function() {
     });
   };
 
-  return {modalCreate, createTodoBtn}
-});
+  return {modalCreate, createTodoBtn, createProjectBtn}
+})();
 
 
 function domControll() {
