@@ -37,6 +37,9 @@ const modal = (function() {
   };
 
   const projectModal = () => {
+    const projectModal = document.createElement('dialog');
+    const projectLabel = LabelElements('project', 'Project name: ');
+    const projectInput = InputElements('text', 'project', 'projec-input');
   };
 
   const modalCreate = () => {
