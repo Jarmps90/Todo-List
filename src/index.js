@@ -4,6 +4,7 @@ import './style.css';
 const modal = (function() {
   const container = document.querySelector('#container');
   const dialog = document.createElement('dialog');
+  const projectModalDialog = document.createElement('dialog');
   const form = document.createElement('form');
   const prioritySelect = document.createElement('select');
   const userInputFunc = userInput();
@@ -37,9 +38,14 @@ const modal = (function() {
   };
 
   const projectModal = () => {
-    const projectModal = document.createElement('dialog');
+
+
     const projectLabel = LabelElements('project', 'Project name: ');
-    const projectInput = InputElements('text', 'project', 'projec-input');
+    const projectInput = InputElements('text', 'project', 'project-input');
+
+    container.appendChild(projectModalDialog);
+    projectModalDialog.appendChild(projectLabel);
+    projectModalDialog.appendChild(projectInput);
   };
 
   const modalCreate = () => {
@@ -77,6 +83,12 @@ const modal = (function() {
     projectModalBtn.id = 'projectModal';
     projectModalBtn.textContent = 'Create project';
     container.appendChild(projectModalBtn);
+
+    projectModalBtn.addEventListener('click', () => {
+      dialog.innerHTML = "";
+      projectModal();
+      projectModalDialog.showModal();
+    });
   };
 
   const createTodoBtn = () => {
@@ -104,7 +116,7 @@ function domControll() {
   const todoArray = todo.getTodoArray();
   container.innerHTML = "";
   const runButton = modal.createTodoBtn();
-
+  const runProjectbtn = modal.createProjectBtn();
   for (let i = 0; i < todoArray.length; i++) {
       const todoCard = document.createElement('div');
       todoCard.id = 'todoCard';
