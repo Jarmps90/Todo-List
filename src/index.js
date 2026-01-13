@@ -1,6 +1,8 @@
 import { createTodo, todoControl } from './objects.js';
 import './style.css';
 
+
+//Modals and all related to it
 const modal = (function() {
   const container = document.querySelector('#container');
   const dialog = document.createElement('dialog');
@@ -109,6 +111,8 @@ const modal = (function() {
 })();
 
 
+
+//DomControll
 function domControll() {
   const container = document.querySelector('#container');
 
@@ -139,6 +143,7 @@ function domControll() {
       container.appendChild(todoCard);
     };
 };
+
 
 function userInput() {
   const container = document.querySelector('#container');
