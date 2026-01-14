@@ -6,25 +6,29 @@ function CreateProject(name) {
   return project;
 };
 
-function createTodo(title, description, duedate, priority) {
 
-  class Todo {
-    constructor(title, description, duedate, priority) {
-      this.title = title;
-      this.description = description;
-      this.duedate = duedate;
-      this.priority = priority;
-    };
-  };
-
-  // const todoToLocalStorage = JSON.stringify(new Todo(title, description, duedate, priority));
-  // localStorage.setItem(title, todoToLocalStorage);
-
+function CreateTodos(title, description, dueDate, priority) {
+  const newTodo = {
+    title: title,
+    description: description,
+    dueDate: dueDate,
+    priority: priority
+  }
+  return newTodo;
 };
+
+
 
 export function todoControl() {
   let todoArray = [];
   let keys = Object.keys(localStorage);
+
+  const createTodo = (title, description, duedate, priority) => {
+    const todo = CreateTodos(title, description, duedate, priority)
+
+    localStorage.setItem(title, JSON.stringify(todo));
+    console.log(todoArray)
+  };
 
   keys.forEach((key) => {
     todoArray.push(JSON.parse(localStorage.getItem(key)));
@@ -32,5 +36,5 @@ export function todoControl() {
 
   const getTodoArray = () => todoArray;
 
-  return {getTodoArray};
+  return {getTodoArray, createTodo};
 };
