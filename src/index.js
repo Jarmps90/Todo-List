@@ -51,8 +51,8 @@ export function userInput() {
         const todoDescription = document.getElementById('description').value;
         const todoDueDate = document.getElementById('dueDate').value;
         const todoPriority = document.getElementById('priority-select').value;
-
-        // createTodo(todoTitle, todoDescription, todoDueDate, todoPriority);
+        const todo = todoControl();
+        todo.createTodo(todoTitle, todoDescription, todoDueDate, todoPriority);
         event.preventDefault();
         dialog.close();
         domControll();
