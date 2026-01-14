@@ -1,4 +1,4 @@
-export function CreateProject(name) {
+function CreateProject(name) {
   const project = {
     projectName: name,
     todos: []
@@ -6,7 +6,7 @@ export function CreateProject(name) {
   return project;
 };
 
-export function createTodo(title, description, duedate, priority) {
+function createTodo(title, description, duedate, priority) {
 
   class Todo {
     constructor(title, description, duedate, priority) {
@@ -17,8 +17,8 @@ export function createTodo(title, description, duedate, priority) {
     };
   };
 
-  const todoToLocalStorage = JSON.stringify(new Todo(title, description, duedate, priority));
-  localStorage.setItem(title, todoToLocalStorage);
+  // const todoToLocalStorage = JSON.stringify(new Todo(title, description, duedate, priority));
+  // localStorage.setItem(title, todoToLocalStorage);
 
 };
 
