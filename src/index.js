@@ -6,6 +6,7 @@ import './style.css';
 
 
 //DomControll
+// DomControll needs to run only in project(Do it)
 function domControll() {
   const container = document.querySelector('#container');
 
