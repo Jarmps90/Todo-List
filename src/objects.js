@@ -18,6 +18,11 @@ function CreateTodos(title, description, dueDate, priority) {
 };
 
 
+function projectControl() {
+
+
+
+};
 
 export function todoControl() {
   let todoArray = [];
