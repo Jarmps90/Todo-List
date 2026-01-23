@@ -3,18 +3,18 @@ import { modal } from './modal.js'
 import './style.css';
 
 
+modal.createProjectBtn();
 
 
 //DomControll
 // DomControll needs to run only in project(Do it)
-function domControll() {
+function todoDisplay() {
   const container = document.querySelector('#container');
 
   const todo = todoControl();
   const todoArray = todo.getTodoArray();
   container.innerHTML = "";
-  const runButton = modal.createTodoBtn();
-  const runProjectbtn = modal.createProjectBtn();
+
   for (let i = 0; i < todoArray.length; i++) {
       const todoCard = document.createElement('div');
       todoCard.id = 'todoCard';
@@ -38,6 +38,10 @@ function domControll() {
     };
 };
 
+function projectDisplay() {
+const runButton = modal.createTodoBtn();
+};
+
 
 export function userInput() {
   const container = document.querySelector('#container');
@@ -56,11 +60,9 @@ export function userInput() {
         todo.createTodo(todoTitle, todoDescription, todoDueDate, todoPriority);
         event.preventDefault();
         dialog.close();
-        domControll();
+
       };
     });
   };
   return { submit };
 };
-
-domControll();
