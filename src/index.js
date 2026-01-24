@@ -1,4 +1,4 @@
-import { todoControl } from './objects.js';
+import { projectControl, todoControl } from './objects.js';
 import { modal } from './modal.js'
 import './style.css';
 
@@ -39,7 +39,24 @@ function todoDisplay() {
 };
 
 function projectDisplay() {
-const runButton = modal.createTodoBtn();
+  const container = document.querySelector('#container');
+  const navBar = document.createElement('nav');
+  const project = projectControl()
+  const projectArray = project.getProjects();
+  let count = 0;
+
+  projectArray.forEach((element) => {
+    const objectDiv = document.createElement('div');
+
+    objectDiv.textContent = element.projectName;
+    objectDiv.id = count++;
+    // objectDiv.classList.add(element);
+
+    navBar.appendChild(objectDiv);
+    container.appendChild(navBar);
+  });
+// const runButton = modal.createTodoBtn();
+
 };
 
 
@@ -66,3 +83,4 @@ export function userInput() {
   };
   return { submit };
 };
+projectDisplay();

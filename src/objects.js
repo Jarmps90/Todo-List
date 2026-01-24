@@ -18,9 +18,16 @@ function CreateTodos(title, description, dueDate, priority) {
 };
 
 
-function projectControl() {
+export function projectControl() {
+  const projects = [];
 
+  const newProject = CreateProject('New Project');
+  projects.push(newProject);
 
+  const getProjects = () => projects;
+
+  console.log(newProject);
+  return { getProjects };
 
 };
 
