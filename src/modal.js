@@ -40,13 +40,19 @@ export const modal = (function() {
 
   const projectModal = () => {
 
-
+    const projectSubmitBtn = document.createElement('button');
     const projectLabel = LabelElements('project', 'Project name: ');
     const projectInput = InputElements('text', 'project', 'project-input');
+
+
+    projectSubmitBtn.id = 'projectSubmitBtn';
+    projectSubmitBtn.textContent = 'Add';
+    projectModalDialog.onsubmit = userInputFunc.projectSubmit();
 
     container.appendChild(projectModalDialog);
     projectModalDialog.appendChild(projectLabel);
     projectModalDialog.appendChild(projectInput);
+    projectModalDialog.appendChild(projectSubmitBtn);
   };
 
   const modalCreate = () => {
