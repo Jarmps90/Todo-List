@@ -81,6 +81,10 @@ export function userInput() {
       };
     });
   };
-  return { submit };
+
+  const projectSubmit = () => {
+
+  };
+  return { submit, projectSubmit };
 };
 projectDisplay();
