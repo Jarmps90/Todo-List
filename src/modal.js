@@ -44,7 +44,7 @@ export const modal = (function() {
     const projectLabel = LabelElements('project', 'Project name: ');
     const projectInput = InputElements('text', 'project', 'project-input');
 
-
+    projectModalDialog.id = 'projectModalDialog';
     projectSubmitBtn.id = 'projectSubmitBtn';
     projectSubmitBtn.textContent = 'Add';
     projectModalDialog.onsubmit = userInputFunc.projectSubmit();
@@ -92,7 +92,7 @@ export const modal = (function() {
     container.appendChild(projectModalBtn);
 
     projectModalBtn.addEventListener('click', () => {
-      dialog.innerHTML = "";
+      projectModalDialog.innerHTML = "";
       projectModal();
       projectModalDialog.showModal();
     });
