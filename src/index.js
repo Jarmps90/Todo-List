@@ -1,4 +1,4 @@
-import { projectControl, todoControl } from './objects.js';
+import { objectControl, projectControl, todoControl } from './objects.js';
 import { modal } from './modal.js'
 import './style.css';
 
@@ -11,7 +11,7 @@ modal.createProjectBtn();
 function todoDisplay() {
   const container = document.querySelector('#container');
 
-  const todo = todoControl();
+  // const todo = todoControl();
   const todoArray = todo.getTodoArray();
   container.innerHTML = "";
 
@@ -41,13 +41,13 @@ function todoDisplay() {
 function projectDisplay() {
   const container = document.querySelector('#container');
   const navBar = document.createElement('nav');
-  const project = projectControl()
-  const projectArray = project.getProjects();
-  let count = 0;
+
+  const projectArray = [];
+
 
   projectArray.forEach((element) => {
     const objectDiv = document.createElement('div');
-
+    console.log(projectArray);
     objectDiv.textContent = element.projectName;
     objectDiv.id = count++;
     navBar.classList.add('projec-bar');
@@ -62,6 +62,7 @@ function projectDisplay() {
 
 export function userInput() {
   const container = document.querySelector('#container');
+  const object = objectControl();
 
   const submit = () => {
 
@@ -73,7 +74,7 @@ export function userInput() {
         const todoDescription = document.getElementById('description').value;
         const todoDueDate = document.getElementById('dueDate').value;
         const todoPriority = document.getElementById('priority-select').value;
-        const todo = todoControl();
+        // const todo = todoControl();
         todo.createTodo(todoTitle, todoDescription, todoDueDate, todoPriority);
         event.preventDefault();
         dialog.close();
@@ -87,8 +88,8 @@ export function userInput() {
       if (event.target.id === 'projectSubmitBtn') {
         const dialog = document.querySelector('dialog');
         const prjectName = document.getElementById('project').value;
-        const projects = projectControl();
-        projects.createProjects(prjectName)
+        // createProjects(prjectName)
+        projectDisplay()
         event.preventDefault();
         dialog.close();
       };
@@ -96,4 +97,3 @@ export function userInput() {
   };
   return { submit, projectSubmit };
 };
-projectDisplay();
