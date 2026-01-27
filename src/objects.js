@@ -21,13 +21,18 @@ function CreateTodos(title, description, dueDate, priority) {
 export function projectControl() {
   const projects = [];
 
-  const newProject = CreateProject('New Project');
-  projects.push(newProject);
+  const createProjects = (projectName) => {
+    const project = CreateProject(projectName);
+
+    projects.push(project);
+    console.log(projects)
+  };
+
 
   const getProjects = () => projects;
 
-  console.log(newProject);
-  return { getProjects };
+
+  return { getProjects, createProjects };
 
 };
 
