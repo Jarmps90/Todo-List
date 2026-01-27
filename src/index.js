@@ -50,7 +50,7 @@ function projectDisplay() {
 
     objectDiv.textContent = element.projectName;
     objectDiv.id = count++;
-    // objectDiv.classList.add(element);
+    navBar.classList.add('projec-bar');
 
     navBar.appendChild(objectDiv);
     container.appendChild(navBar);
@@ -83,7 +83,16 @@ export function userInput() {
   };
 
   const projectSubmit = () => {
-
+    container.addEventListener('click', (event) => {
+      if (event.target.id === 'projectSubmitBtn') {
+        const dialog = document.querySelector('dialog');
+        const prjectName = document.getElementById('project').value;
+        const projects = projectControl();
+        projects.createProjects(prjectName)
+        event.preventDefault();
+        dialog.close();
+      };
+    });
   };
   return { submit, projectSubmit };
 };
