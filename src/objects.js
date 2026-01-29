@@ -23,7 +23,7 @@ export function objectControl() {
   const projectControl = (projectName) => {
     const project = CreateProject(projectName);
 
-    return { project };
+    projects.push(project);
   };
 
   const todoControl = (title, description, duedate, priority) => {
@@ -32,5 +32,7 @@ export function objectControl() {
     return { todo };
   };
 
-  return { projectControl, todoControl };
+  const getProjectsArray = () => projects;
+
+  return { projectControl, todoControl, getProjectsArray };
 };
