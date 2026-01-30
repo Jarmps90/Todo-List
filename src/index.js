@@ -65,7 +65,7 @@ export function userInput() {
   const container = document.querySelector('#container');
   const submit = () => {
 
-    container.addEventListener('click', (event) => {
+    container.addEventListener('click', function addTodo(event) {
       if (event.target.id === 'submitBtn') {
 
         const dialog = document.querySelector('dialog');
@@ -77,13 +77,14 @@ export function userInput() {
         todo.createTodo(todoTitle, todoDescription, todoDueDate, todoPriority);
         event.preventDefault();
         dialog.close();
+        container.removeEventListener('click', addTodo);
 
       };
     });
   };
 
   const projectSubmit = () => {
-    container.addEventListener('click', (event) => {
+    container.addEventListener('click',  function addProject(event) {
       if (event.target.id === 'projectSubmitBtn') {
         const dialog = document.querySelector('dialog');
         const prjectName = document.getElementById('project').value;
@@ -91,6 +92,7 @@ export function userInput() {
         projectDisplay();
         event.preventDefault();
         dialog.close();
+        container.removeEventListener('click', addProject);
       };
     });
   };
