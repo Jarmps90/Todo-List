@@ -32,7 +32,5 @@ export function objectControl() {
     return { todo };
   };
 
-  const getProjectsArray = () => projects;
-
-  return { projectControl, todoControl, getProjectsArray };
+  return { projectControl, todoControl };
 };
