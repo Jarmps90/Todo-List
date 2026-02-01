@@ -38,6 +38,7 @@ function todoDisplay() {
 };
 
 function projectDisplay() {
+  //Must get projects from localStorage. Maybe do somme array.
   const container = document.querySelector('#container');
   const navBar = document.createElement('nav');
   const projectArray = objects.getProjectsArray();
@@ -54,7 +55,7 @@ function projectDisplay() {
       navBar.appendChild(objectDiv);
       container.appendChild(navBar);
     });
-  // const runButton = modal.createTodoBtn();
+
 
 };
 
@@ -89,7 +90,6 @@ export function userInput() {
         const dialog = document.querySelector('dialog');
         const prjectName = document.getElementById('project').value;
         objects.projectControl(prjectName);
-        projectDisplay();
         event.preventDefault();
         dialog.close();
         container.removeEventListener('click', addProject);
