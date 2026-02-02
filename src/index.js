@@ -38,7 +38,7 @@ function todoDisplay() {
 };
 
 function projectDisplay() {
-  //Must get projects from localStorage. Maybe do somme array.
+  //Must get projects from localStorage. Maybe do some array.
   const container = document.querySelector('#container');
   const navBar = document.createElement('nav');
   const projectArray = objects.getProjectsArray();
@@ -55,7 +55,6 @@ function projectDisplay() {
       navBar.appendChild(objectDiv);
       container.appendChild(navBar);
     });
-
 
 };
 
