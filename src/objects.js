@@ -18,19 +18,33 @@ function CreateTodos(title, description, dueDate, priority) {
 };
 
 export function objectControl() {
-  let projects = [];
 
   const projectControl = (projectName) => {
+    let projects = [];
     const project = CreateProject(projectName);
 
     projects.push(project);
+    console.log(projects)
+    localStorage.setItem('Projects', JSON.stringify(projects));
   };
 
   const todoControl = (title, description, duedate, priority) => {
     const todo = CreateTodos(title, description, duedate, priority)
     //Look into exercise repo.
-    return { todo };
+
   };
 
-  return { projectControl, todoControl };
+
+  const getProjects = () => {
+    let projetArray = [];
+    let keys = Object.keys(localStorage);
+
+    keys.forEach((key) => {
+      projetArray = JSON.parse(localStorage.getItem(key));
+    });
+
+    return projetArray;
+  };
+
+  return { projectControl, todoControl, getProjects };
 };
