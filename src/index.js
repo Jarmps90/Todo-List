@@ -42,7 +42,6 @@ function projectDisplay() {
   const navBar = document.createElement('nav');
   const projectArray = objects.getProjects();
     let count = 0;
-
     projectArray.forEach((element) => {
       const objectDiv = document.createElement('div');
 
@@ -88,6 +87,7 @@ export function userInput() {
         const dialog = document.querySelector('dialog');
         const prjectName = document.getElementById('project').value;
         objects.projectControl(prjectName);
+        projectDisplay();
         event.preventDefault();
         dialog.close();
         container.removeEventListener('click', addProject);
