@@ -38,10 +38,9 @@ function todoDisplay() {
 };
 
 function projectDisplay() {
-  //Must get projects from localStorage. Maybe do some array.
   const container = document.querySelector('#container');
   const navBar = document.createElement('nav');
-  const projectArray = objects.getProjectsArray();
+  const projectArray = objects.getProjects();
     let count = 0;
 
     projectArray.forEach((element) => {
