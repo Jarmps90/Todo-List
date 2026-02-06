@@ -18,11 +18,12 @@ function CreateTodos(title, description, dueDate, priority) {
 };
 
 export function objectControl() {
+  let projetArray = [];
   let projects = [];
 
   const projectControl = (projectName) => {
-
     const project = CreateProject(projectName);
+
     projects.push(project);
     localStorage.setItem('Projects', JSON.stringify(projects));
   };
@@ -34,7 +35,6 @@ export function objectControl() {
   };
 
   const getProjects = () => {
-    let projetArray = [];
     let keys = Object.keys(localStorage);
 
     keys.forEach((key) => {
