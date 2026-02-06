@@ -42,20 +42,18 @@ function projectDisplay() {
   const navBar = document.createElement('nav');
   const projectArray = objects.getProjects();
     let count = 0;
-    projectArray.forEach((element) => {
+
+  projectArray.forEach((element) => {
       const objectDiv = document.createElement('div');
 
       objectDiv.textContent = element.projectName;
       objectDiv.id = count++;
       navBar.classList.add('projec-bar');
-      navBar.innerHTML = "";
-
       navBar.appendChild(objectDiv);
       container.appendChild(navBar);
     });
 
 };
-
 
 
 
