@@ -21,7 +21,8 @@ function CreateTodos(title, description, dueDate, priority) {
 export function objectControl() {
    let projetArray = [];
    let projects = [];
-
+   // Check for localStorage
+   // If localStroage have projects stored get projects to array and add new projects to it
   const projectControl = (projectName) => {
 
     const project = CreateProject(projectName);
