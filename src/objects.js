@@ -17,15 +17,18 @@ function CreateTodos(title, description, dueDate, priority) {
   return newTodo;
 };
 
+
 export function objectControl() {
-  let projetArray = [];
-  let projects = [];
+   let projetArray = [];
+   let projects = [];
 
   const projectControl = (projectName) => {
+
     const project = CreateProject(projectName);
 
     projects.push(project);
     localStorage.setItem('Projects', JSON.stringify(projects));
+
   };
 
   const todoControl = (title, description, duedate, priority) => {
