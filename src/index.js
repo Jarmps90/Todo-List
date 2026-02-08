@@ -7,6 +7,16 @@ modal.createProjectBtn();
 
 const objects = objectControl();
 
+function updateDisplay() {
+  let key = Object.keys(localStorage)
+
+  if (localStorage.getItem(key) !== null) {
+    projectDisplay();
+  } else {
+    console.log('Storage is empty');
+  };
+};
+
 function todoDisplay() {
     const container = document.querySelector('#container');
 
@@ -94,3 +104,5 @@ export function userInput() {
   };
   return { submit, projectSubmit };
 };
+
+updateDisplay();
