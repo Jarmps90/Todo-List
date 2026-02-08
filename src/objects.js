@@ -20,24 +20,22 @@ function CreateTodos(title, description, dueDate, priority) {
 
 export function objectControl() {
    let projetArray = [];
-   let projects = [];
 
    // Check for localStorage
    // If localStroage have projects stored get projects to array and add new projects to it
    // Something like this 'if(localStorage.getItem === null) { you'r coded here }
 
   const projectControl = (projectName) => {
-
+    getProjects();
     const project = CreateProject(projectName);
 
-    projects.push(project);
-    localStorage.setItem('Projects', JSON.stringify(projects));
+    projetArray.push(project);
+    localStorage.setItem('Projects', JSON.stringify(projetArray));
 
   };
 
   const todoControl = (title, description, duedate, priority) => {
     const todo = CreateTodos(title, description, duedate, priority)
-    //Look into exercise repo.
 
   };
 
