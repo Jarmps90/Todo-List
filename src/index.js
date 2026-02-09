@@ -51,12 +51,13 @@ function projectDisplay() {
   const container = document.querySelector('#container');
   const navBar = document.createElement('nav');
   const projectArray = objects.getProjects();
-    let count = 0;
+  let count = 0;
 
   projectArray.forEach((element) => {
       const objectDiv = document.createElement('div');
 
       objectDiv.textContent = element.projectName;
+      // navBar.innerHTML = '';
       objectDiv.id = count++;
       navBar.classList.add('projec-bar');
       navBar.appendChild(objectDiv);
@@ -91,9 +92,19 @@ export function userInput() {
 
   const projectSubmit = () => {
     container.addEventListener('click',  function addProject(event) {
+
+      container.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+         const dialog = document.querySelector('dialog');
+         dialog.close();
+         container.removeEventListener('click', addProject)
+         };
+      });
+
       if (event.target.id === 'projectSubmitBtn') {
         const dialog = document.querySelector('dialog');
         const prjectName = document.getElementById('project').value;
+
         objects.projectControl(prjectName);
         projectDisplay();
         event.preventDefault();
