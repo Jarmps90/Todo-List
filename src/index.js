@@ -5,6 +5,14 @@ import './style.css';
 
 modal.createProjectBtn();
 
+const navBar = (function () {
+  const container = document.querySelector('#container');
+  const navBar = document.createElement('nav');
+
+  navBar.classList.add('projec-bar');
+  container.appendChild(navBar);
+}());
+
 const objects = objectControl();
 
 function updateDisplay() {
@@ -49,19 +57,17 @@ function todoDisplay() {
 
 function projectDisplay() {
   const container = document.querySelector('#container');
-  const navBar = document.createElement('nav');
+  const navBar = document.querySelector('nav');
   const projectArray = objects.getProjects();
   let count = 0;
+  navBar.innerHTML = "";
 
   projectArray.forEach((element) => {
       const objectDiv = document.createElement('div');
 
       objectDiv.textContent = element.projectName;
-      // navBar.innerHTML = '';
       objectDiv.id = count++;
-      navBar.classList.add('projec-bar');
       navBar.appendChild(objectDiv);
-      container.appendChild(navBar);
     });
 
 };
