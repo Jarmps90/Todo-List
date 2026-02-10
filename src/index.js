@@ -86,7 +86,8 @@ export function userInput() {
         const todoDescription = document.getElementById('description').value;
         const todoDueDate = document.getElementById('dueDate').value;
         const todoPriority = document.getElementById('priority-select').value;
-
+        // Find how to give selected project info to todo.
+        // Selected project div with id maby??
         objects.todoControl(todoTitle, todoDescription, todoDueDate, todoPriority);
         event.preventDefault();
         dialog.close();
