@@ -4,6 +4,7 @@ import './style.css';
 
 
 modal.createProjectBtn();
+modal.createTodoBtn();
 
 const navBar = (function () {
   const container = document.querySelector('#container');
@@ -56,7 +57,6 @@ function todoDisplay() {
 };
 
 function projectDisplay() {
-  const container = document.querySelector('#container');
   const navBar = document.querySelector('nav');
   const projectArray = objects.getProjects();
   let count = 0;
@@ -76,22 +76,21 @@ function projectDisplay() {
 
 export function userInput() {
   const container = document.querySelector('#container');
+
   const submit = () => {
 
     container.addEventListener('click', function addTodo(event) {
       if (event.target.id === 'submitBtn') {
-
         const dialog = document.querySelector('dialog');
         const todoTitle = document.getElementById('title').value;
-        const todoDescription = document.getElementById('descriptioprojectDisplayn').value;
+        const todoDescription = document.getElementById('description').value;
         const todoDueDate = document.getElementById('dueDate').value;
         const todoPriority = document.getElementById('priority-select').value;
-        // const todo = todoControl();
-        todo.createTodo(todoTitle, todoDescription, todoDueDate, todoPriority);
+
+        objects.todoControl(todoTitle, todoDescription, todoDueDate, todoPriority);
         event.preventDefault();
         dialog.close();
         container.removeEventListener('click', addTodo);
-
       };
     });
   };
