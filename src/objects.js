@@ -32,8 +32,12 @@ export function objectControl() {
   };
 
   const todoControl = (title, description, duedate, priority) => {
+    let todos = [];
     const todo = CreateTodos(title, description, duedate, priority)
 
+    todos.push(todo);
+    console.log(todos);
+    return todo;
   };
 
   const getProjects = () => {
