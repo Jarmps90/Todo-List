@@ -28,15 +28,14 @@ export function objectControl() {
 
     projetArray.push(project);
     localStorage.setItem('Projects', JSON.stringify(projetArray));
-
   };
-// Mabye todo fuction takes in some positonon???
-// and mabye that positon gomes in from submit fuction???
+
   const todoControl = (projectName,title, description, duedate, priority) => {
     const todo = CreateTodos(title, description, duedate, priority)
+    getProjects();
+    projetArray[0].todos.push(todo);
 
-    projectName.push(todo);
-    return todo;
+    localStorage.setItem('Projects', JSON.stringify(projetArray));
   };
 
   const getProjects = () => {
