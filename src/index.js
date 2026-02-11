@@ -72,25 +72,39 @@ function projectDisplay() {
 
 };
 
+function getProjectId() {
+  const navBar = document.querySelector('nav');
+  let projectId;
+// Rethink how function handles projectId's
+// And passes it over
+  navBar.addEventListener('click', (element) => {
+    projectId = element.target.id;
+    console.log(projectId);
+  });
+  console.log(projectId);
+  // return projectId;
+};
 
+getProjectId();
 
 export function userInput() {
   const container = document.querySelector('#container');
-
+  // const divId = getProjectId();
   const submit = () => {
 
     container.addEventListener('click', function addTodo(event) {
       if (event.target.id === 'submitBtn') {
-        const dialog = document.querySelector('dialog');
+        const dialog = document.querySelector('#todoModal');
         const todoTitle = document.getElementById('title').value;
         const todoDescription = document.getElementById('description').value;
         const todoDueDate = document.getElementById('dueDate').value;
         const todoPriority = document.getElementById('priority-select').value;
         // Find how to give selected project info to todo.
         // Selected project div with id maby??
-        objects.todoControl(todoTitle, todoDescription, todoDueDate, todoPriority);
+        objects.todoControl(divId, todoTitle, todoDescription, todoDueDate, todoPriority);
         event.preventDefault();
         dialog.close();
+        dialog.remove();
         container.removeEventListener('click', addTodo);
       };
     });
@@ -103,18 +117,20 @@ export function userInput() {
         if (event.key === 'Escape') {
          const dialog = document.querySelector('dialog');
          dialog.close();
+         dialog.remove();
          container.removeEventListener('click', addProject)
          };
       });
 
       if (event.target.id === 'projectSubmitBtn') {
-        const dialog = document.querySelector('dialog');
+        const dialog = document.querySelector('#projectModalDialog');
         const prjectName = document.getElementById('project').value;
 
         objects.projectControl(prjectName);
         projectDisplay();
         event.preventDefault();
         dialog.close();
+        dialog.remove();
         container.removeEventListener('click', addProject);
       };
     });
