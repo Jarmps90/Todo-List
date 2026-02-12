@@ -72,25 +72,27 @@ function projectDisplay() {
 
 };
 
-function getProjectId() {
-  const navBar = document.querySelector('nav');
-  let projectId;
-// Rethink how function handles projectId's
-// And passes it over
-  navBar.addEventListener('click', (element) => {
-    projectId = element.target.id;
-    console.log(projectId);
-  });
-  console.log(projectId);
-  // return projectId;
-};
 
-getProjectId();
 
 export function userInput() {
   const container = document.querySelector('#container');
-  // const divId = getProjectId();
-  const submit = () => {
+
+  const getProjectId = () => {
+    const navBar = document.querySelector('nav');
+    let projectId;
+  // Rethink how function handles projectId's
+  // And passes it over
+    navBar.addEventListener('click', (element) => {
+      projectId = element.target.id;
+      console.log(projectId);
+      submit(projectId);
+    });
+  };
+
+  const submit = (id) => {
+
+    if (id === undefined) { id = 0 };
+    console.log(id);
 
     container.addEventListener('click', function addTodo(event) {
       if (event.target.id === 'submitBtn') {
@@ -101,7 +103,8 @@ export function userInput() {
         const todoPriority = document.getElementById('priority-select').value;
         // Find how to give selected project info to todo.
         // Selected project div with id maby??
-        objects.todoControl(divId, todoTitle, todoDescription, todoDueDate, todoPriority);
+        objects.todoControl(id, todoTitle, todoDescription, todoDueDate, todoPriority);
+        console.log(id)
         event.preventDefault();
         dialog.close();
         dialog.remove();
@@ -135,7 +138,7 @@ export function userInput() {
       };
     });
   };
-  return { submit, projectSubmit };
+  return { submit, projectSubmit, getProjectId };
 };
-
+userInput().getProjectId();
 updateDisplay();
