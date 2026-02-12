@@ -30,7 +30,7 @@ export function objectControl() {
     localStorage.setItem('Projects', JSON.stringify(projetArray));
   };
 
-  const todoControl = (projectName,title, description, duedate, priority) => {
+  const todoControl = (id, title, description, duedate, priority) => {
     const todo = CreateTodos(title, description, duedate, priority)
     getProjects();
     projetArray[0].todos.push(todo);
