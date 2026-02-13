@@ -1,3 +1,5 @@
+import { projectId } from "./index.js";
+
 function CreateProject(name) {
   const project = {
     projectName: name,
@@ -17,10 +19,9 @@ function CreateTodos(title, description, dueDate, priority) {
   return newTodo;
 };
 
-
 export function objectControl() {
-   let projetArray = [];
-
+  let projetArray = [];
+  const projectID = projectId();
 
   const projectControl = (projectName) => {
     getProjects();
@@ -30,11 +31,11 @@ export function objectControl() {
     localStorage.setItem('Projects', JSON.stringify(projetArray));
   };
 
-  const todoControl = (id, title, description, duedate, priority) => {
+  const todoControl = (title, description, duedate, priority) => {
     const todo = CreateTodos(title, description, duedate, priority)
-    console.log(id);
+    const id = projectID.getPrjectId();
     getProjects();
-    projetArray[0].todos.push(todo);
+    projetArray[id].todos.push(todo);
 
     localStorage.setItem('Projects', JSON.stringify(projetArray));
   };
