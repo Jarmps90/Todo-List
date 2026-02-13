@@ -14,7 +14,24 @@ const navBar = (function () {
   container.appendChild(navBar);
 }());
 
+
 const objects = objectControl();
+
+
+export function projectId() {
+  const navBar = document.querySelector('nav');
+  let projectId = 0;
+
+  navBar.addEventListener('click', (event) => {
+    projectId = event.target.id;
+  });
+
+  const getPrjectId = () => projectId;
+
+  return { getPrjectId };
+};
+
+
 
 function updateDisplay() {
   let key = Object.keys(localStorage)
@@ -25,6 +42,7 @@ function updateDisplay() {
     console.log('Storage is empty');
   };
 };
+
 
 function todoDisplay() {
     const container = document.querySelector('#container');
@@ -77,22 +95,8 @@ function projectDisplay() {
 export function userInput() {
   const container = document.querySelector('#container');
 
-  const getProjectId = () => {
-    const navBar = document.querySelector('nav');
-    let projectId;
-  // Rethink how function handles projectId's
-  // And passes it over
-    navBar.addEventListener('click', (element) => {
-      projectId = element.target.id;
-      console.log(projectId);
-      submit(projectId);
-    });
-  };
 
-  const submit = (id) => {
-
-    if (id === undefined) { id = 0 };
-    console.log(id);
+  const submit = () => {
 
     container.addEventListener('click', function addTodo(event) {
       if (event.target.id === 'submitBtn') {
@@ -101,10 +105,8 @@ export function userInput() {
         const todoDescription = document.getElementById('description').value;
         const todoDueDate = document.getElementById('dueDate').value;
         const todoPriority = document.getElementById('priority-select').value;
-        // Find how to give selected project info to todo.
-        // Selected project div with id maby??
-        objects.todoControl(id, todoTitle, todoDescription, todoDueDate, todoPriority);
-        console.log(id)
+
+        objects.todoControl(todoTitle, todoDescription, todoDueDate, todoPriority);
         event.preventDefault();
         dialog.close();
         dialog.remove();
@@ -138,7 +140,6 @@ export function userInput() {
       };
     });
   };
-  return { submit, projectSubmit, getProjectId };
+  return { submit, projectSubmit };
 };
-userInput().getProjectId();
 updateDisplay();
