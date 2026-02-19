@@ -3,41 +3,45 @@ import { projectId } from "./index.js";
 function CreateProject(name) {
   const project = {
     projectName: name,
-    todos: []
+    todos: [],
   };
   return project;
-};
-
+}
 
 function CreateTodos(title, description, dueDate, priority) {
   const newTodo = {
     title: title,
     description: description,
     dueDate: dueDate,
-    priority: priority
-  }
+    priority: priority,
+  };
   return newTodo;
-};
+}
 
 export function objectControl() {
   let projetArray = [];
   const projectID = projectId();
+
+  const getTodoArray = () => {
+    const id = projectID.getPrjectId();
+    const todoArray = [];
+  };
 
   const projectControl = (projectName) => {
     getProjects();
     const project = CreateProject(projectName);
 
     projetArray.push(project);
-    localStorage.setItem('Projects', JSON.stringify(projetArray));
+    localStorage.setItem("Projects", JSON.stringify(projetArray));
   };
 
   const todoControl = (title, description, duedate, priority) => {
-    const todo = CreateTodos(title, description, duedate, priority)
+    const todo = CreateTodos(title, description, duedate, priority);
     const id = projectID.getPrjectId();
     getProjects();
     projetArray[id].todos.push(todo);
 
-    localStorage.setItem('Projects', JSON.stringify(projetArray));
+    localStorage.setItem("Projects", JSON.stringify(projetArray));
   };
 
   const getProjects = () => {
@@ -51,4 +55,4 @@ export function objectControl() {
   };
 
   return { projectControl, todoControl, getProjects };
-};
+}
