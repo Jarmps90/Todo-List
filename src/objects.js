@@ -25,6 +25,9 @@ export function objectControl() {
   const getTodoArray = () => {
     const id = projectID.getPrjectId();
     const todoArray = [];
+
+    let myNewArray = projetArray.map(consoe.log(id));
+    return myNewArray;
   };
 
   const projectControl = (projectName) => {
@@ -54,5 +57,5 @@ export function objectControl() {
     return projetArray;
   };
 
-  return { projectControl, todoControl, getProjects };
+  return { projectControl, todoControl, getProjects, getTodoArray };
 }
