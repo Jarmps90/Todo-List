@@ -21,6 +21,8 @@ export function projectId() {
 
   navBar.addEventListener("click", (event) => {
     projectId = event.target.id;
+    objects.getTodos();
+    todoDisplay();
   });
 
   const getPrjectId = () => projectId;
@@ -134,4 +136,3 @@ export function userInput() {
   return { submit, projectSubmit };
 }
 updateDisplay();
-todoDisplay();
