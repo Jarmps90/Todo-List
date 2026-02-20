@@ -22,12 +22,12 @@ export function objectControl() {
   let projetArray = [];
   const projectID = projectId();
 
-  const getTodoArray = () => {
+  const getTodos = () => {
     const id = projectID.getPrjectId();
-    const todoArray = [];
+    let todoArray = [];
+    todoArray = projetArray[id].todos;
 
-    let myNewArray = projetArray.map(consoe.log(id));
-    return myNewArray;
+    return todoArray;
   };
 
   const projectControl = (projectName) => {
@@ -57,5 +57,5 @@ export function objectControl() {
     return projetArray;
   };
 
-  return { projectControl, todoControl, getProjects, getTodoArray };
+  return { projectControl, todoControl, getProjects, getTodos };
 }
