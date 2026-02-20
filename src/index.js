@@ -41,8 +41,7 @@ function updateDisplay() {
 function todoDisplay() {
   const container = document.querySelector("#container");
 
-  // const todo = todoControl();
-  const todoArray = [];
+  const todoArray = objects.getTodos();
 
   for (let i = 0; i < todoArray.length; i++) {
     const todoCard = document.createElement("div");
@@ -135,3 +134,4 @@ export function userInput() {
   return { submit, projectSubmit };
 }
 updateDisplay();
+todoDisplay();
