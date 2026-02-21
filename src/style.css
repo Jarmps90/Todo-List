@@ -8,4 +8,6 @@
 #container {
     display: grid;
     gap: 10px;
+    grid-template-columns: 0.5fr 3fr;
+    grid-template-rows: 1fr 4fr;
 }
