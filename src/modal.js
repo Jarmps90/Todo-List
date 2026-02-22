@@ -86,10 +86,11 @@ export const modal = (function() {
   };
   const createProjectBtn = () => {
     const projectModalBtn = document.createElement('button');
+    const buttonDiv = document.querySelector('.button-bar');
 
     projectModalBtn.id = 'projectModal';
     projectModalBtn.textContent = 'Create project';
-    container.appendChild(projectModalBtn);
+    buttonDiv.appendChild(projectModalBtn);
 
     projectModalBtn.addEventListener('click', () => {
       projectModalDialog.innerHTML = "";
@@ -100,10 +101,11 @@ export const modal = (function() {
 
   const createTodoBtn = () => {
     const addBtn = document.createElement('button');
+    const buttonDiv = document.querySelector('.button-bar');
 
     addBtn.classList.add('addBtn');
     addBtn.textContent = 'Add';
-    container.appendChild(addBtn);
+    buttonDiv.appendChild(addBtn);
 
     addBtn.addEventListener('click', () => {
       form.innerHTML = "";
