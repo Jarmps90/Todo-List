@@ -2,11 +2,16 @@ import { objectControl } from "./objects.js";
 import { modal } from "./modal.js";
 import "./style.css";
 
-modal.createProjectBtn();
-modal.createTodoBtn();
 
 const continerControl = (function () {
   const container = document.querySelector("#container");
+
+  const navBar = (function() {
+    const navBar = document.createElement("nav");
+    navBar.classList.add("projec-bar");
+    container.appendChild(navBar);
+    })();
+
 
   function todoContainer() {
     const todoContainer = document.createElement('div');
@@ -15,14 +20,18 @@ const continerControl = (function () {
     container.appendChild(todoContainer);
   };
 
-  function navBar() {
-    const navBar = document.createElement("nav");
+  function toolBarForButtons() {
+    const buttonDiv = document.createElement('div');
+    buttonDiv.classList.add('button-bar');
+    container.appendChild(buttonDiv);
+   };
+  todoContainer(), toolBarForButtons();
+  modal.createProjectBtn();
+  modal.createTodoBtn();
 
-    navBar.classList.add("projec-bar");
-    container.appendChild(navBar);
-  };
-  todoContainer(), navBar();
 })();
+
+
 
 const objects = objectControl();
 
@@ -106,8 +115,6 @@ function projectDisplay() {
     navBar.appendChild(objectDiv);
   });
 };
-
-
 
 
 export function userInput() {
