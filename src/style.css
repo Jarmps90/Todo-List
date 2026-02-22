@@ -1,6 +1,7 @@
 #todoCard {
     width: fit-content;
-    border: 1px solid red;
+    border: 1px solid black;
+    border-radius: 5px;
     margin: 10px;
     padding: 5px;
 }
@@ -9,5 +10,51 @@
     display: grid;
     gap: 10px;
     grid-template-columns: 0.5fr 3fr;
-    grid-template-rows: 1fr 4fr;
 }
+
+
+
+header {
+    height: 100px;
+}
+
+button {
+    width: 100px;
+    height: 30px;
+}
+
+.button-bar {
+    display: grid;
+    grid-column: 1/3;
+    grid-row: 1/2;
+    border: 1px, solid, black;
+    border-radius: 5px;
+    top: 10px;
+    .addBtn {
+        grid-column: 2/3;
+    }
+}
+
+nav {
+    grid-column: 1/2;
+    display: flex;
+    flex: 2;
+    flex-direction: column;
+}
+
+.todoDiv {
+    display: flex;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.projec-bar {
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+header {
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    }
