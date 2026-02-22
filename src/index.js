@@ -5,15 +5,29 @@ import "./style.css";
 modal.createProjectBtn();
 modal.createTodoBtn();
 
-const navBar = (function () {
+const continerControl = (function () {
   const container = document.querySelector("#container");
-  const navBar = document.createElement("nav");
 
-  navBar.classList.add("projec-bar");
-  container.appendChild(navBar);
+  function todoContainer() {
+    const todoContainer = document.createElement('div');
+
+    todoContainer.classList.add('todoDiv');
+    container.appendChild(todoContainer);
+  };
+
+  function navBar() {
+    const navBar = document.createElement("nav");
+
+    navBar.classList.add("projec-bar");
+    container.appendChild(navBar);
+  };
+  todoContainer(), navBar();
 })();
 
 const objects = objectControl();
+
+
+
 
 export function projectId() {
   const navBar = document.querySelector("nav");
@@ -28,7 +42,10 @@ export function projectId() {
   const getPrjectId = () => projectId;
 
   return { getPrjectId };
-}
+};
+
+
+
 
 function updateDisplay() {
   let key = Object.keys(localStorage);
@@ -37,12 +54,15 @@ function updateDisplay() {
     projectDisplay();
   } else {
     console.log("Storage is empty");
-  }
-}
+  };
+};
+
+
+
 
 function todoDisplay() {
   const container = document.querySelector("#container");
-
+  const todoDiv = document.querySelector('.todoDiv');
   const todoArray = objects.getTodos();
 
   for (let i = 0; i < todoArray.length; i++) {
@@ -64,9 +84,13 @@ function todoDisplay() {
     todoCard.appendChild(dueDate);
     todoCard.appendChild(priority);
 
-    container.appendChild(todoCard);
-  }
-}
+    todoDiv.appendChild(todoCard);
+    container.appendChild(todoDiv);
+  };
+};
+
+
+
 
 function projectDisplay() {
   const navBar = document.querySelector("nav");
@@ -81,7 +105,10 @@ function projectDisplay() {
     objectDiv.id = count++;
     navBar.appendChild(objectDiv);
   });
-}
+};
+
+
+
 
 export function userInput() {
   const container = document.querySelector("#container");
@@ -105,7 +132,7 @@ export function userInput() {
         dialog.close();
         dialog.remove();
         container.removeEventListener("click", addTodo);
-      }
+      };
     });
   };
 
@@ -117,7 +144,7 @@ export function userInput() {
           dialog.close();
           dialog.remove();
           container.removeEventListener("click", addProject);
-        }
+        };
       });
 
       if (event.target.id === "projectSubmitBtn") {
@@ -130,9 +157,9 @@ export function userInput() {
         dialog.close();
         dialog.remove();
         container.removeEventListener("click", addProject);
-      }
+      };
     });
   };
   return { submit, projectSubmit };
-}
+};
 updateDisplay();
