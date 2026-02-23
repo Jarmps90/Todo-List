@@ -28,12 +28,7 @@ const continerControl = (function () {
   todoContainer(), toolBarForButtons();
   modal.createProjectBtn();
   modal.createTodoBtn();
-
 })();
-
-
-
-const objects = objectControl();
 
 
 
@@ -43,9 +38,9 @@ export function projectId() {
   let projectId = 0;
 
   navBar.addEventListener("click", (event) => {
-    projectId = event.target.id;
-    objects.getTodos();
-    todoDisplay();
+      projectId = event.target.id;
+      objects.getTodos();
+      todoDisplay();
   });
 
   const getPrjectId = () => projectId;
@@ -73,6 +68,7 @@ function todoDisplay() {
   const container = document.querySelector("#container");
   const todoDiv = document.querySelector('.todoDiv');
   const todoArray = objects.getTodos();
+  todoDiv.innerHTML = "";
 
   for (let i = 0; i < todoArray.length; i++) {
     const todoCard = document.createElement("div");
@@ -169,4 +165,6 @@ export function userInput() {
   };
   return { submit, projectSubmit };
 };
+
+const objects = objectControl();
 updateDisplay();
