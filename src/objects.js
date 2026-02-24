@@ -6,7 +6,8 @@ function CreateProject(name) {
     todos: [],
   };
   return project;
-}
+};
+
 
 function CreateTodos(title, description, dueDate, priority) {
   const newTodo = {
@@ -16,24 +17,28 @@ function CreateTodos(title, description, dueDate, priority) {
     priority: priority,
   };
   return newTodo;
-}
+};
+
+
+
 
 export function objectControl() {
   let projetArray = [];
   const projectID = projectId();
 
+
   const getTodos = () => {
-    const id = projectID.getPrjectId();
+    const id = projectID.getProjectId();
     let todoArray = [];
 
     if (id === '') {
       console.log('No projects selected');
     } else {
       todoArray = projetArray[id].todos;
-
-    }
+    };
     return todoArray;
   };
+
 
   const projectControl = (projectName) => {
     getProjects();
@@ -43,14 +48,16 @@ export function objectControl() {
     localStorage.setItem("Projects", JSON.stringify(projetArray));
   };
 
+
   const todoControl = (title, description, duedate, priority) => {
     const todo = CreateTodos(title, description, duedate, priority);
-    const id = projectID.getPrjectId();
+    const id = projectID.getProjectId();
     getProjects();
     projetArray[id].todos.push(todo);
 
     localStorage.setItem("Projects", JSON.stringify(projetArray));
   };
+
 
   const getProjects = () => {
     let keys = Object.keys(localStorage);
@@ -63,4 +70,4 @@ export function objectControl() {
   };
 
   return { projectControl, todoControl, getProjects, getTodos };
-}
+};
