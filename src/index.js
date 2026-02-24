@@ -38,18 +38,15 @@ export function projectId() {
   let projectId = 0;
 
   navBar.addEventListener("click", (event) => {
-      projectId = event.target.id;
-      objects.getTodos();
-      todoDisplay();
+    projectId = event.target.id;
+    objects.getTodos();
+    todoDisplay();
   });
 
-  const getPrjectId = () => projectId;
+  const getProjectId = () => projectId;
 
-  return { getPrjectId };
+  return { getProjectId };
 };
-
-
-
 
 function updateDisplay() {
   let key = Object.keys(localStorage);
@@ -131,6 +128,7 @@ export function userInput() {
           todoDueDate,
           todoPriority,
         );
+        todoDisplay();
         event.preventDefault();
         dialog.close();
         dialog.remove();
@@ -167,4 +165,4 @@ export function userInput() {
 };
 
 const objects = objectControl();
-updateDisplay();
+updateDisplay()
