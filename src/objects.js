@@ -9,12 +9,14 @@ function CreateProject(name) {
 };
 
 
-function CreateTodos(title, description, dueDate, priority) {
+function CreateTodos(title, description, dueDate, priority, completed, id) {
   const newTodo = {
     title: title,
     description: description,
     dueDate: dueDate,
     priority: priority,
+    completed: false,
+    id: self.crypto.randomUUID()
   };
   return newTodo;
 };
