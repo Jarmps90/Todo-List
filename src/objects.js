@@ -73,3 +73,13 @@ export function objectControl() {
 
   return { projectControl, todoControl, getProjects, getTodos };
 };
+
+const todoToggle = () => {
+  CreateTodos.prototype.completed = function () {
+    if (this.completed === false) {
+      return this.completed = true;
+    } else {
+      return this.completed = false;
+    }
+  };
+};
