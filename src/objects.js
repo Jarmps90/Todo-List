@@ -41,7 +41,6 @@ export function objectControl() {
     return todoArray;
   };
 
-
   const projectControl = (projectName) => {
     getProjects();
     const project = CreateProject(projectName);
