@@ -28,7 +28,14 @@ export function objectControl() {
   let projetArray = [];
   const projectID = projectId();
 
-
+  const helperFunc = (todoArr) => {
+    console.log(todoArr);
+    // todoArr.forEach((todo) => {
+    // const todos = CreateTodos(todoArr[todo].title, todoArr[todo].description);
+    // });
+    // // const todos = CreateTodos(todoArr[0].title, todoArr[0].description);
+    // console.log(todos)
+  };
   const getTodos = () => {
     const id = projectID.getProjectId();
     let todoArray = [];
@@ -37,6 +44,8 @@ export function objectControl() {
       console.log('No projects selected');
     } else {
       todoArray = projetArray[id].todos;
+      // console.log(todoArray);
+      helperFunc(todoArray);
     };
     return todoArray;
   };
