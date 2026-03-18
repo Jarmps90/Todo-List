@@ -9,16 +9,15 @@ function CreateProject(name) {
 };
 
 
-function CreateTodos(title, description, dueDate, priority, completed, id) {
-  const newTodo = {
-    title: title,
-    description: description,
-    dueDate: dueDate,
-    priority: priority,
-    completed: false,
-    id: self.crypto.randomUUID()
-  };
-  return newTodo;
+class CreateTodos {
+  constructor(title, description, dueDate, priority, id) {
+    this.title= title;
+    this.description = description;
+    this.dueDate = dueDate;
+    this.priority = priority;
+    this.completed = false;
+    this.id = self.crypto.randomUUID();
+  }
 };
 
 
@@ -29,13 +28,12 @@ export function objectControl() {
   const projectID = projectId();
 
   const helperFunc = (todoArr) => {
-    console.log(todoArr);
-    // todoArr.forEach((todo) => {
-    // const todos = CreateTodos(todoArr[todo].title, todoArr[todo].description);
-    // });
-    // // const todos = CreateTodos(todoArr[0].title, todoArr[0].description);
-    // console.log(todos)
+    todoArr.forEach((el) => {
+      const todo = new CreateTodos(el.title, el.description, el.dueDate, el.priority);
+      console.log(todo);
+    });
   };
+
   const getTodos = () => {
     const id = projectID.getProjectId();
     let todoArray = [];
@@ -44,7 +42,7 @@ export function objectControl() {
       console.log('No projects selected');
     } else {
       todoArray = projetArray[id].todos;
-      // console.log(todoArray);
+      console.log(todoArray);
       helperFunc(todoArray);
     };
     return todoArray;
@@ -52,7 +50,7 @@ export function objectControl() {
 
   const projectControl = (projectName) => {
     getProjects();
-    const project = CreateProject(projectName);
+    const project = new CreateProject(projectName);
 
     projetArray.push(project);
     localStorage.setItem("Projects", JSON.stringify(projetArray));
@@ -82,7 +80,6 @@ export function objectControl() {
   return { projectControl, todoControl, getProjects, getTodos };
 };
 
-const todoToggle = () => {
   CreateTodos.prototype.completed = function () {
     if (this.completed === false) {
       return this.completed = true;
@@ -90,4 +87,3 @@ const todoToggle = () => {
       return this.completed = false;
     }
   };
-};
