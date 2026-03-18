@@ -18,6 +18,10 @@ class CreateTodos {
     this.completed = false;
     this.id = self.crypto.randomUUID();
   }
+  isCompleted() {
+    this.completed = !this.completed;
+  };
+
 };
 
 
@@ -79,11 +83,3 @@ export function objectControl() {
 
   return { projectControl, todoControl, getProjects, getTodos };
 };
-
-  CreateTodos.prototype.completed = function () {
-    if (this.completed === false) {
-      return this.completed = true;
-    } else {
-      return this.completed = false;
-    }
-  };
