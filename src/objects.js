@@ -34,7 +34,6 @@ export function objectControl() {
   const helperFunc = (todoArr) => {
     todoArr.forEach((el) => {
       const todo = new CreateTodos(el.title, el.description, el.dueDate, el.priority);
-      console.log(todo);
     });
   };
 
@@ -46,7 +45,6 @@ export function objectControl() {
       console.log('No projects selected');
     } else {
       todoArray = projetArray[id].todos;
-      console.log(todoArray);
       helperFunc(todoArray);
     };
     return todoArray;
@@ -62,7 +60,7 @@ export function objectControl() {
 
 
   const todoControl = (title, description, duedate, priority) => {
-    const todo = CreateTodos(title, description, duedate, priority);
+    const todo = new CreateTodos(title, description, duedate, priority);
     const id = projectID.getProjectId();
 
     projetArray[id].todos.push(todo);
