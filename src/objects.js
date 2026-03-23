@@ -10,7 +10,7 @@ function CreateProject(name) {
 
 
 class CreateTodos {
-  constructor(title, description, dueDate, priority, id) {
+  constructor(title, description, dueDate, priority) {
     this.title= title;
     this.description = description;
     this.dueDate = dueDate;
