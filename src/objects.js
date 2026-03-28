@@ -32,9 +32,14 @@ export function objectControl() {
   const projectID = projectId();
 
   const helperFunc = (todoArr) => {
+    let newArr = [];
+    
     todoArr.forEach((el) => {
       const todo = new CreateTodos(el.title, el.description, el.dueDate, el.priority);
+      newArr.push(todo)
     });
+    console.log(newArr);
+    return newArr;
   };
 
   const getTodos = () => {
@@ -45,6 +50,7 @@ export function objectControl() {
       console.log('No projects selected');
     } else {
       todoArray = projetArray[id].todos;
+      console.log(todoArray);
       helperFunc(todoArray);
     };
     return todoArray;
@@ -79,5 +85,5 @@ export function objectControl() {
     return projetArray;
   };
 
-  return { projectControl, todoControl, getProjects, getTodos };
+  return { projectControl, todoControl, getProjects, getTodos, helperFunc };
 };
