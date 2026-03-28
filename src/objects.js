@@ -21,25 +21,22 @@ class CreateTodos {
   isCompleted() {
     this.completed = !this.completed;
   };
-
+// mabye I can use getters and setters to update todo, so that I don't need to create new class constructor.
 };
-
-
-
 
 export function objectControl() {
   let projetArray = [];
   const projectID = projectId();
 
   const helperFunc = (todoArr) => {
-    let newArr = [];
+    let todoArray = [];
     
     todoArr.forEach((el) => {
       const todo = new CreateTodos(el.title, el.description, el.dueDate, el.priority);
-      newArr.push(todo)
+      todoArray.push(todo)
     });
-    console.log(newArr);
-    return newArr;
+    //console.log(todoArray);
+    return todoArray;
   };
 
   const getTodos = () => {
@@ -50,7 +47,6 @@ export function objectControl() {
       console.log('No projects selected');
     } else {
       todoArray = projetArray[id].todos;
-      console.log(todoArray);
       helperFunc(todoArray);
     };
     return todoArray;
