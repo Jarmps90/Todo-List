@@ -18,10 +18,10 @@ class CreateTodos {
     this.completed = false;
     this.id = self.crypto.randomUUID();
   }
-  isCompleted() {
+  isComplited() {
     this.completed = !this.completed;
   };
-// mabye I can use getters and setters to update todo, so that I don't need to create new class constructor.
+  //I'll use isComplited method after user is marked todo done!
 };
 
 export function objectControl() {
@@ -29,16 +29,14 @@ export function objectControl() {
   const projectID = projectId();
 
   const helperFunc = (todoArr) => {
-    let todoArray = [];
-    
+    let todoArray = []; 
     todoArr.forEach((el) => {
       const todo = new CreateTodos(el.title, el.description, el.dueDate, el.priority);
       todoArray.push(todo)
     });
-    //console.log(todoArray);
+    console.log(todoArray);
     return todoArray;
   };
-
   const getTodos = () => {
     const id = projectID.getProjectId();
     let todoArray = [];
@@ -51,7 +49,7 @@ export function objectControl() {
     };
     return todoArray;
   };
-
+  
   const projectControl = (projectName) => {
     getProjects();
     const project = new CreateProject(projectName);
