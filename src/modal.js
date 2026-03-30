@@ -114,5 +114,15 @@ export const modal = (function() {
     });
   };
 
-  return {modalCreate, createTodoBtn, createProjectBtn}
+  const toggleButton = () => {
+    const todoCards = document.querySelectorAll('#todoCard');
+       
+    todoCards.forEach((card) => {
+      const toggleBtn = document.createElement('div');
+      toggleBtn.classList.add('toggle');
+      card.appendChild(toggleBtn);
+    });
+
+  };
+  return {modalCreate, createTodoBtn, createProjectBtn, toggleButton}
 })();
