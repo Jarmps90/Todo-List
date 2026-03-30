@@ -21,7 +21,6 @@ class CreateTodos {
   isComplited() {
     this.completed = !this.completed;
   };
-  //I'll use isComplited method after user is marked todo done!
 };
 
 export function objectControl() {
