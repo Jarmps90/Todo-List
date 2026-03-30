@@ -162,8 +162,14 @@ export function userInput() {
       };
     });
   };
-  return { submit, projectSubmit };
+  const toggleDoneBtn = () => {
+   const button = document.querySelector('.toggle');
+    console.log(button);
+  };
+  toggleDoneBtn();
+  return { submit, projectSubmit, toggleDoneBtn };
 };
 
 const objects = objectControl();
+
 updateDisplay()
