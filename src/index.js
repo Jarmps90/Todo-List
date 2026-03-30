@@ -89,6 +89,7 @@ function todoDisplay() {
     todoDiv.appendChild(todoCard);
     container.appendChild(todoDiv);
   };
+  modal.toggleButton();
 };
 
 
