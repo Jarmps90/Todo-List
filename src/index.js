@@ -162,11 +162,13 @@ export function userInput() {
       };
     });
   };
+
   const toggleDoneBtn = () => {
    const button = document.querySelector('.toggle');
-    console.log(button);
+   const todos = objects.helperFunc(objects.getTodos());
+    console.log(todos); 
   };
-  toggleDoneBtn();
+
   return { submit, projectSubmit, toggleDoneBtn };
 };
 
