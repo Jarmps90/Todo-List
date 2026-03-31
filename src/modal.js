@@ -123,6 +123,7 @@ export const modal = (function() {
       card.appendChild(toggleBtn);
       toggleBtn.addEventListener('click', () => {
 	toggleBtn.style.background = 'red';
+	userInputFunc.toggleDoneBtn();	
       });
     });
 
