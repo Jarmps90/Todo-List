@@ -33,10 +33,13 @@ export function objectControl() {
       const todo = new CreateTodos(el.title, el.description, el.dueDate, el.priority);
       todoArray.push(todo)
     });
-    console.log(todoArray);
+
     return todoArray;
+
   };
   const getTodos = () => {
+    //Mabye rewrite little to get the updated list of todos.
+    //Or just replace all get todos function calls from index.js
     const id = projectID.getProjectId();
     let todoArray = [];
 
