@@ -121,6 +121,9 @@ export const modal = (function() {
       const toggleBtn = document.createElement('div');
       toggleBtn.classList.add('toggle');
       card.appendChild(toggleBtn);
+      toggleBtn.addEventListener('click', () => {
+	toggleBtn.style.background = 'red';
+      });
     });
 
   };
