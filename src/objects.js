@@ -26,6 +26,12 @@ class CreateTodos {
 export function objectControl() {
   let projetArray = [];
   const projectID = projectId();
+  
+  const classMethod = (id) => {
+  const todo = helperFunc(getTodos());
+    todo[id].isComplited();
+    console.log(todo)
+  };
 
   const helperFunc = (todoArr) => {
     let todoArray = []; 
@@ -81,5 +87,5 @@ export function objectControl() {
     return projetArray;
   };
 
-  return { projectControl, todoControl, getProjects, getTodos, helperFunc };
+  return { projectControl, todoControl, getProjects, getTodos, helperFunc, classMethod };
 };
