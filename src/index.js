@@ -165,9 +165,11 @@ export function userInput() {
 
   const toggleDoneBtn = () => {
    const button = document.querySelector('.toggle');
-   const todos = objects.helperFunc(objects.getTodos());
-    console.log(todos); 
-  };
+   const id = button.id 
+    
+   // objects.classMethod(id); 
+    // Mabye it sends todo id to 
+      };
 
   return { submit, projectSubmit, toggleDoneBtn };
 };
