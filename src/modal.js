@@ -115,15 +115,15 @@ export const modal = (function() {
   };
 
   const toggleButton = () => {
-    const todoCards = document.querySelectorAll('#todoCard');
+    const todoCards = document.querySelectorAll('.todoCard');
        
     todoCards.forEach((card) => {
       const toggleBtn = document.createElement('div');
       toggleBtn.classList.add('toggle');
       card.appendChild(toggleBtn);
-      toggleBtn.addEventListener('click', () => {
+      toggleBtn.addEventListener('click', (event) => {
 	toggleBtn.style.background = 'red';
-	userInputFunc.toggleDoneBtn();	
+	userInputFunc.toggleDoneBtn(event);	
       });
     });
 
