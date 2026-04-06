@@ -69,7 +69,7 @@ function todoDisplay() {
 
   for (let i = 0; i < todoArray.length; i++) {
     const todoCard = document.createElement("div");
-    todoCard.id = "todoCard";
+    todoCard.classList.add("todoCard");
 
     const title = document.createElement("p");
     const description = document.createElement("p");
@@ -89,6 +89,7 @@ function todoDisplay() {
     todoDiv.appendChild(todoCard);
     container.appendChild(todoDiv);
   };
+  
   modal.toggleButton();
 };
 
@@ -163,13 +164,22 @@ export function userInput() {
     });
   };
 
-  const toggleDoneBtn = () => {
-   const button = document.querySelector('.toggle');
-   const id = button.id 
-    
-   // objects.classMethod(id); 
-    // Mabye it sends todo id to 
-      };
+
+  const toggleDoneBtn = (event) => {
+    const todoCards = document.querySelectorAll('.todoCard'); 
+    const todos = objects.getTodos();
+
+    todoCards.forEach((todoCards, index) => {
+     todoCards.dataset.id = todos[index].id
+    });
+
+    const todoCard = event.target.parentElement;
+    const cardId = todoCard.getAttribute('data-id');
+    const todoIndex = todos.findIndex((todo) => todo.id === cardId); 
+
+    console.log(todos);
+    objects.classMethod(todos[todoIndex]); 
+  };
 
   return { submit, projectSubmit, toggleDoneBtn };
 };
