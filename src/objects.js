@@ -17,35 +17,35 @@ class CreateTodos {
     this.priority = priority;
     this.completed = false;
     this.id = self.crypto.randomUUID();
-  }
+  };
+
+ };
+
+class UpdateTodos {
+  constructor(title, description, dueDate, priority, completed, id) {
+    this.title= title;
+    this.description = description;
+    this.dueDate = dueDate;
+    this.priority = priority;
+    this.completed = completed;
+    this.id = id;
+  };
   isComplited() {
     this.completed = !this.completed;
   };
-};
+}; 
 
 export function objectControl() {
   let projetArray = [];
   const projectID = projectId();
-  
-  const classMethod = (id) => {
-  const todo = helperFunc(getTodos());
-    todo[id].isComplited();
-    console.log(todo)
+ 
+  const classMethod = (todo) => {
+    const newTodo = new UpdateTodos(todo.title, todo.description, todo.dueDate, todo.priority, todo.completed, todo.id); 
+      //newTodo.isComplited();
+     console.log(newTodo); 
   };
 
-  const helperFunc = (todoArr) => {
-    let todoArray = []; 
-    todoArr.forEach((el) => {
-      const todo = new CreateTodos(el.title, el.description, el.dueDate, el.priority);
-      todoArray.push(todo)
-    });
-
-    return todoArray;
-
-  };
   const getTodos = () => {
-    //Mabye rewrite little to get the updated list of todos.
-    //Or just replace all get todos function calls from index.js
     const id = projectID.getProjectId();
     let todoArray = [];
 
@@ -53,10 +53,8 @@ export function objectControl() {
       console.log('No projects selected');
     } else {
       todoArray = projetArray[id].todos;
-      helperFunc(todoArray);
     };
-    return todoArray;
-  };
+    return todoArray; };
   
   const projectControl = (projectName) => {
     getProjects();
@@ -70,7 +68,6 @@ export function objectControl() {
   const todoControl = (title, description, duedate, priority) => {
     const todo = new CreateTodos(title, description, duedate, priority);
     const id = projectID.getProjectId();
-
     projetArray[id].todos.push(todo);
 
     localStorage.setItem("Projects", JSON.stringify(projetArray));
@@ -87,5 +84,5 @@ export function objectControl() {
     return projetArray;
   };
 
-  return { projectControl, todoControl, getProjects, getTodos, helperFunc, classMethod };
+  return { projectControl, todoControl, getProjects, getTodos, classMethod };
 };
