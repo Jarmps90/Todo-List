@@ -41,7 +41,10 @@ export function objectControl() {
  
   const classMethod = (todo) => {
     const newTodo = new UpdateTodos(todo.title, todo.description, todo.dueDate, todo.priority, todo.completed, todo.id); 
-      //newTodo.isComplited();
+    const id = projectID.getProjectId();
+      newTodo.isComplited();
+    // Something like below. But now I need to find index.
+     projetArray[id].todos.push(newTodo);
      console.log(newTodo); 
   };
 
