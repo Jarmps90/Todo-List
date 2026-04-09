@@ -43,9 +43,7 @@ export function objectControl() {
     const newTodo = new UpdateTodos(todo.title, todo.description, todo.dueDate, todo.priority, todo.completed, todo.id); 
     const id = projectID.getProjectId();
       newTodo.isComplited();
-   
-     projetArray[id].todos.push(newTodo);
-     console.log(newTodo); 
+      projetArray[id].todos.push(newTodo);
   };
 
   const getTodos = () => {
