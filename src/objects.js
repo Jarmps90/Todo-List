@@ -38,12 +38,19 @@ class UpdateTodos {
 export function objectControl() {
   let projetArray = [];
   const projectID = projectId();
+
+  const updateLocalStroage = () => {
+    //It updateds todos list in local storage.
+    localStorage.setItem("Projects", JSON.stringify(projetArray));
+  };
  
   const classMethod = (todo) => {
     const newTodo = new UpdateTodos(todo.title, todo.description, todo.dueDate, todo.priority, todo.completed, todo.id); 
     const id = projectID.getProjectId();
       newTodo.isComplited();
+    //if in the projetArray has same id element than newtodo. remove that and push newTodo
       projetArray[id].todos.push(newTodo);
+      updateLocalStroage();
   };
 
   const getTodos = () => {
