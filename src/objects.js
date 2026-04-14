@@ -44,13 +44,18 @@ export function objectControl() {
     localStorage.setItem("Projects", JSON.stringify(projetArray));
   };
  
-  const classMethod = (todo) => {
+  const classMethod = (todo, index) => {
     const newTodo = new UpdateTodos(todo.title, todo.description, todo.dueDate, todo.priority, todo.completed, todo.id); 
     const id = projectID.getProjectId();
-      newTodo.isComplited();
-    //if in the projetArray has same id element than newtodo. remove that and push newTodo
-      projetArray[id].todos.push(newTodo);
-      updateLocalStroage();
+    newTodo.isComplited();
+    const todos = projetArray[id].todos
+
+    for(let i = 0; i < todos.length; i++) {
+     if(todos[i].id === newTodo.id) {
+	projetArray[id].todos.splice(index, 1, newTodo);
+	updateLocalStroage();
+      };   
+    };
   };
 
   const getTodos = () => {
