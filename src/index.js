@@ -176,7 +176,7 @@ export function userInput() {
     const todoCard = event.target.parentElement;
     const cardId = todoCard.getAttribute('data-id');
     const todoIndex = todos.findIndex((todo) => todo.id === cardId); 
-  console.log(todoIndex);
+
     objects.classMethod(todos[todoIndex], todoIndex); 
   };
 
