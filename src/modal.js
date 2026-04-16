@@ -1,4 +1,4 @@
-//Modals and all related to it
+//Modals and button related stuff
 import { userInput } from "./index.js";
 
 export const modal = (function() {
@@ -128,5 +128,19 @@ export const modal = (function() {
     });
 
   };
-  return {modalCreate, createTodoBtn, createProjectBtn, toggleButton}
+
+  const todoRemovBtn = () => {
+    const todoCards = document.querySelectorAll('.todoCard');
+
+    todoCards.forEach((card) => {
+      const removeBtn = document.createElement('button');
+      removeBtn.classList.add('remove');
+      card.appendChild(removeBtn);
+      removeBtn.addEventListener('click', (event) => {
+	console.log('This button works');
+      });
+    });
+  };
+
+  return {modalCreate, createTodoBtn, createProjectBtn, toggleButton, todoRemovBtn}
 })();
