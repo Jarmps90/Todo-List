@@ -91,6 +91,7 @@ function todoDisplay() {
   };
   
   modal.toggleButton();
+  modal.todoRemovBtn();
 };
 
 
