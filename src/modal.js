@@ -138,6 +138,7 @@ export const modal = (function() {
       card.appendChild(removeBtn);
       removeBtn.addEventListener('click', (event) => {
 	console.log('This button works');
+	userInputFunc.todoRemovBtn(event);
       });
     });
   };
