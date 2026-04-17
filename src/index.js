@@ -89,7 +89,6 @@ function todoDisplay() {
     todoDiv.appendChild(todoCard);
     container.appendChild(todoDiv);
   };
-  
   modal.toggleButton();
   modal.todoRemovBtn();
 };
@@ -181,7 +180,25 @@ export function userInput() {
     objects.classMethod(todos[todoIndex], todoIndex); 
   };
 
-  return { submit, projectSubmit, toggleDoneBtn };
+  const todoRemovBtn = (event) => {
+    const todoCards = document.querySelectorAll('.todoCard'); 
+    const todos = objects.getTodos();
+
+    todoCards.forEach((todoCards, index) => {
+      todoCards.dataset.id = todos[index].id
+    });
+    const todoCard = event.target.parentElement;
+    const cardId = todoCard.getAttribute('data-id');
+    const todoIndex = todos.findIndex((todo) => todo.id === cardId);
+
+    if(todoIndex !== -1) {
+      todoCard.remove();
+      todos.splice(todoIndex, 1); 
+    };
+    objects.updateLocalStroage();
+   };
+
+  return { submit, projectSubmit, toggleDoneBtn, todoRemovBtn };
 };
 
 const objects = objectControl();
