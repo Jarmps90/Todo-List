@@ -97,5 +97,5 @@ export function objectControl() {
     return projetArray;
   };
 
-  return { projectControl, todoControl, getProjects, getTodos, classMethod };
+  return { projectControl, todoControl, getProjects, getTodos, classMethod, updateLocalStroage };
 };
