@@ -62,7 +62,7 @@ export function objectControl() {
     const id = projectID.getProjectId();
     let todoArray = [];
 
-    if (id === '') {
+    if(id === '') {
       console.log('No projects selected');
     } else {
       todoArray = projetArray[id].todos;
