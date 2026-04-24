@@ -40,7 +40,7 @@ export function projectId() {
   navBar.addEventListener("click", (event) => {
     projectId = event.target.id;
     objects.getTodos();
-    todoDisplay();
+    todoDisplaySmall();
   });
 
   const getProjectId = () => projectId;
@@ -94,7 +94,24 @@ function todoDisplay() {
 };
 
 
+function todoDisplaySmall() {
+  const container = document.querySelector("#container");
+  const todoDiv = document.querySelector('.todoDiv');
+  const todoArray = objects.getTodos();
+  todoDiv.innerHTML = "";
+  
+  for (let i = 0; i < todoArray.length; i++) {
+    const todoCard = document.createElement("div");
+    todoCard.classList.add("todoCard");
 
+    const title = document.createElement("p");
+    title.innerText = `${todoArray[i].title}`;
+
+    todoCard.appendChild(title);
+    todoDiv.appendChild(todoCard);
+    container.appendChild(todoDiv);
+  };
+};
 
 function projectDisplay() {
   const navBar = document.querySelector("nav");
