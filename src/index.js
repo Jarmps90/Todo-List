@@ -30,8 +30,8 @@ const continerControl = (function () {
   modal.createTodoBtn();
 })();
 
-
-
+const user = userInput()
+const dpControl = displayControl()
 
 export function projectId() {
   const navBar = document.querySelector("nav");
@@ -40,7 +40,8 @@ export function projectId() {
   navBar.addEventListener("click", (event) => {
     projectId = event.target.id;
     objects.getTodos();
-    todoDisplaySmall();
+    dpControl.todoDisplaySmall();
+    user.expandTodo();
   });
 
   const getProjectId = () => projectId;
@@ -52,16 +53,16 @@ function updateDisplay() {
   let key = Object.keys(localStorage);
 
   if (localStorage.getItem(key) !== null) {
-    projectDisplay();
+    dpControl.projectDisplay();
   } else {
     console.log("Storage is empty");
   };
 };
 
 
+function displayControl() {
 
-
-function todoDisplay() {
+const todoDisplay = () => {
   const container = document.querySelector("#container");
   const todoDiv = document.querySelector('.todoDiv');
   const todoArray = objects.getTodos();
@@ -94,7 +95,7 @@ function todoDisplay() {
 };
 
 
-function todoDisplaySmall() {
+const todoDisplaySmall = () => {
   const container = document.querySelector("#container");
   const todoDiv = document.querySelector('.todoDiv');
   const todoArray = objects.getTodos();
@@ -113,7 +114,7 @@ function todoDisplaySmall() {
   };
 };
 
-function projectDisplay() {
+const projectDisplay = () => {
   const navBar = document.querySelector("nav");
   const projectArray = objects.getProjects();
   let count = 0;
@@ -127,7 +128,8 @@ function projectDisplay() {
     navBar.appendChild(objectDiv);
   });
 };
-
+return { todoDisplay, todoDisplaySmall, projectDisplay };
+};
 
 export function userInput() {
   const container = document.querySelector("#container");
@@ -147,7 +149,7 @@ export function userInput() {
           todoDueDate,
           todoPriority,
         );
-        todoDisplaySmall();
+        dpControl.todoDisplaySmall();
         event.preventDefault();
         dialog.close();
         dialog.remove();
@@ -216,7 +218,7 @@ export function userInput() {
    };
 
  const expandTodo = () => {
-  const todoCard = document.querySelector('.todoCard');
+  const todoCard = document.querySelectorAll('.todoCard');
    console.log(todoCard);
   let clicked = true;
 };
@@ -225,6 +227,5 @@ export function userInput() {
 };
 
 const objects = objectControl();
-const user = userInput()
 
 updateDisplay()
