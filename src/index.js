@@ -147,7 +147,7 @@ export function userInput() {
           todoDueDate,
           todoPriority,
         );
-        todoDisplay();
+        todoDisplaySmall();
         event.preventDefault();
         dialog.close();
         dialog.remove();
@@ -215,9 +215,16 @@ export function userInput() {
     objects.updateLocalStroage();
    };
 
-  return { submit, projectSubmit, toggleDoneBtn, todoRemovBtn };
+ const expandTodo = () => {
+  const todoCard = document.querySelector('.todoCard');
+   console.log(todoCard);
+  let clicked = true;
+};
+
+  return { submit, projectSubmit, toggleDoneBtn, todoRemovBtn, expandTodo };
 };
 
 const objects = objectControl();
+const user = userInput()
 
 updateDisplay()
