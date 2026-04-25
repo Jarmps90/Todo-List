@@ -219,9 +219,7 @@ export function userInput() {
 
  const expandTodo = () => {
   const todoCard = document.querySelectorAll('.todoCard');
-   console.log(todoCard);
-  let clicked = true;
-};
+ };
 
   return { submit, projectSubmit, toggleDoneBtn, todoRemovBtn, expandTodo };
 };
