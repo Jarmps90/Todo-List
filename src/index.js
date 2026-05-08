@@ -65,11 +65,8 @@ function displayControl() {
   const todoDisplay = (todo) => {
     const container = document.querySelector("#container");
     const todoDiv = document.querySelector('.todoDiv');
-    console.log(todo);
-  //  todoDiv.innerHTML = "";
-  
-      const todoCard = document.createElement("div");
-      todoCard.classList.add("todoCard");
+    const todoCard = document.querySelector('.todoCard');
+    todoCard.innerHTML = "";
   
       const title = document.createElement("div");
       const description = document.createElement("p");
@@ -140,8 +137,8 @@ function displayControl() {
     let count = 0;
 
     title.forEach((el) => { 
+      el.id = count++
       el.addEventListener('click', () => {
-	el.id = count++
 	toggleClassName(el, 'expanded');	
 	if(isExpanded === false) {
 	  todoDisplay(todos[el.id]);
@@ -245,16 +242,10 @@ export function userInput() {
     objects.updateLocalStroage();
    };
 
- const expandTodo = () => {
-  const todoCard = document.querySelector('.todoCard');
-   console.log(todoCard);
-  let clicked = true;
-};
 
-  return { submit, projectSubmit, toggleDoneBtn, todoRemovBtn, expandTodo };
+  return { submit, projectSubmit, toggleDoneBtn, todoRemovBtn  };
 };
 
 const objects = objectControl();
-const user = userInput()
 
 updateDisplay()
