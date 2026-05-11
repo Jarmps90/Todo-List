@@ -16,18 +16,20 @@ class CreateTodos {
     this.dueDate = dueDate;
     this.priority = priority;
     this.completed = false;
+    this.expanded = false;
     this.id = self.crypto.randomUUID();
   };
 
  };
 
 class UpdateTodos {
-  constructor(title, description, dueDate, priority, completed, id) {
+  constructor(title, description, dueDate, priority, completed, expanded, id) {
     this.title= title;
     this.description = description;
     this.dueDate = dueDate;
     this.priority = priority;
     this.completed = completed;
+    this.expanded = expanded;
     this.id = id;
   };
   isComplited() {
