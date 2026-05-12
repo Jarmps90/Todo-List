@@ -39,7 +39,9 @@ export function projectId() {
   navBar.addEventListener("click", (event) => {
     projectId = event.target.id;
     objects.getTodos();
-    dpControl.todoDisplaySmall();
+    //dpControl.todoDisplaySmall();
+    //Make checker function that checks what state is todo
+    //And accordingly select function to run
   });
 
   const getProjectId = () => projectId;
@@ -174,7 +176,7 @@ export function userInput() {
           todoDueDate,
           todoPriority,
         );
-	dpControl.todoDisplaySmall();
+	//dpControl.todoDisplaySmall();
         event.preventDefault();
         dialog.close();
         dialog.remove();
