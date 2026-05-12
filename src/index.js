@@ -40,6 +40,7 @@ export function projectId() {
     projectId = event.target.id;
     objects.getTodos();
     //dpControl.todoDisplaySmall();
+    todoChecker();
     //Make checker function that checks what state is todo
     //And accordingly select function to run
   });
@@ -60,15 +61,27 @@ function updateDisplay() {
 };
 
 
+function todoChecker() {
+  const todos = objects.getTodos();
+
+  console.log(todos);
+  todos.forEach((todo) => {
+    if(todo.expanded === true) {
+      dpControl.todoDisplay(todo);
+    } if(todo.expanded === false) {
+      dpControl.todoDisplaySmall(todo);
+    };
+      
+  });
+};
+
 
 function displayControl() {
-  let isExpanded = false;
 
   const todoDisplay = (todo) => {
     const container = document.querySelector("#container");
     const todoDiv = document.querySelector('.todoDiv');
     const todoCard = document.querySelector('.todoCard');
-    todoCard.innerHTML = "";
   
       const title = document.createElement("div");
       const description = document.createElement("p");
@@ -93,7 +106,6 @@ function displayControl() {
   const todoDisplaySmall = (todo) => {
     const container = document.querySelector("#container");
     const todoDiv = document.querySelector('.todoDiv');
-    todoDiv.innerHTML = "";
     
       const todoCard = document.createElement("div");
       const title = document.createElement("p");
