@@ -35,6 +35,11 @@ class UpdateTodos {
   isComplited() {
     this.completed = !this.completed;
   };
+  //Check how toggeling works and use same logic to expand func
+  //Dont forget classMethod is in UpdateTodos class
+  isExpanded() {
+    this.expanded = !this.expanded;
+  };
 }; 
 
 export function objectControl() {
