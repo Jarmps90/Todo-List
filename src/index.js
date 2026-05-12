@@ -87,34 +87,24 @@ function displayControl() {
       todoCard.appendChild(priority);
       todoDiv.appendChild(todoCard);
       container.appendChild(todoDiv);
-
-    
-    modal.toggleButton();
-    modal.todoRemovBtn();
   };
   
   
-  const todoDisplaySmall = () => {
+  const todoDisplaySmall = (todo) => {
     const container = document.querySelector("#container");
     const todoDiv = document.querySelector('.todoDiv');
-    const todoArray = objects.getTodos();
     todoDiv.innerHTML = "";
     
-    for (let i = 0; i < todoArray.length; i++) {
       const todoCard = document.createElement("div");
-      todoCard.classList.add("todoCard");
-  
       const title = document.createElement("p");
+
+      todoCard.classList.add("todoCard");
       title.classList.add('todo-title');
-      title.innerText = `${todoArray[i].title}`;
+      title.innerText = `${todo.title}`;
   
       todoCard.appendChild(title);
       todoDiv.appendChild(todoCard);
       container.appendChild(todoDiv);
-    };
-    modal.toggleButton();
-    modal.todoRemovBtn();
-    expander();
   };
   
   const projectDisplay = () => {
@@ -132,28 +122,7 @@ function displayControl() {
     });
   };
 
-  const expander = () => {
-    const title = document.querySelectorAll('.todo-title');
-    const toggleClassName = (el, className) => el.classList.toggle(className);
-    const todos = objects.getTodos()
-    let count = 0;
-
-    title.forEach((el) => { 
-      el.id = count++
-      el.addEventListener('click', () => {
-	toggleClassName(el, 'expanded');	
-	if(isExpanded === false) {
-	  todoDisplay(todos[el.id]);
-	  isExpanded = true;
-	  expander();
-	} else if(isExpanded === true) {
-	  todoDisplaySmall();
-	  isExpanded = false;
-	};
-      });
-    });
-  };
-
+ 
   return { todoDisplay, todoDisplaySmall, projectDisplay };
 
 };
@@ -176,6 +145,7 @@ export function userInput() {
           todoDueDate,
           todoPriority,
         );
+	//Cheker function call here -->
 	//dpControl.todoDisplaySmall();
         event.preventDefault();
         dialog.close();
