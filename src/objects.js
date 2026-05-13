@@ -51,10 +51,24 @@ export function objectControl() {
     localStorage.setItem("Projects", JSON.stringify(projetArray));
   };
  
-  const classMethod = (todo, index) => {
-    const newTodo = new UpdateTodos(todo.title, todo.description, todo.dueDate, todo.priority, todo.completed, todo.id); 
+  const completeMethod = (todo, index) => {
+    const newTodo = new UpdateTodos(todo.title, todo.description, todo.dueDate, todo.priority, todo.completed, todo.expanded, todo.id); 
     const id = projectID.getProjectId();
     newTodo.isComplited();
+    const todos = projetArray[id].todos
+    console.log(todos, newTodo);
+
+    for(let i = 0; i < todos.length; i++) {
+     if(todos[i].id === newTodo.id) {
+	projetArray[id].todos.splice(index, 1, newTodo);
+	updateLocalStroage();
+      };   
+    };
+  };
+
+  const expandMethod = (todo, index) => {
+    const newTodo = new UpdateTodos(todo.title, todo.description, todo.dueDate, todo.priority, todo.completed, todo.expanded, todo.id); 
+    const id = projectID.getProjectId();
     const todos = projetArray[id].todos
 
     for(let i = 0; i < todos.length; i++) {
@@ -104,5 +118,6 @@ export function objectControl() {
     return projetArray;
   };
 
-  return { projectControl, todoControl, getProjects, getTodos, classMethod, updateLocalStroage };
+  return { projectControl, todoControl, getProjects, getTodos, completeMethod, expandMethod, updateLocalStroage };
+
 };
