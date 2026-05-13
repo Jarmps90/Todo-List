@@ -31,6 +31,7 @@ const contanerControl = (function () {
 })();
 
 const dpControl = displayControl();
+const objects = objectControl();
 
 export function projectId() {
   const navBar = document.querySelector("nav");
@@ -39,10 +40,7 @@ export function projectId() {
   navBar.addEventListener("click", (event) => {
     projectId = event.target.id;
     objects.getTodos();
-    //dpControl.todoDisplaySmall();
     todoChecker();
-    //Make checker function that checks what state is todo
-    //And accordingly select function to run
   });
 
   const getProjectId = () => projectId;
@@ -63,8 +61,9 @@ function updateDisplay() {
 
 function todoChecker() {
   const todos = objects.getTodos();
+  const todoDiv = document.querySelector(".todoDiv");
+  todoDiv.innerHTML = "";
 
-  console.log(todos);
   todos.forEach((todo) => {
     if(todo.expanded === true) {
       dpControl.todoDisplay(todo);
@@ -73,6 +72,13 @@ function todoChecker() {
     };
       
   });
+  modal.todoRemovBtn();
+  modal.toggleButton();
+};
+
+function expand() {
+  const todos = objects.getTodos();
+  
 };
 
 
@@ -100,6 +106,7 @@ function displayControl() {
       todoCard.appendChild(priority);
       todoDiv.appendChild(todoCard);
       container.appendChild(todoDiv);
+
   };
   
   
@@ -117,6 +124,7 @@ function displayControl() {
       todoCard.appendChild(title);
       todoDiv.appendChild(todoCard);
       container.appendChild(todoDiv);
+
   };
   
   const projectDisplay = () => {
@@ -157,8 +165,7 @@ export function userInput() {
           todoDueDate,
           todoPriority,
         );
-	//Cheker function call here -->
-	//dpControl.todoDisplaySmall();
+	todoChecker();
         event.preventDefault();
         dialog.close();
         dialog.remove();
@@ -183,7 +190,7 @@ export function userInput() {
         const prjectName = document.getElementById("project").value;
 
         objects.projectControl(prjectName);
-        projectDisplay();
+        dpControl.projectDisplay();
         event.preventDefault();
         dialog.close();
         dialog.remove();
@@ -205,7 +212,7 @@ export function userInput() {
     const cardId = todoCard.getAttribute('data-id');
     const todoIndex = todos.findIndex((todo) => todo.id === cardId); 
 
-    objects.classMethod(todos[todoIndex], todoIndex); 
+    objects.completeMethod(todos[todoIndex], todoIndex); 
   };
 
   const todoRemovBtn = (event) => {
@@ -230,6 +237,5 @@ export function userInput() {
   return { submit, projectSubmit, toggleDoneBtn, todoRemovBtn  };
 };
 
-const objects = objectControl();
 
 updateDisplay()
