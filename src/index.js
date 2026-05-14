@@ -106,7 +106,6 @@ function displayControl() {
       todoCard.appendChild(priority);
       todoDiv.appendChild(todoCard);
       container.appendChild(todoDiv);
-
   };
   
   
@@ -124,7 +123,6 @@ function displayControl() {
       todoCard.appendChild(title);
       todoDiv.appendChild(todoCard);
       container.appendChild(todoDiv);
-
   };
   
   const projectDisplay = () => {
