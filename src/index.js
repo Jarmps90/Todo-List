@@ -76,11 +76,6 @@ function todoChecker() {
   modal.toggleButton();
 };
 
-function expand() {
-  const todos = objects.getTodos();
-  
-};
-
 
 function displayControl() {
 
@@ -140,8 +135,12 @@ function displayControl() {
     });
   };
 
+  const expandTodo = (event) => {
+    const todoCard = document.querySelectorAll('.todoCard');  
+    const todos = objects.getTodos();
+  };
  
-  return { todoDisplay, todoDisplaySmall, projectDisplay };
+  return { todoDisplay, todoDisplaySmall, projectDisplay, expandTodo };
 
 };
 
@@ -197,7 +196,9 @@ export function userInput() {
     });
   };
 
-
+//Mabye I can use toggleDoneBtn functino to my expanding
+  //Just include some if statement that checks what event took place
+  //And accordingly alters the end
   const toggleDoneBtn = (event) => {
     const todoCards = document.querySelectorAll('.todoCard'); 
     const todos = objects.getTodos();
