@@ -56,7 +56,6 @@ export function objectControl() {
     const id = projectID.getProjectId();
     newTodo.isComplited();
     const todos = projetArray[id].todos
-    console.log(todos, newTodo);
 
     for(let i = 0; i < todos.length; i++) {
      if(todos[i].id === newTodo.id) {
@@ -70,6 +69,7 @@ export function objectControl() {
     const newTodo = new UpdateTodos(todo.title, todo.description, todo.dueDate, todo.priority, todo.completed, todo.expanded, todo.id); 
     const id = projectID.getProjectId();
     const todos = projetArray[id].todos
+    newTodo.isExpanded();
 
     for(let i = 0; i < todos.length; i++) {
      if(todos[i].id === newTodo.id) {
