@@ -74,6 +74,7 @@ function todoChecker() {
   });
   modal.todoRemovBtn();
   modal.toggleButton();
+  modal.expandButton();
 };
 
 
@@ -82,19 +83,21 @@ function displayControl() {
   const todoDisplay = (todo) => {
     const container = document.querySelector("#container");
     const todoDiv = document.querySelector('.todoDiv');
-    const todoCard = document.querySelector('.todoCard');
+    const todoCard = document.createElement('div');
   
       const title = document.createElement("div");
       const description = document.createElement("p");
       const dueDate = document.createElement("p");
       const priority = document.createElement("p");
   
+      todoCard.classList.add("todoCard");
       title.classList.add('todo-title');
       title.innerText = `${todo.title}`;
       description.innerText = `Description: ${todo.description}`;
       dueDate.innerText = `Due Date: ${todo.dueDate}`;
       priority.innerText = `Priority: ${todo.priority}`;
   
+    console.log(todo);
       todoCard.appendChild(title);
       todoCard.appendChild(description);
       todoCard.appendChild(dueDate);
@@ -135,12 +138,8 @@ function displayControl() {
     });
   };
 
-  const expandTodo = (event) => {
-    const todoCard = document.querySelectorAll('.todoCard');  
-    const todos = objects.getTodos();
-  };
  
-  return { todoDisplay, todoDisplaySmall, projectDisplay, expandTodo };
+  return { todoDisplay, todoDisplaySmall, projectDisplay };
 
 };
 
@@ -196,9 +195,6 @@ export function userInput() {
     });
   };
 
-//Mabye I can use toggleDoneBtn functino to my expanding
-  //Just include some if statement that checks what event took place
-  //And accordingly alters the end
   const toggleDoneBtn = (event) => {
     const todoCards = document.querySelectorAll('.todoCard'); 
     const todos = objects.getTodos();
@@ -212,6 +208,22 @@ export function userInput() {
     const todoIndex = todos.findIndex((todo) => todo.id === cardId); 
 
     objects.completeMethod(todos[todoIndex], todoIndex); 
+  };
+
+  const expandBtn = (event) => {
+    const todoCards = document.querySelectorAll('.todoCard'); 
+    const todos = objects.getTodos();
+
+    todoCards.forEach((todoCards, index) => {
+     todoCards.dataset.id = todos[index].id
+    });
+
+    const todoCard = event.target.parentElement;
+    const cardId = todoCard.getAttribute('data-id');
+    const todoIndex = todos.findIndex((todo) => todo.id === cardId); 
+
+    objects.expandMethod(todos[todoIndex], todoIndex); 
+    todoChecker();
   };
 
   const todoRemovBtn = (event) => {
@@ -233,7 +245,7 @@ export function userInput() {
    };
 
 
-  return { submit, projectSubmit, toggleDoneBtn, todoRemovBtn  };
+  return { submit, projectSubmit, toggleDoneBtn, todoRemovBtn, expandBtn  };
 };
 
 
