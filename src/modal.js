@@ -126,7 +126,18 @@ export const modal = (function() {
 	userInputFunc.toggleDoneBtn(event);	
       });
     });
+  };
 
+
+  const expandButton = () => {
+    const title = document.querySelectorAll('.todo-title');
+
+    title.forEach((el) => {
+      el.addEventListener('click', (event) => {
+	userInputFunc.expandBtn(event);
+	console.log(title);
+      });
+    });
   };
 
   const todoRemovBtn = () => {
@@ -143,5 +154,5 @@ export const modal = (function() {
     });
   };
 
-  return {modalCreate, createTodoBtn, createProjectBtn, toggleButton, todoRemovBtn}
+  return { modalCreate, createTodoBtn, createProjectBtn, toggleButton, todoRemovBtn, expandButton }
 })();
