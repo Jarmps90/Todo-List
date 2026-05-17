@@ -92,12 +92,11 @@ function displayControl() {
   
       todoCard.classList.add("todoCard");
       title.classList.add('todo-title');
-      title.innerText = `${todo.title}`;
+      title.innerText = `Title: ${todo.title}`;
       description.innerText = `Description: ${todo.description}`;
       dueDate.innerText = `Due Date: ${todo.dueDate}`;
       priority.innerText = `Priority: ${todo.priority}`;
   
-    console.log(todo);
       todoCard.appendChild(title);
       todoCard.appendChild(description);
       todoCard.appendChild(dueDate);
