@@ -77,6 +77,10 @@ function todoChecker() {
   modal.expandButton();
 };
 
+function expandNameAdd() {
+  const todoCards = document.querySelectorAll('.todoCard');
+  const toggleClassName = (el, className) => el.classList.toggle(className);
+};
 
 function displayControl() {
 
