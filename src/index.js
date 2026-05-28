@@ -77,6 +77,11 @@ function todoChecker() {
   modal.expandButton();
 };
 
+function className(element) {
+  const classNameChange = (el, className) => el.classList.toggle(className);
+
+}; 
+
 
 function displayControl() {
 
