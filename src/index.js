@@ -79,7 +79,7 @@ function todoChecker() {
 
 function className(element) {
   const classNameChange = (el, className) => el.classList.toggle(className);
-
+  classNameChange(element, 'expanded');
 }; 
 
 
