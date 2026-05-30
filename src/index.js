@@ -77,10 +77,6 @@ function todoChecker() {
   modal.expandButton();
 };
 
-function className(element) {
-  const classNameChange = (el, className) => el.classList.toggle(className);
-  classNameChange(element, 'expanded');
-}; 
 
 
 function displayControl() {
@@ -149,6 +145,15 @@ function displayControl() {
 
 export function userInput() {
   const container = document.querySelector("#container");
+
+  const className = (event) => {
+    const divEl = document.querySelectorAll('.todoCard');
+    const classNameChange = (el, className) => el.classList.toggle(className);
+    const el = event.target.parentElement;
+
+    //classNameChange(el, 'expanded');
+    //console.log(divEl[0], el);
+  }; 
 
   const submit = () => {
     container.addEventListener("click", function addTodo(event) {
@@ -249,7 +254,7 @@ export function userInput() {
    };
 
 
-  return { submit, projectSubmit, toggleDoneBtn, todoRemovBtn, expandBtn  };
+  return { submit, projectSubmit, toggleDoneBtn, todoRemovBtn, expandBtn, className };
 };
 
 
