@@ -132,10 +132,10 @@ export const modal = (function() {
   const expandButton = () => {
     const title = document.querySelectorAll('.todo-title');
    
-    title.forEach((el) => {
+    title.forEach((el, index) => {
       el.addEventListener('click', (event) => {
 	userInputFunc.expandBtn(event);
-	userInputFunc.className(event);	
+	userInputFunc.className(index);	
       });
     });
   };
