@@ -146,13 +146,12 @@ function displayControl() {
 export function userInput() {
   const container = document.querySelector("#container");
 
-  const className = (event) => {
+  const className = (index) => {
     const divEl = document.querySelectorAll('.todoCard');
     const classNameChange = (el, className) => el.classList.toggle(className);
-    const el = event.target.parentElement;
 
-    //classNameChange(el, 'expanded');
-    //console.log(divEl[0], el);
+    //classNameChange(divEl[index], 'expanded');
+    console.log(divEl[index]);
   }; 
 
   const submit = () => {
