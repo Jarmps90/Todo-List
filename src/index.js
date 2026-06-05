@@ -146,13 +146,18 @@ function displayControl() {
 export function userInput() {
   const container = document.querySelector("#container");
 
-  const className = (index) => {
-    const divEl = document.querySelectorAll('.todoCard');
-    const classNameChange = (el, className) => el.classList.toggle(className);
-
-    //classNameChange(divEl[index], 'expanded');
-    console.log(divEl[index]);
-  }; 
+//  const className = () => {
+//    const divEl = document.querySelectorAll('.todoCard');
+//    const classNameChange = (el, className) => el.classList.toggle(className);
+//    
+//    divEl.forEach((el) => {
+//      el.addEventListener('click', () => {
+//	classNameChange(el, 'expanded');
+//      });
+//    });
+//
+//
+//  }; 
 
   const submit = () => {
     container.addEventListener("click", function addTodo(event) {
@@ -253,7 +258,7 @@ export function userInput() {
    };
 
 
-  return { submit, projectSubmit, toggleDoneBtn, todoRemovBtn, expandBtn, className };
+  return { submit, projectSubmit, toggleDoneBtn, todoRemovBtn, expandBtn };
 };
 
 
