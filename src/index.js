@@ -92,6 +92,7 @@ function displayControl() {
       const priority = document.createElement("p");
   
       todoCard.classList.add("todoCard");
+      todoCard.classList.add("expanded");
       title.classList.add('todo-title');
       title.innerText = `Title: ${todo.title}`;
       description.innerText = `Description: ${todo.description}`;
@@ -145,19 +146,6 @@ function displayControl() {
 
 export function userInput() {
   const container = document.querySelector("#container");
-
-//  const className = () => {
-//    const divEl = document.querySelectorAll('.todoCard');
-//    const classNameChange = (el, className) => el.classList.toggle(className);
-//    
-//    divEl.forEach((el) => {
-//      el.addEventListener('click', () => {
-//	classNameChange(el, 'expanded');
-//      });
-//    });
-//
-//
-//  }; 
 
   const submit = () => {
     container.addEventListener("click", function addTodo(event) {
