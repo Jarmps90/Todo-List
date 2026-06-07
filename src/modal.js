@@ -135,7 +135,6 @@ export const modal = (function() {
     title.forEach((el) => {
       el.addEventListener('click', (event) => {
 	userInputFunc.expandBtn(event);
-	userInputFunc.className();	
       });
     });
   };
