@@ -105,7 +105,7 @@ export const modal = (function() {
 
     addBtn.classList.add('addBtn');
     addBtn.textContent = 'Add';
-    buttonDiv.appendChild(addBtn);
+   buttonDiv.appendChild(addBtn);
 
     addBtn.addEventListener('click', () => {
       form.innerHTML = "";
@@ -153,5 +153,15 @@ export const modal = (function() {
     });
   };
 
-  return { modalCreate, createTodoBtn, createProjectBtn, toggleButton, todoRemovBtn, expandButton }
+  const editButton = () => {
+    const todoCards = document.querySelectorAll('.todoCard');
+
+    todoCards.forEach((card) => {
+      const editBtn = document.createElement('button');
+      editBtn.classList.add('edit');
+      card.appendChild(editBtn);
+    
+    });
+  };
+  return { modalCreate, createTodoBtn, createProjectBtn, toggleButton, todoRemovBtn, expandButton, editButton }
 })();
