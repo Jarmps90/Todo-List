@@ -16,22 +16,29 @@ class CreateTodos {
     this.dueDate = dueDate;
     this.priority = priority;
     this.completed = false;
+    this.expanded = false;
     this.id = self.crypto.randomUUID();
   };
 
  };
 
 class UpdateTodos {
-  constructor(title, description, dueDate, priority, completed, id) {
+  constructor(title, description, dueDate, priority, completed, expanded, id) {
     this.title= title;
     this.description = description;
     this.dueDate = dueDate;
     this.priority = priority;
     this.completed = completed;
+    this.expanded = expanded;
     this.id = id;
   };
   isComplited() {
     this.completed = !this.completed;
+  };
+  //Check how toggeling works and use same logic to expand func
+  //Dont forget classMethod is in UpdateTodos class
+  isExpanded() {
+    this.expanded = !this.expanded;
   };
 }; 
 
@@ -44,11 +51,25 @@ export function objectControl() {
     localStorage.setItem("Projects", JSON.stringify(projetArray));
   };
  
-  const classMethod = (todo, index) => {
-    const newTodo = new UpdateTodos(todo.title, todo.description, todo.dueDate, todo.priority, todo.completed, todo.id); 
+  const completeMethod = (todo, index) => {
+    const newTodo = new UpdateTodos(todo.title, todo.description, todo.dueDate, todo.priority, todo.completed, todo.expanded, todo.id); 
     const id = projectID.getProjectId();
     newTodo.isComplited();
     const todos = projetArray[id].todos
+
+    for(let i = 0; i < todos.length; i++) {
+     if(todos[i].id === newTodo.id) {
+	projetArray[id].todos.splice(index, 1, newTodo);
+	updateLocalStroage();
+      };   
+    };
+  };
+
+  const expandMethod = (todo, index) => {
+    const newTodo = new UpdateTodos(todo.title, todo.description, todo.dueDate, todo.priority, todo.completed, todo.expanded, todo.id); 
+    const id = projectID.getProjectId();
+    const todos = projetArray[id].todos
+    newTodo.isExpanded();
 
     for(let i = 0; i < todos.length; i++) {
      if(todos[i].id === newTodo.id) {
@@ -97,5 +118,6 @@ export function objectControl() {
     return projetArray;
   };
 
-  return { projectControl, todoControl, getProjects, getTodos, classMethod, updateLocalStroage };
+  return { projectControl, todoControl, getProjects, getTodos, completeMethod, expandMethod, updateLocalStroage };
+
 };

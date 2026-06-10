@@ -3,7 +3,7 @@ import { modal } from "./modal.js";
 import "./style.css";
 
 
-const continerControl = (function () {
+const contanerControl = (function () {
   const container = document.querySelector("#container");
 
   const navBar = (function() {
@@ -30,8 +30,13 @@ const continerControl = (function () {
   modal.createTodoBtn();
 })();
 
+<<<<<<< HEAD
 const user = userInput()
 const dpControl = displayControl()
+=======
+const dpControl = displayControl();
+const objects = objectControl();
+>>>>>>> main
 
 export function projectId() {
   const navBar = document.querySelector("nav");
@@ -40,8 +45,12 @@ export function projectId() {
   navBar.addEventListener("click", (event) => {
     projectId = event.target.id;
     objects.getTodos();
+<<<<<<< HEAD
     dpControl.todoDisplaySmall();
     user.expandTodo();
+=======
+    todoChecker();
+>>>>>>> main
   });
 
   const getProjectId = () => projectId;
@@ -60,6 +69,7 @@ function updateDisplay() {
 };
 
 
+<<<<<<< HEAD
 function displayControl() {
 
 const todoDisplay = () => {
@@ -126,9 +136,93 @@ const projectDisplay = () => {
     objectDiv.textContent = element.projectName;
     objectDiv.id = count++;
     navBar.appendChild(objectDiv);
+=======
+function todoChecker() {
+  const todos = objects.getTodos();
+  const todoDiv = document.querySelector(".todoDiv");
+  todoDiv.innerHTML = "";
+
+  todos.forEach((todo) => {
+    if(todo.expanded === true) {
+      dpControl.todoDisplay(todo);
+    } if(todo.expanded === false) {
+      dpControl.todoDisplaySmall(todo);
+    };
+      
+>>>>>>> main
   });
+  modal.editButton();
+  modal.todoRemovBtn();
+  modal.toggleButton();
+  modal.expandButton();
 };
 return { todoDisplay, todoDisplaySmall, projectDisplay };
+};
+
+
+function displayControl() {
+
+  const todoDisplay = (todo) => {
+    const container = document.querySelector("#container");
+    const todoDiv = document.querySelector('.todoDiv');
+    const todoCard = document.createElement('div');
+  
+      const title = document.createElement("div");
+      const description = document.createElement("p");
+      const dueDate = document.createElement("p");
+      const priority = document.createElement("p");
+  
+      todoCard.classList.add("todoCard");
+      todoCard.classList.add("expanded");
+      title.classList.add('todo-title');
+      title.innerText = `Title: ${todo.title}`;
+      description.innerText = `Description: ${todo.description}`;
+      dueDate.innerText = `Due Date: ${todo.dueDate}`;
+      priority.innerText = `Priority: ${todo.priority}`;
+  
+      todoCard.appendChild(title);
+      todoCard.appendChild(description);
+      todoCard.appendChild(dueDate);
+      todoCard.appendChild(priority);
+      todoDiv.appendChild(todoCard);
+      container.appendChild(todoDiv);
+  };
+  
+  
+  const todoDisplaySmall = (todo) => {
+    const container = document.querySelector("#container");
+    const todoDiv = document.querySelector('.todoDiv');
+    
+      const todoCard = document.createElement("div");
+      const title = document.createElement("p");
+
+      todoCard.classList.add("todoCard");
+      title.classList.add('todo-title');
+      title.innerText = `${todo.title}`;
+  
+      todoCard.appendChild(title);
+      todoDiv.appendChild(todoCard);
+      container.appendChild(todoDiv);
+  };
+  
+  const projectDisplay = () => {
+    const navBar = document.querySelector("nav");
+    const projectArray = objects.getProjects();
+    let count = 0;
+    navBar.innerHTML = "";
+  
+    projectArray.forEach((element) => {
+      const objectDiv = document.createElement("div");
+  
+      objectDiv.textContent = element.projectName;
+      objectDiv.id = count++;
+      navBar.appendChild(objectDiv);
+    });
+  };
+
+ 
+  return { todoDisplay, todoDisplaySmall, projectDisplay };
+
 };
 
 export function userInput() {
@@ -149,7 +243,11 @@ export function userInput() {
           todoDueDate,
           todoPriority,
         );
+<<<<<<< HEAD
         dpControl.todoDisplaySmall();
+=======
+	todoChecker();
+>>>>>>> main
         event.preventDefault();
         dialog.close();
         dialog.remove();
@@ -174,7 +272,7 @@ export function userInput() {
         const prjectName = document.getElementById("project").value;
 
         objects.projectControl(prjectName);
-        projectDisplay();
+        dpControl.projectDisplay();
         event.preventDefault();
         dialog.close();
         dialog.remove();
@@ -182,7 +280,6 @@ export function userInput() {
       };
     });
   };
-
 
   const toggleDoneBtn = (event) => {
     const todoCards = document.querySelectorAll('.todoCard'); 
@@ -196,7 +293,23 @@ export function userInput() {
     const cardId = todoCard.getAttribute('data-id');
     const todoIndex = todos.findIndex((todo) => todo.id === cardId); 
 
-    objects.classMethod(todos[todoIndex], todoIndex); 
+    objects.completeMethod(todos[todoIndex], todoIndex); 
+  };
+
+  const expandBtn = (event) => {
+    const todoCards = document.querySelectorAll('.todoCard'); 
+    const todos = objects.getTodos();
+
+    todoCards.forEach((todoCards, index) => {
+     todoCards.dataset.id = todos[index].id
+    });
+
+    const todoCard = event.target.parentElement;
+    const cardId = todoCard.getAttribute('data-id');
+    const todoIndex = todos.findIndex((todo) => todo.id === cardId); 
+
+    objects.expandMethod(todos[todoIndex], todoIndex); 
+    todoChecker();
   };
 
   const todoRemovBtn = (event) => {
@@ -217,6 +330,7 @@ export function userInput() {
     objects.updateLocalStroage();
    };
 
+<<<<<<< HEAD
  const expandTodo = () => {
   const todoCard = document.querySelectorAll('.todoCard');
  };
@@ -225,5 +339,11 @@ export function userInput() {
 };
 
 const objects = objectControl();
+=======
+
+  return { submit, projectSubmit, toggleDoneBtn, todoRemovBtn, expandBtn };
+};
+
+>>>>>>> main
 
 updateDisplay()
