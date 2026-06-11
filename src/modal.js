@@ -160,7 +160,10 @@ export const modal = (function() {
       const editBtn = document.createElement('button');
       editBtn.classList.add('edit');
       card.appendChild(editBtn);
-    
+      editBtn.addEventListener('click', () => {
+	modalCreate();
+	dialog.showModal();
+      }); 
     });
   };
   return { modalCreate, createTodoBtn, createProjectBtn, toggleButton, todoRemovBtn, expandButton, editButton }
