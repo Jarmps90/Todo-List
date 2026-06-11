@@ -30,13 +30,8 @@ const contanerControl = (function () {
   modal.createTodoBtn();
 })();
 
-<<<<<<< HEAD
-const user = userInput()
-const dpControl = displayControl()
-=======
 const dpControl = displayControl();
 const objects = objectControl();
->>>>>>> main
 
 export function projectId() {
   const navBar = document.querySelector("nav");
@@ -45,12 +40,7 @@ export function projectId() {
   navBar.addEventListener("click", (event) => {
     projectId = event.target.id;
     objects.getTodos();
-<<<<<<< HEAD
-    dpControl.todoDisplaySmall();
-    user.expandTodo();
-=======
     todoChecker();
->>>>>>> main
   });
 
   const getProjectId = () => projectId;
@@ -69,74 +59,6 @@ function updateDisplay() {
 };
 
 
-<<<<<<< HEAD
-function displayControl() {
-
-const todoDisplay = () => {
-  const container = document.querySelector("#container");
-  const todoDiv = document.querySelector('.todoDiv');
-  const todoArray = objects.getTodos();
-  todoDiv.innerHTML = "";
-
-  for (let i = 0; i < todoArray.length; i++) {
-    const todoCard = document.createElement("div");
-    todoCard.classList.add("todoCard");
-
-    const title = document.createElement("p");
-    const description = document.createElement("p");
-    const dueDate = document.createElement("p");
-    const priority = document.createElement("p");
-
-    title.innerText = `Title: ${todoArray[i].title}`;
-    description.innerText = `Description: ${todoArray[i].description}`;
-    dueDate.innerText = `Due Date: ${todoArray[i].dueDate}`;
-    priority.innerText = `Priority: ${todoArray[i].priority}`;
-
-    todoCard.appendChild(title);
-    todoCard.appendChild(description);
-    todoCard.appendChild(dueDate);
-    todoCard.appendChild(priority);
-
-    todoDiv.appendChild(todoCard);
-    container.appendChild(todoDiv);
-  };
-  modal.toggleButton();
-  modal.todoRemovBtn();
-};
-
-
-const todoDisplaySmall = () => {
-  const container = document.querySelector("#container");
-  const todoDiv = document.querySelector('.todoDiv');
-  const todoArray = objects.getTodos();
-  todoDiv.innerHTML = "";
-  
-  for (let i = 0; i < todoArray.length; i++) {
-    const todoCard = document.createElement("div");
-    todoCard.classList.add("todoCard");
-
-    const title = document.createElement("p");
-    title.innerText = `${todoArray[i].title}`;
-
-    todoCard.appendChild(title);
-    todoDiv.appendChild(todoCard);
-    container.appendChild(todoDiv);
-  };
-};
-
-const projectDisplay = () => {
-  const navBar = document.querySelector("nav");
-  const projectArray = objects.getProjects();
-  let count = 0;
-  navBar.innerHTML = "";
-
-  projectArray.forEach((element) => {
-    const objectDiv = document.createElement("div");
-
-    objectDiv.textContent = element.projectName;
-    objectDiv.id = count++;
-    navBar.appendChild(objectDiv);
-=======
 function todoChecker() {
   const todos = objects.getTodos();
   const todoDiv = document.querySelector(".todoDiv");
@@ -149,15 +71,13 @@ function todoChecker() {
       dpControl.todoDisplaySmall(todo);
     };
       
->>>>>>> main
   });
-  modal.editButton();
+      modal.editButton();
   modal.todoRemovBtn();
   modal.toggleButton();
   modal.expandButton();
 };
-return { todoDisplay, todoDisplaySmall, projectDisplay };
-};
+
 
 
 function displayControl() {
@@ -243,11 +163,7 @@ export function userInput() {
           todoDueDate,
           todoPriority,
         );
-<<<<<<< HEAD
-        dpControl.todoDisplaySmall();
-=======
 	todoChecker();
->>>>>>> main
         event.preventDefault();
         dialog.close();
         dialog.remove();
@@ -330,20 +246,9 @@ export function userInput() {
     objects.updateLocalStroage();
    };
 
-<<<<<<< HEAD
- const expandTodo = () => {
-  const todoCard = document.querySelectorAll('.todoCard');
- };
-
-  return { submit, projectSubmit, toggleDoneBtn, todoRemovBtn, expandTodo };
-};
-
-const objects = objectControl();
-=======
 
   return { submit, projectSubmit, toggleDoneBtn, todoRemovBtn, expandBtn };
 };
 
->>>>>>> main
 
 updateDisplay()
