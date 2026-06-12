@@ -144,6 +144,7 @@ export const modal = (function() {
 
     todoCards.forEach((card) => {
       const removeBtn = document.createElement('button');
+      removeBtn.textContent = 'Remove';
       removeBtn.classList.add('remove');
       card.appendChild(removeBtn);
       removeBtn.addEventListener('click', (event) => {
@@ -158,6 +159,7 @@ export const modal = (function() {
 
     todoCards.forEach((card) => {
       const editBtn = document.createElement('button');
+      editBtn.textContent = 'Edit';
       editBtn.classList.add('edit');
       card.appendChild(editBtn);
       editBtn.addEventListener('click', () => {
