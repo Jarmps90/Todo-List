@@ -72,7 +72,7 @@ function todoChecker() {
     };
       
   });
-      modal.editButton();
+  modal.editButton();
   modal.todoRemovBtn();
   modal.toggleButton();
   modal.expandButton();
