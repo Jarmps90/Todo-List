@@ -57,17 +57,17 @@ export const modal = (function() {
 
   const modalCreate = () => {
 
-    const titleLabel = LabelElements('title', 'Title:')
-    const titleInput = InputElements('text', 'title', 'title');
-    const textLabel = LabelElements('description', 'Desctioption:');
-    const textInput = InputElements('text', 'description', 'description');
-    const dueDateLabel = LabelElements('dueDate', 'Due date:');
-    const dueDateInput = InputElements('date', 'dueDate', 'dueDate');
-    const priorityLabel = LabelElements('priority-select', 'Select priority:');
-    const selectPriority = CreateSelect("''", 'Please choose an option');
-    const lowPrioriy = CreateSelect('low', 'Low');
-    const mediumPriority = CreateSelect('medium', 'Medium');
-    const highPriority = CreateSelect('high', 'High');
+    LabelElements('title', 'Title:')
+    InputElements('text', 'title', 'title');
+    LabelElements('description', 'Desctioption:');
+    InputElements('text', 'description', 'description');
+    LabelElements('dueDate', 'Due date:');
+    InputElements('date', 'dueDate', 'dueDate');
+    LabelElements('priority-select', 'Select priority:');
+    CreateSelect("''", 'Please choose an option');
+    CreateSelect('low', 'Low');
+    CreateSelect('medium', 'Medium');
+    CreateSelect('high', 'High');
     const submitButton = document.createElement('button');
 
     submitButton.id = 'submitBtn';
