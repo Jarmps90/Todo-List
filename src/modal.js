@@ -82,8 +82,8 @@ export const modal = (function() {
     container.appendChild(dialog);
     dialog.appendChild(form);
     form.appendChild(submitButton);
-
   };
+
   const createProjectBtn = () => {
     const projectModalBtn = document.createElement('button');
     const buttonDiv = document.querySelector('.button-bar');
