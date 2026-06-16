@@ -169,6 +169,9 @@ export const modal = (function() {
 	modalCreate();
 	dialog.showModal();
 	form.appendChild(updateBtn);
+	updateBtn.addEventListener('click', () => {
+	  alert('This button works');
+	})
 	// Look how todo add works
       }); 
     });
