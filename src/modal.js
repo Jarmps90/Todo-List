@@ -163,8 +163,13 @@ export const modal = (function() {
       editBtn.classList.add('edit');
       card.appendChild(editBtn);
       editBtn.addEventListener('click', () => {
+	const updateBtn = document.createElement('button');
+	updateBtn.id = 'updateBtn';
+	updateBtn.textContent = 'Update';
 	modalCreate();
 	dialog.showModal();
+	form.appendChild(updateBtn);
+	// Look how todo add works
       }); 
     });
   };
