@@ -68,20 +68,20 @@ export const modal = (function() {
     CreateSelect('low', 'Low');
     CreateSelect('medium', 'Medium');
     CreateSelect('high', 'High');
-    const submitButton = document.createElement('button');
+    //const submitButton = document.createElement('button');
 
-    submitButton.id = 'submitBtn';
-    submitButton.textContent = 'Add';
+    //submitButton.id = 'submitBtn';
+    //submitButton.textContent = 'Add';
     dialog.id = 'todoModal';
     form.id = 'todoForm';
-    form.onsubmit = userInputFunc.submit();
+    //form.onsubmit = userInputFunc.submit();
     prioritySelect.id = 'priority-select';
     prioritySelect.name = 'priority';
 
     form.appendChild(prioritySelect);
     container.appendChild(dialog);
     dialog.appendChild(form);
-    form.appendChild(submitButton);
+    //form.appendChild(submitButton);
   };
 
   const createProjectBtn = () => {
@@ -110,7 +110,12 @@ export const modal = (function() {
     addBtn.addEventListener('click', () => {
       form.innerHTML = "";
       modalCreate();
+      const submitButton = document.createElement('button');
+      submitButton.id = 'submitBtn';
+      submitButton.textContent = 'Add';
+      form.appendChild(submitButton);
       dialog.showModal();
+      form.onsubmit = userInputFunc.submit();
     });
   };
 
