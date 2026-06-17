@@ -246,12 +246,13 @@ export function userInput() {
     objects.updateLocalStroage();
    };
 
-  const update = () => {
-    alert('This button works');
+  const update = (event) => {
+    console.log(event);
   };
 
 
-  return { submit, projectSubmit, toggleDoneBtn, todoRemovBtn, expandBtn, update };
+
+  return { submit, projectSubmit, toggleDoneBtn, todoRemovBtn, expandBtn, update  };
 };
 
 
