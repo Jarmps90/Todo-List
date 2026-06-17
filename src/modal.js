@@ -100,7 +100,7 @@ export const modal = (function() {
 
     addBtn.classList.add('addBtn');
     addBtn.textContent = 'Add';
-   buttonDiv.appendChild(addBtn);
+    buttonDiv.appendChild(addBtn);
 
     addBtn.addEventListener('click', () => {
       form.innerHTML = "";
@@ -163,17 +163,22 @@ export const modal = (function() {
       editBtn.classList.add('edit');
       card.appendChild(editBtn);
       editBtn.addEventListener('click', () => {
-	const updateBtn = document.createElement('button');
-	updateBtn.id = 'updateBtn';
-	updateBtn.textContent = 'Update';
+	form.innerHTML = "";
 	modalCreate();
 	dialog.showModal();
-	form.appendChild(updateBtn);
-	updateBtn.addEventListener('click', () => {
-	  alert('This button works');
-	})
-	// Look how todo add works
+	updateBtn();
       }); 
+    });
+  };
+
+  const updateBtn = () => {
+    const updateBtn = document.createElement('button');
+    updateBtn.id = 'updateBtn';
+    updateBtn.textContent = 'Update';
+    form.appendChild(updateBtn);
+
+    updateBtn.addEventListener('click', () => {
+      form.onsubmit = userInputFunc.update();
     });
   };
   return { modalCreate, createTodoBtn, createProjectBtn, toggleButton, todoRemovBtn, expandButton, editButton }
