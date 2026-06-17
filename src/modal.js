@@ -177,8 +177,8 @@ export const modal = (function() {
     updateBtn.textContent = 'Update';
     form.appendChild(updateBtn);
 
-    updateBtn.addEventListener('click', () => {
-      form.onsubmit = userInputFunc.update();
+    updateBtn.addEventListener('click', (event) => {
+      form.onsubmit = userInputFunc.update(event);
     });
   };
   return { modalCreate, createTodoBtn, createProjectBtn, toggleButton, todoRemovBtn, expandButton, editButton }
