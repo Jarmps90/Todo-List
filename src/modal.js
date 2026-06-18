@@ -165,6 +165,8 @@ export const modal = (function() {
       editBtn.addEventListener('click', () => {
 	form.innerHTML = "";
 	modalCreate();
+	//Get todo datat to fill form fields
+	document.getElementById('title').value = ''; 
 	dialog.showModal();
 	updateBtn();
       }); 
@@ -174,11 +176,13 @@ export const modal = (function() {
   const updateBtn = () => {
     const updateBtn = document.createElement('button');
     updateBtn.id = 'updateBtn';
+    updateBtn.setAttribute('type', 'button');
     updateBtn.textContent = 'Update';
     form.appendChild(updateBtn);
 
     updateBtn.addEventListener('click', (event) => {
       form.onsubmit = userInputFunc.update(event);
+      dialog.close();
     });
   };
   return { modalCreate, createTodoBtn, createProjectBtn, toggleButton, todoRemovBtn, expandButton, editButton }
