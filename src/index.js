@@ -246,8 +246,9 @@ export function userInput() {
     objects.updateLocalStroage();
    };
 
-  const getInputValues = () => {
+  const getInputValues = (id) => {
     const todos = objects.getTodos()
+    //const title = todos[id].title
     const title = todos[0].title
     
     document.getElementById('title').value = title; 
