@@ -246,13 +246,18 @@ export function userInput() {
     objects.updateLocalStroage();
    };
 
-  const update = (event) => {
-    console.log(event);
+  const getInputValues = () => {
+    const title = document.querySelector('.todo-title').textContent;
+    console.log(title);
+    document.getElementById('title').value = title; 
+    document.getElementById('description').value = 'This is test todo'; 
+    document.getElementById('dueDate').value = '2026-04-14'; 
+    document.getElementById('priority-select').value = 'low'; 
   };
 
 
 
-  return { submit, projectSubmit, toggleDoneBtn, todoRemovBtn, expandBtn, update  };
+  return { submit, projectSubmit, toggleDoneBtn, todoRemovBtn, expandBtn, getInputValues  };
 };
 
 
