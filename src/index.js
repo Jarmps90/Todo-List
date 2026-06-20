@@ -247,8 +247,9 @@ export function userInput() {
    };
 
   const getInputValues = () => {
-    const title = document.querySelector('.todo-title').textContent;
-    console.log(title);
+    const todos = objects.getTodos()
+    const title = todos[0].title
+    
     document.getElementById('title').value = title; 
     document.getElementById('description').value = 'This is test todo'; 
     document.getElementById('dueDate').value = '2026-04-14'; 
