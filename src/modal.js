@@ -165,9 +165,8 @@ export const modal = (function() {
       editBtn.addEventListener('click', () => {
 	form.innerHTML = "";
 	modalCreate();
-	//Get todo datat to fill form fields
-	document.getElementById('title').value = ''; 
 	dialog.showModal();
+	userInputFunc.getInputValues();
 	updateBtn();
       }); 
     });
@@ -181,7 +180,7 @@ export const modal = (function() {
     form.appendChild(updateBtn);
 
     updateBtn.addEventListener('click', (event) => {
-      form.onsubmit = userInputFunc.update(event);
+      console.log(event);
       dialog.close();
     });
   };
