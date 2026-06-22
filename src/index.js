@@ -248,13 +248,15 @@ export function userInput() {
 
   const getInputValues = (id) => {
     const todos = objects.getTodos()
-    //const title = todos[id].title
     const title = todos[0].title
+    const description = todos[0].description
+    const dueDate = todos[0].dueDate
+    const priority = todos[0].priority
     
     document.getElementById('title').value = title; 
-    document.getElementById('description').value = 'This is test todo'; 
-    document.getElementById('dueDate').value = '2026-04-14'; 
-    document.getElementById('priority-select').value = 'low'; 
+    document.getElementById('description').value = description; 
+    document.getElementById('dueDate').value = dueDate; 
+    document.getElementById('priority-select').value = priority; 
   };
 
 
