@@ -162,11 +162,11 @@ export const modal = (function() {
       editBtn.textContent = 'Edit';
       editBtn.classList.add('edit');
       card.appendChild(editBtn);
-      editBtn.addEventListener('click', () => {
+      editBtn.addEventListener('click', (event) => {
 	form.innerHTML = "";
 	modalCreate();
 	dialog.showModal();
-	userInputFunc.getInputValues();
+	userInputFunc.getTodoIndex(event);
 	updateBtn();
       }); 
     });
@@ -179,8 +179,7 @@ export const modal = (function() {
     updateBtn.textContent = 'Update';
     form.appendChild(updateBtn);
 
-    updateBtn.addEventListener('click', (event) => {
-      console.log(event);
+    updateBtn.addEventListener('click', () => {
       dialog.close();
     });
   };
