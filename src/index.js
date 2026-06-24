@@ -246,12 +246,27 @@ export function userInput() {
     objects.updateLocalStroage();
    };
 
+  const getTodoIndex  = (event) => {
+    const todoCards = document.querySelectorAll('.todoCard'); 
+    const todos = objects.getTodos();
+
+    todoCards.forEach((todoCards, index) => {
+     todoCards.dataset.id = todos[index].id
+    });
+
+    const todoCard = event.target.parentElement;
+    const cardId = todoCard.getAttribute('data-id');
+    const todoIndex = todos.findIndex((todo) => todo.id === cardId); 
+      
+    getInputValues(todoIndex);
+  };
+
   const getInputValues = (id) => {
     const todos = objects.getTodos()
-    const title = todos[0].title
-    const description = todos[0].description
-    const dueDate = todos[0].dueDate
-    const priority = todos[0].priority
+    const title = todos[id].title
+    const description = todos[id].description
+    const dueDate = todos[id].dueDate
+    const priority = todos[id].priority
     
     document.getElementById('title').value = title; 
     document.getElementById('description').value = description; 
@@ -261,7 +276,7 @@ export function userInput() {
 
 
 
-  return { submit, projectSubmit, toggleDoneBtn, todoRemovBtn, expandBtn, getInputValues  };
+  return { submit, projectSubmit, toggleDoneBtn, todoRemovBtn, expandBtn, getInputValues, getTodoIndex  };
 };
 
 
