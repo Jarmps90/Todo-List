@@ -197,6 +197,27 @@ export function userInput() {
     });
   };
 
+  const update = () => {
+    container.addEventListener("click", function updateTodo(event) {
+      if (event.target.id === "submitBtn") {
+        const dialog = document.querySelector("#todoModal");
+        const todoTitle = document.getElementById("title").value;
+        const todoDescription = document.getElementById("description").value;
+        const todoDueDate = document.getElementById("dueDate").value;
+        const todoPriority = document.getElementById("priority-select").value;
+	
+	console.log(todoTitle, todoDueDate, todoDescription, todoPriority);
+        
+	todoChecker();
+        event.preventDefault();
+        dialog.close();
+        dialog.remove();
+        container.removeEventListener("click", updateTodo);
+      };
+    });
+
+  };
+
   const toggleDoneBtn = (event) => {
     const todoCards = document.querySelectorAll('.todoCard'); 
     const todos = objects.getTodos();
@@ -257,12 +278,11 @@ export function userInput() {
     const todoCard = event.target.parentElement;
     const cardId = todoCard.getAttribute('data-id');
     const todoIndex = todos.findIndex((todo) => todo.id === cardId); 
-    
-    return todoIndex;
-    
+      
+    getInputValues(todoIndex);
   };
 
-    const getInputValues = (id) => {
+  const getInputValues = (id) => {
     const todos = objects.getTodos()
     const title = todos[id].title
     const description = todos[id].description
@@ -277,7 +297,7 @@ export function userInput() {
 
 
 
-  return { submit, projectSubmit, toggleDoneBtn, todoRemovBtn, expandBtn, getInputValues, getTodoIndex  };
+  return { submit, projectSubmit, update, toggleDoneBtn, todoRemovBtn, expandBtn, getInputValues, getTodoIndex  };
 };
 
 
