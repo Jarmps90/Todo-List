@@ -199,7 +199,7 @@ export function userInput() {
 
   const update = () => {
     container.addEventListener("click", function updateTodo(event) {
-      if (event.target.id === "submitBtn") {
+      if (event.target.id === "updateBtn") {
         const dialog = document.querySelector("#todoModal");
         const todoTitle = document.getElementById("title").value;
         const todoDescription = document.getElementById("description").value;
@@ -279,7 +279,7 @@ export function userInput() {
     const cardId = todoCard.getAttribute('data-id');
     const todoIndex = todos.findIndex((todo) => todo.id === cardId); 
       
-    getInputValues(todoIndex);
+    return todoIndex;
   };
 
   const getInputValues = (id) => {
