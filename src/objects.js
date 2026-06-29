@@ -35,8 +35,6 @@ class UpdateTodos {
   isComplited() {
     this.completed = !this.completed;
   };
-  //Check how toggeling works and use same logic to expand func
-  //Dont forget classMethod is in UpdateTodos class
   isExpanded() {
     this.expanded = !this.expanded;
   };
@@ -50,13 +48,12 @@ export function objectControl() {
     //It updateds todos list in local storage.
     localStorage.setItem("Projects", JSON.stringify(projetArray));
   };
- 
+
   const completeMethod = (todo, index) => {
     const newTodo = new UpdateTodos(todo.title, todo.description, todo.dueDate, todo.priority, todo.completed, todo.expanded, todo.id); 
     const id = projectID.getProjectId();
     newTodo.isComplited();
     const todos = projetArray[id].todos
-
     for(let i = 0; i < todos.length; i++) {
      if(todos[i].id === newTodo.id) {
 	projetArray[id].todos.splice(index, 1, newTodo);

@@ -257,12 +257,12 @@ export function userInput() {
     const todoCard = event.target.parentElement;
     const cardId = todoCard.getAttribute('data-id');
     const todoIndex = todos.findIndex((todo) => todo.id === cardId); 
-
-    return  [todos[todoIndex], todoIndex]; 
-   
+    
+    return todoIndex;
+    
   };
 
-  const getInputValues = (id) => {
+    const getInputValues = (id) => {
     const todos = objects.getTodos()
     const title = todos[id].title
     const description = todos[id].description

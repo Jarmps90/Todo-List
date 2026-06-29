@@ -1,5 +1,6 @@
 //Modals and button related stuff
 import { userInput } from "./index.js";
+import { objectControl } from "./objects.js";
 
 export const modal = (function() {
 
@@ -166,7 +167,8 @@ export const modal = (function() {
 	form.innerHTML = "";
 	modalCreate();
 	dialog.showModal();
-	userInputFunc.getTodoIndex(event);
+	const index = userInputFunc.getTodoIndex(event);
+	userInputFunc.getInputValues(index);
 	updateBtn();
       }); 
     });
