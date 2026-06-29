@@ -180,10 +180,7 @@ export const modal = (function() {
     updateBtn.setAttribute('type', 'button');
     updateBtn.textContent = 'Update';
     form.appendChild(updateBtn);
-
-    updateBtn.addEventListener('click', () => {
-      dialog.close();
-    });
+    form.onsubmit = userInputFunc.update();
   };
   return { modalCreate, createTodoBtn, createProjectBtn, toggleButton, todoRemovBtn, expandButton, editButton }
 })();
