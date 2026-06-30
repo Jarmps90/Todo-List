@@ -169,18 +169,18 @@ export const modal = (function() {
 	dialog.showModal();
 	const index = userInputFunc.getTodoIndex(event);
 	userInputFunc.getInputValues(index);
-	updateBtn();
+	updateBtn(index);
       }); 
     });
   };
 
-  const updateBtn = () => {
+  const updateBtn = (index) => {
     const updateBtn = document.createElement('button');
     updateBtn.id = 'updateBtn';
     updateBtn.setAttribute('type', 'button');
     updateBtn.textContent = 'Update';
     form.appendChild(updateBtn);
-    form.onsubmit = userInputFunc.update();
+    form.onsubmit = userInputFunc.update(index);
   };
   return { modalCreate, createTodoBtn, createProjectBtn, toggleButton, todoRemovBtn, expandButton, editButton }
 })();
