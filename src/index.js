@@ -197,7 +197,9 @@ export function userInput() {
     });
   };
 
-  const update = () => {
+  const update = (index) => {
+    const todos = objects.getTodos();
+    const todo = todos[index];
     container.addEventListener("click", function updateTodo(event) {
       if (event.target.id === "updateBtn") {
         const dialog = document.querySelector("#todoModal");
@@ -205,9 +207,11 @@ export function userInput() {
         const todoDescription = document.getElementById("description").value;
         const todoDueDate = document.getElementById("dueDate").value;
         const todoPriority = document.getElementById("priority-select").value;
-	
-	console.log(todoTitle, todoDueDate, todoDescription, todoPriority);
-        
+
+	console.log(todo.expanded);
+
+        objects.updateTodos(todoTitle, todoDueDate, todoDescription, todoPriority, todo.completed, todo.expanded, todo.id);
+
 	todoChecker();
         event.preventDefault();
         dialog.close();
