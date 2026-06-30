@@ -76,10 +76,17 @@ export function objectControl() {
     };
   };
 
-  const updateTodos = (todoTitle, todoDueDate, todoDescription, todoPriority, completed, expanded, id) => {
-    const newTodo2 = new UpdateTodos(todoTitle, todoDueDate, todoDescription, todoPriority, completed, expanded, id);
+  const updateTodos = (index, todoTitle, todoDueDate, todoDescription, todoPriority, completed, expanded, id) => {
+    const newTodo = new UpdateTodos(todoTitle, todoDueDate, todoDescription, todoPriority, completed, expanded, id);
+    const pId = projectID.getProjectId();
+    const todos = projetArray[pId].todos
 
-    console.log(newTodo2);
+    for(let i = 0; i < todos.length; i++) {
+      if(todos[i].id === newTodo.id) {
+	projetArray[pId].todos.splice(index, 1, newTodo);
+	updateLocalStroage();
+      };
+    };
   };
 
   const getTodos = () => {
