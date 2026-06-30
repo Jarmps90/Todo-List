@@ -76,6 +76,12 @@ export function objectControl() {
     };
   };
 
+  const updateTodos = (todoTitle, todoDueDate, todoDescription, todoPriority, completed, expanded, id) => {
+    const newTodo2 = new UpdateTodos(todoTitle, todoDueDate, todoDescription, todoPriority, completed, expanded, id);
+
+    console.log(newTodo2);
+  };
+
   const getTodos = () => {
     const id = projectID.getProjectId();
     let todoArray = [];
@@ -115,6 +121,6 @@ export function objectControl() {
     return projetArray;
   };
 
-  return { projectControl, todoControl, getProjects, getTodos, completeMethod, expandMethod, updateLocalStroage };
+  return { projectControl, todoControl, getProjects, getTodos, completeMethod, expandMethod, updateLocalStroage, updateTodos };
 
 };
