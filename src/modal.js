@@ -1,6 +1,5 @@
 //Modals and button related stuff
 import { userInput } from "./index.js";
-import { objectControl } from "./objects.js";
 
 export const modal = (function() {
 
