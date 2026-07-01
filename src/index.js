@@ -208,7 +208,7 @@ export function userInput() {
         const todoDueDate = document.getElementById("dueDate").value;
         const todoPriority = document.getElementById("priority-select").value;
 
-        objects.updateTodos(index, todoTitle, todoDueDate, todoDescription, todoPriority, todo.completed, todo.expanded, todo.id);
+        objects.updateTodos(index, todoTitle, todoDescription, todoDueDate, todoPriority, todo.completed, todo.expanded, todo.id);
 
 	todoChecker();
         event.preventDefault();
