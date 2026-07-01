@@ -57,6 +57,7 @@ export const modal = (function() {
 
   const modalCreate = () => {
 
+    prioritySelect.innerHTML = "";
     LabelElements('title', 'Title:')
     InputElements('text', 'title', 'title');
     LabelElements('description', 'Desctioption:');
