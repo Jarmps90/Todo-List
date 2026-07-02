@@ -75,6 +75,13 @@ header {
   height: 30px;
 }
 
+.todo-title {
+  cursor: pointer;
+   
+}
+.todo-title::highlight {
+    background: red;
+  }
 
 
 
