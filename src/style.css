@@ -1,3 +1,20 @@
+
+
+header {grid-area: header;}
+.button-bar {grid-area: buttons;}
+.projec-bar {grid-area: projects;}
+.todoDiv {grid-area: todos;}
+
+#container {
+    display: grid;
+    grid-template-areas:
+    'header header header header header header'
+    'buttons buttons buttons buttons buttons buttons'
+    'projects todos todos todos todos todos';
+}
+
+
+
 .todoCard {
     width: fit-content;
     border: 1px solid black;
@@ -6,16 +23,9 @@
     padding: 5px;
 }
 
-#container {
-    display: grid;
-    gap: 10px;
-    grid-template-columns: 0.5fr 3fr;
-}
-
-
-
 header {
-    height: 100px;
+  height: 100px;
+
 }
 
 button {
@@ -23,20 +33,8 @@ button {
     height: 30px;
 }
 
-.button-bar {
-    display: grid;
-    grid-column: 1/3;
-    grid-row: 1/2;
-    border: 1px, solid, black;
-    border-radius: 5px;
-    top: 10px;
-    .addBtn {
-        grid-column: 2/3;
-    }
-}
 
 nav {
-    grid-column: 1/2;
     display: flex;
     flex: 2;
     flex-direction: column;
