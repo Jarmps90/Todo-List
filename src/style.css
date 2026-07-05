@@ -12,7 +12,7 @@ header {grid-area: header;}
 #container {
     display: grid;
     grid-template-columns: 1fr 8fr;
-    grid-template-rows: 3fr 1fr 4fr 4fr;
+    grid-template-rows: min-content max-content 3fr;
     grid-template-areas:
     'header header '
     'buttons buttons '
@@ -24,6 +24,7 @@ header {grid-area: header;}
 header {
     border: solid 1px black;
     margin: 2px;
+    min-height: 100px;
 }
 
 .button-bar {
@@ -38,6 +39,7 @@ header {
     margin: 2px;
 }
 .todoCard {
+    display: grid;
     border: solid, 1px, black;
     margin: 10px;
     padding: 5px;
@@ -51,12 +53,16 @@ nav {
     flex-direction: column;
     border: solid 1px black;
     margin: 2px;
+    
 }
 
 nav > div {
   cursor: pointer;
 }
 
+nav > div:active {
+  background-color: red;
+}
 
 /*Buttons*/
 
