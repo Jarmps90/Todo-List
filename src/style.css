@@ -1,5 +1,9 @@
+:root {
+  --text-font-1-5: 1.5rem;
 
+}
 
+/*Grid areas*/
 header {grid-area: header;}
 .button-bar {grid-area: buttons;}
 .projec-bar {grid-area: projects;}
@@ -7,55 +11,60 @@ header {grid-area: header;}
 
 #container {
     display: grid;
+    grid-template-columns: 1fr 8fr;
+    grid-template-rows: 3fr 1fr 4fr 4fr;
     grid-template-areas:
-    'header header header header header header'
-    'buttons buttons buttons buttons buttons buttons'
-    'projects todos todos todos todos todos';
+    'header header '
+    'buttons buttons '
+    'projects todos';
 }
 
-
-
-.todoCard {
-    width: fit-content;
-    border: 1px solid black;
-    border-radius: 5px;
-    margin: 10px;
-    padding: 5px;
-}
+/*Elements*/
 
 header {
-  height: 100px;
-
+    border: solid 1px black;
+    margin: 2px;
 }
+
+.button-bar {
+    border: solid 1px black;
+    margin: 2px;
+}
+
+.todoDiv {
+    display: grid;
+    flex-direction: column;
+    border: solid 1px black;
+    margin: 2px;
+}
+.todoCard {
+    border: solid, 1px, black;
+    margin: 10px;
+    padding: 5px;
+    margin: 2px;
+}
+
+nav {
+    font-size: var(--main-font500);
+    display: flex;
+    flex: 2;
+    flex-direction: column;
+    border: solid 1px black;
+    margin: 2px;
+}
+
+nav > div {
+  cursor: pointer;
+}
+
+
+/*Buttons*/
 
 button {
     width: 100px;
     height: 30px;
+    margin: 2px;
 }
-
-
-nav {
-    display: flex;
-    flex: 2;
-    flex-direction: column;
-}
-
-.todoDiv {
-    display: flex;
-    border: 1px solid black;
-    border-radius: 5px;
-}
-
-.projec-bar {
-    border: 1px solid black;
-    border-radius: 5px;
-}
-
-header {
-    border: 1px solid black;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    }
 
 .toggle {
   border: 1px, solid, black;
@@ -75,11 +84,5 @@ header {
 
 .todo-title {
   cursor: pointer;
-   
 }
-.todo-title::highlight {
-    background: red;
-  }
-
-
 
