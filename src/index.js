@@ -39,6 +39,8 @@ export function projectId() {
 
   navBar.addEventListener("click", (event) => {
     projectId = event.target.id;
+    document.querySelector('.active')?.classList.remove('active');
+    document.getElementById(event.target.id).classList.add('active');  
     objects.getTodos();
     todoChecker();
   });
