@@ -97,6 +97,9 @@ function displayControl() {
       todoCard.classList.add("todoCard");
       todoCard.classList.add("expanded");
       title.classList.add('todo-title');
+      description.classList.add('todo-description');
+      dueDate.classList.add('todo-duedate');
+      priority.classList.add('todo-priority');
       title.innerText = `Title: ${todo.title}`;
       description.innerText = `Description: ${todo.description}`;
       dueDate.innerText = `Due Date: ${todo.dueDate}`;
