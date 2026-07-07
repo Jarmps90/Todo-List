@@ -24,6 +24,9 @@ header {grid-area: header;}
 /*TodoCard areas*/
 .toggle {grid-area: doneBtn;}
 .todo-title {grid-area: title;}
+.todo-description {grid-area: description;}
+.todo-duedate {grid-area: duedate;}
+.todo-priority {grid-area: priority;}
 .edit {grid-area: editBtn;}
 .remove {grid-area: removeBtn;}
 
@@ -31,10 +34,24 @@ header {grid-area: header;}
   display: grid;
   grid-template-columns: 20px 1fr 80px 80px;
   align-items: center;
-  grid-template-areas: 
-  'doneBtn title editBtn removeBtn';
+  grid-template-areas:
+  'doneBtn title editBtn removeBtn'
+  
+
 }
 
+ .expanded {
+  display: grid;
+  grid-template-columns: 20px 1fr 80px 80px;
+  grid-template-areas: 
+    'doneBtn title editBtn removeBtn'
+    'doneBtn description editBtn removeBtn'
+    'doneBtn duedate editBtn removeBtn'
+    'doneBtn priority editBtn removeBtn';
+  .remove, .edit {align-self: end;}
+
+  
+}
 /*Elements*/
 
 header {
@@ -44,8 +61,10 @@ header {
 }
 
 .button-bar {
+    display: flex;
+    justify-content: space-between;
     border: solid 1px black;
-    margin: 2px;
+    margin: 5px;
 }
 
 .todoDiv {
@@ -53,12 +72,15 @@ header {
     flex-direction: column;
     border: solid 1px black;
     margin: 2px;
+    padding: 5px;
 }
 .todoCard {
     border: solid, 1px, black;
     margin: 10px;
     padding: 5px;
     margin: 2px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 4px gray;
 }
 
 nav {
@@ -76,7 +98,7 @@ nav > div {
 }
 
 nav > .active {
-  background-color: red;
+  text-shadow: 1px 1px 2px red; 
 }
 
 /*Buttons*/
