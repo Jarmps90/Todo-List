@@ -4,6 +4,8 @@
 }
 
 /*Grid areas*/
+
+/*Main area*/
 header {grid-area: header;}
 .button-bar {grid-area: buttons;}
 .projec-bar {grid-area: projects;}
@@ -17,6 +19,20 @@ header {grid-area: header;}
     'header header '
     'buttons buttons '
     'projects todos';
+}
+
+/*TodoCard areas*/
+.toggle {grid-area: doneBtn;}
+.todo-title {grid-area: title;}
+.edit {grid-area: editBtn;}
+.remove {grid-area: removeBtn;}
+
+.todoCard {
+  display: grid;
+  grid-template-columns: 20px 1fr 80px 80px;
+  align-items: center;
+  grid-template-areas: 
+  'doneBtn title editBtn removeBtn';
 }
 
 /*Elements*/
@@ -39,7 +55,6 @@ header {
     margin: 2px;
 }
 .todoCard {
-    display: grid;
     border: solid, 1px, black;
     margin: 10px;
     padding: 5px;
@@ -60,7 +75,7 @@ nav > div {
   cursor: pointer;
 }
 
-nav > div:active {
+nav > .active {
   background-color: red;
 }
 
