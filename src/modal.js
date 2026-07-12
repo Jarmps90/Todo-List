@@ -100,7 +100,7 @@ export const modal = (function() {
     const buttonDiv = document.querySelector('.button-bar');
 
     addBtn.classList.add('addBtn');
-    addBtn.textContent = 'Add';
+    addBtn.textContent = 'Add task';
     buttonDiv.appendChild(addBtn);
 
     addBtn.addEventListener('click', () => {
