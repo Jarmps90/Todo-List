@@ -4,6 +4,8 @@
   --shadow-blue-1:1px 1px 2px 1px var(--color-blue1); 
   --padding-5: 5px;
   --padding-8: 8px;
+  --border-radius-15: 15px;
+  --border-radius-10: 10px;
 
 
   /*Colors*/
@@ -46,6 +48,7 @@ header {grid-area: header;}
   'doneBtn title editBtn removeBtn';
   /*border: solid 1px black;*/
   box-shadow: var(--shadow-blue-1);
+  border-radius: var(--border-radius-10);
   padding: 5px;
   margin: 5px;
 
