@@ -1,15 +1,25 @@
 :root {
+  --text-size-1: 1rem;
   --text-font-1-5: 1.5rem;
   --shadow-red-1: 1px 1px 2px 1px var(--color-red1);
   --shadow-blue-1:1px 1px 2px 1px var(--color-blue1); 
+  --under-shadow-blue: 0 6px 4px -5px var(--color-blue2); 
+  --under-shadow-red: 0 5px 4px -5px var(--color-red1); 
+  --button-shadow-right-red: 5px 0 4px -5px var(--color-red1);
+  --button-shadow-right-blue2: 5px 0 4px -5px var(--color-blue2);
+  --button-shadow-left-red: -6px 0 3px -5px var(--color-red1); 
+  --button-shadow-left-blue: -6px 0 3px -5px var(--color-blue2); 
   --padding-5: 5px;
   --padding-8: 8px;
   --border-radius-15: 15px;
   --border-radius-10: 10px;
+  --button-border-red:1px solid var(--color-red1);
+  --button-border-blue:1px solid var(--color-blue1);
 
 
   /*Colors*/
   --color-blue1: rgba(39, 174, 245, 0.8);
+  --color-blue2: rgba(36, 106, 252, 0.8);
   --color-red1: rgba(247, 112, 112, 1);
 }
 
@@ -46,13 +56,7 @@ header {grid-area: header;}
   align-items: center;
   grid-template-areas:
   'doneBtn title editBtn removeBtn';
-  /*border: solid 1px black;*/
-  box-shadow: var(--shadow-blue-1);
-  border-radius: var(--border-radius-10);
-  padding: 5px;
-  margin: 5px;
-
-}
+  }
 
  .expanded {
   display: grid;
@@ -74,10 +78,28 @@ header {
 
 .button-bar {
     display: flex;
-    justify-content: space-between;
-    padding-bottom: 8px;
+    justify-content: end;
     border-bottom: solid var(--color-red1) 1px;
     box-shadow:  0 5px 4px -5px red;
+
+     > button {
+      height: 100%;
+      width: 8%;
+      padding: 10px;
+
+      font-size: var(--text-size-1);
+    }
+
+    /*Bar buttons*/
+    #projectModal {
+	border-right: var(--button-border-red);	
+	padding-right: 10px;
+	box-shadow: var(--button-shadow-right-red);
+    }
+    .addBtn {
+      box-shadow: var(--button-shadow-left-red);
+
+    }
 }
 
 .todoDiv {
@@ -85,6 +107,31 @@ header {
     flex-direction: column;
     padding:2px;
     margin: 2px;
+}
+
+/*Todo card*/
+
+.todoCard {
+  border-bottom: var(--button-border-blue);
+  box-shadow: var(--under-shadow-blue);
+  padding: 5px;
+  margin: 5px;
+  padding-bottom: 0;
+  
+  > button {
+     height: 100%;
+     font-size: var(--text-size-1);
+  }
+
+  .edit {
+    border-right: var(--button-border-blue); 
+    padding-right: 10px;
+    box-shadow: var(--button-shadow-right-blue2);
+  }
+
+  .remove {
+    box-shadow: var(--button-shadow-left-blue);
+  }
 }
 
 
@@ -106,7 +153,7 @@ nav > div {
 
 nav > .active {
   padding:2px;
-  box-shadow: 1px 1px 3px var(--color-blue1);
+  box-shadow:var(--under-shadow-blue); 
 }
 
 
@@ -114,25 +161,19 @@ nav > .active {
 /*Buttons*/
 
 button {
-    width: 100px;
-    height: 30px;
-    margin: 2px;
+    /*width: 100px;
+    height: 30px;*/
+    outline: none;
+    border: none;
+    background: none;
+    cursor:pointer;
+
 }
 
 .toggle {
   border: 1px, solid, black;
   width: 10px;
   height: 10px;
-}
-
-.remove {
-  width: 70px;
-  height: 30px;
-}
-
-.edit {
-  width: 70px;
-  height: 30px;
 }
 
 .todo-title {
