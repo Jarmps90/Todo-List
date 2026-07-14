@@ -3,16 +3,14 @@
   --text-font-1-5: 1.5rem;
   --shadow-red-1: 1px 1px 2px 1px var(--color-red1);
   --shadow-blue-1:1px 1px 2px 1px var(--color-blue1); 
-  --under-shadow-blue: 0 6px 4px -5px var(--color-blue2); 
-  --under-shadow-red: 0 5px 4px -5px var(--color-red1); 
+  --under-shadow-blue: 0 6px 4px -5px var(--color-white1); 
+  --under-shadow-red: 0 5px 4px -5px var(--color-white1); 
   --button-shadow-right-red: 5px 0 4px -5px var(--color-red1);
   --button-shadow-right-blue2: 5px 0 4px -5px var(--color-blue2);
   --button-shadow-left-red: -6px 0 3px -5px var(--color-red1); 
   --button-shadow-left-blue: -6px 0 3px -5px var(--color-blue2); 
   --padding-5: 5px;
   --padding-8: 8px;
-  --border-radius-15: 15px;
-  --border-radius-10: 10px;
   --button-border-red:1px solid var(--color-red1);
   --button-border-blue:1px solid var(--color-blue1);
 
@@ -21,6 +19,17 @@
   --color-blue1: rgba(39, 174, 245, 0.8);
   --color-blue2: rgba(36, 106, 252, 0.8);
   --color-red1: rgba(247, 112, 112, 1);
+  --color-white1: rgba(255, 255, 255, 0);
+  --background-color-gray1:rgba(59, 59, 59, 0.8);
+
+  /*Borders*/
+
+  --border-red:red; 
+  --border-white:solid 1px var(--color-white1);
+}
+
+body {
+  background: var(--background-color-gray1);
 }
 
 /*Grid areas*/
@@ -79,8 +88,8 @@ header {
 .button-bar {
     display: flex;
     justify-content: end;
-    border-bottom: solid var(--color-red1) 1px;
-    box-shadow:  0 5px 4px -5px red;
+    border-bottom: var(--border-white);
+    box-shadow: var(--under-shadow-red); 
 
      > button {
       height: 100%;
