@@ -32,9 +32,6 @@
 
 }
 
-body {
-  /*background: var(--background-color-gray1);*/
-}
 
 .todoCard {
   border-bottom: var(--button-border-blue);
@@ -157,10 +154,6 @@ header {
     padding:2px;
     margin: 2px;
 }
-
-/*Todo card*/
-
-
 
 
 /*Project Nav*/
