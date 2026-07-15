@@ -1,36 +1,66 @@
 :root {
   --text-size-1: 1rem;
   --text-font-1-5: 1.5rem;
-  --shadow-red-1: 1px 1px 2px 1px var(--color-red1);
-  --shadow-blue-1:1px 1px 2px 1px var(--color-blue1); 
-  --under-shadow-blue: 0 6px 4px -5px var(--color-white1); 
-  --under-shadow-red: 0 5px 4px -5px var(--color-white1); 
-  --button-shadow-right-red: 5px 0 4px -5px var(--color-red1);
+  --shadow-red-1: 1px 1px 2px 1px var(--color-red);
+  --shadow-blue-1:1px 1px 2px 1px var(--color-blue); 
+  --under-shadow-blue: 0 6px 4px -5px var(--color-blue2); 
+  --under-shadow-red: 0 5px 4px -5px var(--color-red2); 
+  --button-shadow-right-red: 5px 0 4px -5px var(--color-red2);
+  --button-shadow-right-blue: 5px 0 4px -5px var(--color-blue2);
   --button-shadow-right-blue2: 5px 0 4px -5px var(--color-blue2);
-  --button-shadow-left-red: -6px 0 3px -5px var(--color-red1); 
+  --button-shadow-left-red: -6px 0 3px -5px var(--color-red2); 
   --button-shadow-left-blue: -6px 0 3px -5px var(--color-blue2); 
   --padding-5: 5px;
   --padding-8: 8px;
-  --button-border-red:1px solid var(--color-red1);
-  --button-border-blue:1px solid var(--color-blue1);
-
 
   /*Colors*/
-  --color-blue1: rgba(39, 174, 245, 0.8);
-  --color-blue2: rgba(36, 106, 252, 0.8);
-  --color-red1: rgba(247, 112, 112, 1);
+  --color-blue2: rgba(39, 174, 245, 0.8);
+  --color-blue: rgba(36, 106, 252, 0.8);
+  --color-red2: rgba(247, 112, 112, 1);
+  --color-red: rgba(255, 0, 0, 1);
   --color-white1: rgba(255, 255, 255, 0);
   --background-color-gray1:rgba(59, 59, 59, 0.8);
 
   /*Borders*/
 
-  --border-red:red; 
+  --border-red: solid 1px var(--color-red); 
   --border-white:solid 1px var(--color-white1);
+  --border-blue: solid 1px var(--color-blue);
+  --button-border-red:1px solid var(--color-red);
+  --button-border-blue:1px solid var(--color-blue);
+
+
 }
 
 body {
-  background: var(--background-color-gray1);
+  /*background: var(--background-color-gray1);*/
 }
+
+.todoCard {
+  border-bottom: var(--button-border-blue);
+  box-shadow: var(--under-shadow-blue);
+  padding: 5px;
+  margin: 5px;
+  padding-bottom: 0;
+  
+  > button {
+     height: 100%;
+     padding: 10px;
+     font-size: var(--text-size-1);
+
+  }
+
+  .edit {
+    border-right: var(--button-border-blue); 
+    padding-right: 10px;
+    box-shadow: var(--button-shadow-right-blue2);
+  }
+
+  .remove {
+    box-shadow: var(--button-shadow-left-blue);
+  }
+}
+
 
 /*Grid areas*/
 
@@ -49,6 +79,8 @@ header {grid-area: header;}
     'buttons buttons '
     'projects todos';
 }
+
+
 
 /*TodoCard areas*/
 .toggle {grid-area: doneBtn;}
@@ -77,6 +109,14 @@ header {grid-area: header;}
     'doneBtn priority editBtn removeBtn';
   .remove, .edit {align-self: end;}
   [class^='todo'] {margin: 5px;} 
+
+  > button {
+     height: 50%;
+     padding: 10px;
+     font-size: var(--text-size-1);
+     
+  }
+
 }
 /*Elements*/
 
@@ -88,7 +128,7 @@ header {
 .button-bar {
     display: flex;
     justify-content: end;
-    border-bottom: var(--border-white);
+    border-bottom: var(--border-red);
     box-shadow: var(--under-shadow-red); 
 
      > button {
@@ -120,28 +160,6 @@ header {
 
 /*Todo card*/
 
-.todoCard {
-  border-bottom: var(--button-border-blue);
-  box-shadow: var(--under-shadow-blue);
-  padding: 5px;
-  margin: 5px;
-  padding-bottom: 0;
-  
-  > button {
-     height: 100%;
-     font-size: var(--text-size-1);
-  }
-
-  .edit {
-    border-right: var(--button-border-blue); 
-    padding-right: 10px;
-    box-shadow: var(--button-shadow-right-blue2);
-  }
-
-  .remove {
-    box-shadow: var(--button-shadow-left-blue);
-  }
-}
 
 
 
