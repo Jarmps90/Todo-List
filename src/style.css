@@ -29,9 +29,7 @@
   --button-border-red:1px solid var(--color-red);
   --button-border-blue:1px solid var(--color-blue);
 
-
 }
-
 
 .todoCard {
   padding: 5px;
@@ -51,8 +49,9 @@ header {grid-area: header;}
 
 #container {
     display: grid;
+    height:100%;
     grid-template-columns: 1fr 8fr;
-    grid-template-rows: min-content max-content 3fr;
+    grid-template-rows: min-content max-content ; 
     grid-template-areas:
     'header header '
     'buttons buttons '
@@ -112,21 +111,31 @@ header {
     display: grid;
     justify-self: center;
     width: 50%;
+    height: fit-content; 
     flex-direction: column;
     padding:2px;
     margin: 2px;
+    border-radius: 10px;
     background-color: var(--color-white1);
-    box-shadow: 1px 1px 1px 3px gray;
+  
+     > :last-child {
+       border: none;
+    }
+}
 
+.todoCard {
+  border-bottom: solid black 1px;
 }
 
 
 /*Project Nav*/
 nav {
     font-size: var(--main-font500);
-    height: 100%;  
     padding-right: var(--padding-8);
+    height: 500px;
     padding-top: var(--padding-8);
+    border-right: solid 1px black;
+
     
 }
 
@@ -135,9 +144,10 @@ nav > div {
   margin-bottom: 5px;
 }
 
-nav > .active {
+.active {
   padding:2px;
   background-color: var(--color-red2);
+
 }
 
 
