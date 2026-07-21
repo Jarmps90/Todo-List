@@ -3,21 +3,10 @@
   --text-font-1-5: 1.5rem;
   --shadow-red-1: 1px 1px 2px 1px var(--color-red);
   --shadow-blue-1:1px 1px 2px 1px var(--color-blue); 
-  --under-shadow-blue: 0 6px 4px -5px var(--color-blue2); 
-  --under-shadow-red: 0 5px 4px -5px var(--color-red2); 
-  --button-shadow-right-red: 5px 0 4px -5px var(--color-red2);
-  --button-shadow-right-blue: 5px 0 4px -5px var(--color-blue2);
-  --button-shadow-right-blue2: 5px 0 4px -5px var(--color-blue2);
-  --button-shadow-left-red: -6px 0 3px -5px var(--color-red2); 
-  --button-shadow-left-blue: -6px 0 3px -5px var(--color-blue2); 
-  --padding-5: 5px;
+   --padding-5: 5px;
   --padding-8: 8px;
 
   /*Colors*/
-  --color-blue2: rgba(39, 174, 245, 0.8);
-  --color-blue: rgba(36, 106, 252, 0.8);
-  --color-red2: rgba(247, 112, 112, 1);
-  --color-red: rgba(255, 0, 0, 1);
   --color-white1: rgb(255, 255, 255);
   --background-color-gray1:rgba(59, 59, 59, 0.8);
 
