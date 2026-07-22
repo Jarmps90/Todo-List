@@ -87,7 +87,7 @@ header {
 
   .button-bar {
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     #projectModal {
 	padding-right: 10px;
     }
@@ -135,8 +135,11 @@ nav > div {
 
 .active {
   padding:2px;
-  background-color: var(--color-red2);
+  background-color: var(--color-white1);
 
+   .todoCard {
+    border: solid black 1px;
+  }
 }
 
 
