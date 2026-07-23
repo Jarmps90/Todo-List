@@ -5,6 +5,10 @@ import "./style.css";
 
 const contanerControl = (function () {
   const container = document.querySelector("#container");
+  const mainBody = document.createElement("div");
+
+  mainBody.id = 'main-body';
+  container.append(mainBody);
 
   const navBar = (function() {
     const navBar = document.createElement("nav");
@@ -17,7 +21,7 @@ const contanerControl = (function () {
     const todoContainer = document.createElement('div');
 
     todoContainer.classList.add('todoDiv');
-    container.appendChild(todoContainer);
+    mainBody.appendChild(todoContainer);
   };
 
   function toolBarForButtons() {
