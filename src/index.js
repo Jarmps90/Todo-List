@@ -5,6 +5,10 @@ import "./style.css";
 
 const contanerControl = (function () {
   const container = document.querySelector("#container");
+  const mainBody = document.createElement("div");
+
+  mainBody.id = 'main-body';
+  container.append(mainBody);
 
   const navBar = (function() {
     const navBar = document.createElement("nav");
@@ -13,11 +17,11 @@ const contanerControl = (function () {
     })();
 
 
-  function todoContainer() {
+  const todoContainer = () => {
     const todoContainer = document.createElement('div');
 
     todoContainer.classList.add('todoDiv');
-    container.appendChild(todoContainer);
+    mainBody.appendChild(todoContainer);
   };
 
   function toolBarForButtons() {
@@ -25,13 +29,15 @@ const contanerControl = (function () {
     buttonDiv.classList.add('button-bar');
     container.appendChild(buttonDiv);
    };
-  todoContainer(), toolBarForButtons();
+  toolBarForButtons();
   modal.createProjectBtn();
   modal.createTodoBtn();
+  return { todoContainer };
 })();
 
 const dpControl = displayControl();
 const objects = objectControl();
+const containerControl = contanerControl;
 
 export function projectId() {
   const navBar = document.querySelector("nav");
@@ -67,7 +73,11 @@ function updateDisplay() {
 
 function todoChecker() {
   const todos = objects.getTodos();
+  containerControl.todoContainer();
   const todoDiv = document.querySelector(".todoDiv");
+  const mainBody = document.querySelector("#main-body");
+  console.log(todoDiv);
+  mainBody.innerHTML = "";
   todoDiv.innerHTML = "";
 
   todos.forEach((todo) => {
@@ -87,11 +97,13 @@ function todoChecker() {
 
 
 function displayControl() {
+  const mainBody = document.querySelector("#main-body");
+  const todoDiv = document.createElement("div");
+  todoDiv.classList.add("todoDiv");
 
   const todoDisplay = (todo) => {
-    const container = document.querySelector("#container");
-    const todoDiv = document.querySelector('.todoDiv');
     const todoCard = document.createElement('div');
+    
   
       const title = document.createElement("div");
       const description = document.createElement("p");
@@ -114,13 +126,11 @@ function displayControl() {
       todoCard.appendChild(dueDate);
       todoCard.appendChild(priority);
       todoDiv.appendChild(todoCard);
-      container.appendChild(todoDiv);
+      mainBody.appendChild(todoDiv);
   };
   
   
   const todoDisplaySmall = (todo) => {
-    const container = document.querySelector("#container");
-    const todoDiv = document.querySelector('.todoDiv');
     
       const todoCard = document.createElement("div");
       const title = document.createElement("p");
@@ -131,7 +141,7 @@ function displayControl() {
   
       todoCard.appendChild(title);
       todoDiv.appendChild(todoCard);
-      container.appendChild(todoDiv);
+      mainBody.appendChild(todoDiv);
   };
   
   const projectDisplay = () => {
