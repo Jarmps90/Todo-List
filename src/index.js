@@ -30,7 +30,6 @@ const contanerControl = (function () {
     container.appendChild(buttonDiv);
    };
   toolBarForButtons();
-  modal.createProjectBtn();
   modal.createTodoBtn();
   return { todoContainer };
 })();
@@ -43,6 +42,7 @@ export function projectId() {
   const navBar = document.querySelector("nav");
   let projectId = 0;
 
+    // Find way how to isolate button form this eventlistener
   navBar.addEventListener("click", (event) => {
     projectId = event.target.id;
     if(event.target.id) {
@@ -149,6 +149,7 @@ function displayControl() {
     const projectArray = objects.getProjects();
     let count = 0;
     navBar.innerHTML = "";
+    modal.createProjectBtn();
   
     projectArray.forEach((element) => {
       const objectDiv = document.createElement("div");
