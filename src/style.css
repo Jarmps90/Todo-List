@@ -1,9 +1,7 @@
 :root {
   --text-size-1: 1rem;
   --text-font-1-5: 1.5rem;
-  --shadow-red-1: 1px 1px 2px 1px var(--color-red);
-  --shadow-blue-1:1px 1px 2px 1px var(--color-blue); 
-   --padding-5: 5px;
+  --padding-5: 5px;
   --padding-8: 8px;
 
   /*Colors*/
@@ -14,11 +12,6 @@
 
   /*Borders*/
 
-  --border-red: solid 1px var(--color-red); 
-  --border-white:solid 1px var(--color-white1);
-  --border-blue: solid 1px var(--color-blue);
-  --button-border-red:1px solid var(--color-red);
-  --button-border-blue:1px solid var(--color-blue);
 
 }
 
