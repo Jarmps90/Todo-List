@@ -17,6 +17,8 @@
 
 body  {
   height: 98vh;
+  padding: 0;
+  margin: 0;
 }
 
 .todoCard {
@@ -95,10 +97,15 @@ header {
 
 
 #main-body {
+  display: grid;
   align-content: center;
+  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-rows:1fr 8fr;
 }
 
 .todoDiv {
+    grid-column: 2/3;
+    grid-row: 2/3;
     display: grid;
     justify-self: center;
     width: 50%;
