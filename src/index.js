@@ -62,7 +62,6 @@ export function projectId() {
     if(event.target.id) {
       document.querySelector('.active')?.classList.remove('active');
       document.getElementById(event.target.id).classList.add('active'); 
-      objects.getTodos();
     } else {
       document.querySelector('.active')?.classList.remove('active');
     };
