@@ -83,7 +83,6 @@ export const modal = (function() {
   const createProjectBtn = () => {
     const projectModalBtn = document.createElement('button');
     const buttonDiv = document.querySelector('nav');
-    console.log(buttonDiv);
 
     projectModalBtn.id = 'projectModal';
     projectModalBtn.textContent = 'Create project';
