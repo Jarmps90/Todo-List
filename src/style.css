@@ -133,8 +133,6 @@ header {
 
 /*Project Nav*/
 nav {
-    font-size: var(--main-font500);
-    justify-items: center;
     padding-right: var(--padding-8);
     height: 100%;
     padding-top: var(--padding-8);
@@ -147,7 +145,14 @@ nav {
 
 nav > div {
   cursor: pointer;
+  justify-items: center;
+  font-size: var(--main-font500);
   margin-bottom: 5px;
+  width: 100%;
+}
+
+nav > div > div {
+  width: 60%;
 }
 
 .active {
