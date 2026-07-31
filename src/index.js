@@ -12,7 +12,11 @@ const contanerControl = (function () {
 
   const navBar = (function() {
     const navBar = document.createElement("nav");
+    const projects = document.createElement("div");
+
+    projects.classList.add("projects");
     navBar.classList.add("projec-bar");
+    navBar.appendChild(projects);
     container.appendChild(navBar);
     })();
 
@@ -38,27 +42,6 @@ const dpControl = displayControl();
 const objects = objectControl();
 const containerControl = contanerControl;
 
-export function projectId() {
-  const navBar = document.querySelector("nav");
-  let projectId = 0;
-
-    // Find way how to isolate button form this eventlistener
-  navBar.addEventListener("click", (event) => {
-    projectId = event.target.id;
-    if(event.target.id) {
-      document.querySelector('.active')?.classList.remove('active');
-      document.getElementById(event.target.id).classList.add('active'); 
-    } else {
-      document.querySelector('.active')?.classList.remove('active');
-    };
-    objects.getTodos();
-    todoChecker();
-  });
-
-  const getProjectId = () => projectId;
-
-  return { getProjectId };
-};
 
 function updateDisplay() {
   let key = Object.keys(localStorage);
@@ -70,6 +53,27 @@ function updateDisplay() {
   };
 };
 
+export function projectId() {
+ const projects = document.querySelector(".projects");
+  let projectId = 0;
+
+  projects.addEventListener("click", (event) => {
+    projectId = event.target.id;
+    if(event.target.id) {
+      document.querySelector('.active')?.classList.remove('active');
+      document.getElementById(event.target.id).classList.add('active'); 
+      objects.getTodos();
+    } else {
+      document.querySelector('.active')?.classList.remove('active');
+    };
+    todoChecker();
+
+  });
+
+  const getProjectId = () => projectId;
+
+  return { getProjectId };
+};
 
 function todoChecker() {
   const todos = objects.getTodos();
@@ -145,7 +149,7 @@ function displayControl() {
   };
   
   const projectDisplay = () => {
-    const navBar = document.querySelector("nav");
+    const navBar = document.querySelector(".projects");
     const projectArray = objects.getProjects();
     let count = 0;
     navBar.innerHTML = "";
@@ -153,6 +157,7 @@ function displayControl() {
   
     projectArray.forEach((element) => {
       const objectDiv = document.createElement("div");
+      objectDiv.classList.add('project');
   
       objectDiv.textContent = element.projectName;
       objectDiv.id = count++;
