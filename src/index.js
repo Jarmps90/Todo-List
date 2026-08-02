@@ -172,6 +172,18 @@ function displayControl() {
 export function userInput() {
   const container = document.querySelector("#container");
 
+  const projectCloseBtn = () => {
+    container.addEventListener('click', function closeProject(event) {
+      console.log(event.target.id)
+      if(event.target.id === 'close-button') {
+      //  const dialog = document.querySelector('dialog');
+      //  dialog.close();
+      //  dialog.remove();
+      //  container.removeEventListener('click', closeProject)
+      };
+    })
+  };
+
   const submit = () => {
     container.addEventListener("click", function addTodo(event) {
       if (event.target.id === "submitBtn") {
@@ -204,7 +216,7 @@ export function userInput() {
           dialog.close();
           dialog.remove();
           container.removeEventListener("click", addProject);
-        };
+        } 
       });
 
       if (event.target.id === "projectSubmitBtn") {
@@ -323,7 +335,7 @@ export function userInput() {
 
 
 
-  return { submit, projectSubmit, update, toggleDoneBtn, todoRemovBtn, expandBtn, getInputValues, getTodoIndex  };
+  return { submit, projectSubmit, update, toggleDoneBtn, todoRemovBtn, expandBtn, getInputValues, getTodoIndex, projectCloseBtn  };
 };
 
 
