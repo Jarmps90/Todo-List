@@ -41,9 +41,12 @@ export const modal = (function() {
   const projectModal = () => {
 
     const projectSubmitBtn = document.createElement('button');
+    const closeButton = document.createElement('button');
     const projectLabel = LabelElements('project', 'Project name: ');
     const projectInput = InputElements('text', 'project', 'project-input');
 
+    closeButton.id = 'close-button';
+    closeButton.textContent = 'X';
     projectModalDialog.id = 'projectModalDialog';
     projectSubmitBtn.id = 'projectSubmitBtn';
     projectSubmitBtn.textContent = 'Add';
@@ -53,6 +56,7 @@ export const modal = (function() {
     projectModalDialog.appendChild(projectLabel);
     projectModalDialog.appendChild(projectInput);
     projectModalDialog.appendChild(projectSubmitBtn);
+    projectModalDialog.appendChild(closeButton);
   };
 
   const modalCreate = () => {
@@ -117,14 +121,14 @@ export const modal = (function() {
 
   const toggleButton = () => {
     const todoCards = document.querySelectorAll('.todoCard');
-       
+
     todoCards.forEach((card) => {
       const toggleBtn = document.createElement('div');
       toggleBtn.classList.add('toggle');
       card.appendChild(toggleBtn);
       toggleBtn.addEventListener('click', (event) => {
 	toggleBtn.style.background = 'red';
-	userInputFunc.toggleDoneBtn(event);	
+	userInputFunc.toggleDoneBtn(event);
       });
     });
   };
@@ -132,7 +136,7 @@ export const modal = (function() {
 
   const expandButton = () => {
     const title = document.querySelectorAll('.todo-title');
-   
+
     title.forEach((el) => {
       el.addEventListener('click', (event) => {
 	userInputFunc.expandBtn(event);
@@ -170,7 +174,7 @@ export const modal = (function() {
 	const index = userInputFunc.getTodoIndex(event);
 	userInputFunc.getInputValues(index);
 	updateBtn(index);
-      }); 
+      });
     });
   };
 
