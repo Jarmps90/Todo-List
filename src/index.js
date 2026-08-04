@@ -172,17 +172,6 @@ function displayControl() {
 export function userInput() {
   const container = document.querySelector("#container");
 
-  const projectCloseBtn = () => {
-    container.addEventListener('click', function closeProject(event) {
-      console.log(event.target.id)
-      if(event.target.id === 'close-button') {
-      //  const dialog = document.querySelector('dialog');
-      //  dialog.close();
-      //  dialog.remove();
-      //  container.removeEventListener('click', closeProject)
-      };
-    })
-  };
 
   const submit = () => {
     container.addEventListener("click", function addTodo(event) {
@@ -208,19 +197,19 @@ export function userInput() {
     });
   };
 
-  const projectSubmit = () => {
-    container.addEventListener("click", function addProject(event) {
+  const projectButtons = () => {
+    container.addEventListener("click", function project(event) {
+      const dialog = document.querySelector("#projectModalDialog");
+      
       container.addEventListener("keydown", (event) => {
         if (event.key === "Escape") {
-          const dialog = document.querySelector("dialog");
           dialog.close();
           dialog.remove();
-          container.removeEventListener("click", addProject);
-        } 
+          container.removeEventListener("click", project);
+        }  
       });
 
       if (event.target.id === "projectSubmitBtn") {
-        const dialog = document.querySelector("#projectModalDialog");
         const prjectName = document.getElementById("project").value;
 
         objects.projectControl(prjectName);
@@ -228,7 +217,12 @@ export function userInput() {
         event.preventDefault();
         dialog.close();
         dialog.remove();
-        container.removeEventListener("click", addProject);
+        container.removeEventListener("click", project);
+
+      } else if(event.target.id === 'close-button') {
+	dialog.close();
+	dialog.remove();
+        container.removeEventListener("click", project);
       };
     });
   };
@@ -335,7 +329,7 @@ export function userInput() {
 
 
 
-  return { submit, projectSubmit, update, toggleDoneBtn, todoRemovBtn, expandBtn, getInputValues, getTodoIndex, projectCloseBtn  };
+  return { submit, projectButtons, update, toggleDoneBtn, todoRemovBtn, expandBtn, getInputValues, getTodoIndex };
 };
 
 
