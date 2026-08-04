@@ -50,7 +50,7 @@ export const modal = (function() {
     projectModalDialog.id = 'projectModalDialog';
     projectSubmitBtn.id = 'projectSubmitBtn';
     projectSubmitBtn.textContent = 'Add';
-    projectModalDialog.onsubmit = userInputFunc.projectSubmit();
+    projectModalDialog.onsubmit = userInputFunc.projectButtons();
 
     container.appendChild(projectModalDialog);
     projectModalDialog.appendChild(projectLabel);
