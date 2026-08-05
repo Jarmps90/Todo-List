@@ -61,6 +61,8 @@ export const modal = (function() {
 
   const modalCreate = () => {
 
+    const closeButton = document.createElement('button');
+
     prioritySelect.innerHTML = "";
     LabelElements('title', 'Title:')
     InputElements('text', 'title', 'title');
@@ -78,8 +80,11 @@ export const modal = (function() {
     form.id = 'todoForm';
     prioritySelect.id = 'priority-select';
     prioritySelect.name = 'priority';
+    closeButton.id = 'close-button';
+    closeButton.textContent = 'X';
 
     form.appendChild(prioritySelect);
+    form.appendChild(closeButton);
     container.appendChild(dialog);
     dialog.appendChild(form);
   };
