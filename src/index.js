@@ -153,7 +153,6 @@ function displayControl() {
     const projectArray = objects.getProjects();
     let count = 0;
     navBar.innerHTML = "";
-    //modal.createProjectBtn();
   
     projectArray.forEach((element) => {
       const objectDiv = document.createElement("div");
