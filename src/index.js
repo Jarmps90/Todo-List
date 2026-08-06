@@ -80,7 +80,6 @@ function todoChecker() {
   containerControl.todoContainer();
   const todoDiv = document.querySelector(".todoDiv");
   const mainBody = document.querySelector("#main-body");
-  console.log(todoDiv);
   mainBody.innerHTML = "";
   todoDiv.innerHTML = "";
 
@@ -162,6 +161,7 @@ function displayControl() {
       objectDiv.id = count++;
       navBar.appendChild(objectDiv);
     });
+    modal.projectRemoveBtn();
   };
 
  
@@ -299,6 +299,25 @@ export function userInput() {
     objects.updateLocalStroage();
    };
 
+  const projectRemoveBtn = (event) => {
+    const projectDivs = document.querySelectorAll('.projects');
+    const projects = objects.getProjects();
+
+    projectDivs.forEach((projectDivs, index) => {
+      projectDivs.dataset.id = projects[index].id;
+
+          });
+    const projectDiv = event.target.parentElement;
+    const divId = projectDiv.getAttribute('data-id');
+    const projectIndex = projects.findIndex((project) => project.id === divId);
+
+    if(projectIndex !== -1) {
+      projectDiv.remove();
+      projects.splice(projectIndex, 1);
+    };
+    objects.updateLocalStroage();
+  };
+
   const getTodoIndex  = (event) => {
     const todoCards = document.querySelectorAll('.todoCard'); 
     const todos = objects.getTodos();
@@ -329,7 +348,7 @@ export function userInput() {
 
 
 
-  return { submit, projectButtons, update, toggleDoneBtn, todoRemovBtn, expandBtn, getInputValues, getTodoIndex };
+  return { submit, projectButtons, update, toggleDoneBtn, todoRemovBtn, expandBtn, getInputValues, getTodoIndex, projectRemoveBtn };
 };
 
 
