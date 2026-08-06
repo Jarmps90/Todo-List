@@ -149,6 +149,22 @@ export const modal = (function() {
     });
   };
 
+  const projectRemoveBtn = () => {
+    const projectDivs = document.querySelectorAll('.project');
+
+    projectDivs.forEach((div) => {
+      const removeBtn = document.createElement('button');
+
+      removeBtn.textContent = 'X';
+      removeBtn.classList.add('remove');
+      div.appendChild(removeBtn);
+
+      removeBtn.addEventListener('click', (event) => {
+	userInputFunc.projectRemoveBtn(event);
+      });
+    });
+  };
+
   const todoRemovBtn = () => {
     const todoCards = document.querySelectorAll('.todoCard');
 
@@ -191,5 +207,6 @@ export const modal = (function() {
     form.appendChild(updateBtn);
     form.onsubmit = userInputFunc.update(index);
   };
-  return { modalCreate, createTodoBtn, createProjectBtn, toggleButton, todoRemovBtn, expandButton, editButton }
+  return { modalCreate, createTodoBtn, createProjectBtn, toggleButton, todoRemovBtn, expandButton, editButton, projectRemoveBtn }
+
 })();
