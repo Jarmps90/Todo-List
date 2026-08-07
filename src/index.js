@@ -292,24 +292,28 @@ export function userInput() {
     const cardId = todoCard.getAttribute('data-id');
     const todoIndex = todos.findIndex((todo) => todo.id === cardId);
 
-    if(todoIndex !== -1) {
-      todoCard.remove();
-      todos.splice(todoIndex, 1); 
-    };
-    objects.updateLocalStroage();
+   // console.log(todoCards, cardId, todoIndex);
+   // if(todoIndex !== -1) {
+   //   todoCard.remove();
+   //   todos.splice(todoIndex, 1); 
+   // };
+   // objects.updateLocalStroage();
    };
 
   const projectRemoveBtn = (event) => {
-    const projectDivs = document.querySelectorAll('.projects');
+    const projectDivs = document.querySelectorAll('.project');
     const projects = objects.getProjects();
-
+    console.log(projects);
+    
     projectDivs.forEach((projectDivs, index) => {
-      projectDivs.dataset.id = projects[index].id;
-
+      projectDivs.dataset.id = projects[index].id 
+      console.log(projects[index].id);
           });
     const projectDiv = event.target.parentElement;
     const divId = projectDiv.getAttribute('data-id');
+    
     const projectIndex = projects.findIndex((project) => project.id === divId);
+    console.log(projectIndex);
 
     if(projectIndex !== -1) {
       projectDiv.remove();
