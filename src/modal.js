@@ -208,5 +208,4 @@ export const modal = (function() {
     form.onsubmit = userInputFunc.update(index);
   };
   return { modalCreate, createTodoBtn, createProjectBtn, toggleButton, todoRemovBtn, expandButton, editButton, projectRemoveBtn }
-
 })();
