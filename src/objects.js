@@ -4,6 +4,7 @@ function CreateProject(name) {
   const project = {
     projectName: name,
     todos: [],
+    id: self.crypto.randomUUID(),
   };
   return project;
 };
