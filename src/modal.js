@@ -82,6 +82,7 @@ export const modal = (function() {
     prioritySelect.name = 'priority';
     closeButton.id = 'close-button';
     closeButton.textContent = 'X';
+    closeButton.type = 'button';
 
     form.appendChild(prioritySelect);
     form.appendChild(closeButton);
@@ -121,6 +122,7 @@ export const modal = (function() {
       form.appendChild(submitButton);
       dialog.showModal();
       form.onsubmit = userInputFunc.submit();
+      userInputFunc.todoModalClose();
     });
   };
 
