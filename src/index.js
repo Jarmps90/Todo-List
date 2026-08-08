@@ -292,12 +292,12 @@ export function userInput() {
     const cardId = todoCard.getAttribute('data-id');
     const todoIndex = todos.findIndex((todo) => todo.id === cardId);
 
-   // console.log(todoCards, cardId, todoIndex);
-   // if(todoIndex !== -1) {
-   //   todoCard.remove();
-   //   todos.splice(todoIndex, 1); 
-   // };
-   // objects.updateLocalStroage();
+    console.log(todoCards, cardId, todoIndex);
+    if(todoIndex !== -1) {
+      todoCard.remove();
+      todos.splice(todoIndex, 1); 
+    };
+    objects.updateLocalStroage();
    };
 
   const projectRemoveBtn = (event) => {
