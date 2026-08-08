@@ -197,6 +197,17 @@ export function userInput() {
     });
   };
 
+  const todoModalClose = () => {
+    container.addEventListener('click', function close(event) {
+      const dialog = document.querySelector('#todoModal');
+      if(event.target.id === 'close-button') {
+      dialog.close();
+      dialog.remove();
+      container.removeEventListener('click', close);
+      };
+    });
+  };
+
   const projectButtons = () => {
     container.addEventListener("click", function project(event) {
       const dialog = document.querySelector("#projectModalDialog");
@@ -348,7 +359,7 @@ export function userInput() {
 
 
 
-  return { submit, projectButtons, update, toggleDoneBtn, todoRemovBtn, expandBtn, getInputValues, getTodoIndex, projectRemoveBtn };
+  return { submit, projectButtons, update, toggleDoneBtn, todoRemovBtn, expandBtn, getInputValues, getTodoIndex, projectRemoveBtn, todoModalClose };
 };
 
 
