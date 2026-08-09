@@ -200,10 +200,17 @@ export function userInput() {
   const todoModalClose = () => {
     container.addEventListener('click', function close(event) {
       const dialog = document.querySelector('#todoModal');
+      dialog.addEventListener('keydown', (event) => {
+	if(event.key === 'Escape') {
+	 dialog.close();
+       	 dialog.remove();
+       	 container.removeEventListener('click', close);
+	};
+      });
       if(event.target.id === 'close-button') {
-      dialog.close();
-      dialog.remove();
-      container.removeEventListener('click', close);
+        dialog.close();
+        dialog.remove();
+        container.removeEventListener('click', close);
       };
     });
   };
