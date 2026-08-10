@@ -200,12 +200,12 @@ export function userInput() {
   const todoModalClose = () => {
     container.addEventListener('click', function close(event) {
       const dialog = document.querySelector('#todoModal');
-      dialog.addEventListener('keydown', (event) => {
-	if(event.key === 'Escape') {
-	 dialog.close();
+      container.addEventListener('keydown', (event) => {
+        if(event.key === 'Escape') {
+         dialog.close();
        	 dialog.remove();
        	 container.removeEventListener('click', close);
-	};
+        };
       });
       if(event.target.id === 'close-button') {
         dialog.close();
@@ -314,6 +314,7 @@ export function userInput() {
       todoCard.remove();
       todos.splice(todoIndex, 1); 
     };
+    todoChecker();
     objects.updateLocalStroage();
    };
 
