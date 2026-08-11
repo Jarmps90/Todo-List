@@ -1,5 +1,6 @@
 //Modals and button related stuff
 import { userInput } from "./index.js";
+import deletBtn from "./images/trash-can-solid.png";
 
 export const modal = (function() {
 
@@ -156,9 +157,13 @@ export const modal = (function() {
 
     projectDivs.forEach((div) => {
       const removeBtn = document.createElement('button');
+      const img = document.createElement('img');
 
-      removeBtn.textContent = 'X';
-      removeBtn.classList.add('remove');
+      img.src = deletBtn;
+      img.width = '20';
+      img.height = '20';
+      removeBtn.classList.add('project-remove');
+      removeBtn.appendChild(img);
       div.appendChild(removeBtn);
 
       removeBtn.addEventListener('click', (event) => {
