@@ -161,6 +161,18 @@ nav > div > div {
 
 }
 
+.project {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+.project-remove {
+  outline: none;
+  border: none;
+  background: none;
+}
 
 
 /*Buttons*/
