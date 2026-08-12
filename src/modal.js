@@ -157,13 +157,8 @@ export const modal = (function() {
 
     projectDivs.forEach((div) => {
       const removeBtn = document.createElement('button');
-      const img = document.createElement('img');
 
-      img.src = deletBtn;
-      img.width = '20';
-      img.height = '20';
       removeBtn.classList.add('project-remove');
-      removeBtn.appendChild(img);
       div.appendChild(removeBtn);
 
       removeBtn.addEventListener('click', (event) => {
@@ -177,7 +172,6 @@ export const modal = (function() {
 
     todoCards.forEach((card) => {
       const removeBtn = document.createElement('button');
-      removeBtn.textContent = 'Remove';
       removeBtn.classList.add('remove');
       card.appendChild(removeBtn);
       removeBtn.addEventListener('click', (event) => {
@@ -192,7 +186,6 @@ export const modal = (function() {
 
     todoCards.forEach((card) => {
       const editBtn = document.createElement('button');
-      editBtn.textContent = 'Edit';
       editBtn.classList.add('edit');
       card.appendChild(editBtn);
       editBtn.addEventListener('click', (event) => {
