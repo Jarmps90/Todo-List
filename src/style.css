@@ -12,6 +12,7 @@
 
   /*Borders*/
 
+  --todo-border-bottom: solid var(--color-dark-blue) 1px;
 
 }
 
@@ -19,18 +20,6 @@ body  {
   height: 98vh;
   padding: 0;
   margin: 0;
-}
-
-.todoCard {
-  padding: 5px;
-  margin: 5px;
-  padding-bottom: 0;
-}
-
-.expanded {
-
- padding-bottom: 10px;
-
 }
 
 
@@ -66,6 +55,8 @@ header {grid-area: header;}
 
 .todoCard {
   display: grid;
+  padding: var(--padding-5);
+  margin: 5px;
   grid-template-columns: 20px 1fr 80px 80px;
   align-items: center;
   grid-template-areas:
@@ -74,6 +65,7 @@ header {grid-area: header;}
 
  .expanded {
   display: grid;
+  padding-bottom: 10px;
   grid-template-columns: 20px 1fr 80px 80px;
   grid-template-areas: 
     'doneBtn title editBtn removeBtn'
@@ -93,7 +85,7 @@ header {
 
   .button-bar {
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
     background-color: var(--color-dark-blue);
     #projectModal {
 	padding-right: 10px;
@@ -131,7 +123,7 @@ header {
 }
 
 .todoCard {
-  border-bottom: solid var(--color-dark-blue) 1px;
+  border-bottom: var(--todo-border-bottom);
   
   
 }
@@ -142,7 +134,6 @@ nav {
     padding-right: var(--padding-8);
     height: 100%;
     padding-top: var(--padding-8);
-    /*border-right: solid 1px black;*/
     box-shadow:  1px 0 5px var(--color-yellow);
     background: var(--color-light-blue);
 
