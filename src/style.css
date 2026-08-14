@@ -65,6 +65,8 @@ header {grid-area: header;}
 
  .expanded {
   display: grid;
+  background: var(--color-yellow);
+  border-radius: 10px;
   padding-bottom: 10px;
   grid-template-columns: 20px 1fr 80px 80px;
   grid-template-areas: 
@@ -77,6 +79,17 @@ header {grid-area: header;}
 
 }
 /*Elements*/
+
+.projec-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items:center;
+  #projectModal {
+    width: 125px;
+  }
+}
+
 
 header {
     min-height: 100px;
@@ -91,7 +104,6 @@ header {
 	padding-right: 10px;
     }
 }
-
 
 #main-body {
   display: grid;
@@ -113,7 +125,6 @@ header {
     border-radius: 10px;
     background-color: var(--color-light-blue);
     box-shadow: 1px 1px 4px  var(--color-yellow);
-    color: var(--color-dark-blue);
 
   
      > :last-child {
