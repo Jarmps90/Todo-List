@@ -11,11 +11,15 @@ const contanerControl = (function () {
   container.append(mainBody);
 
   const navBar = (function() {
-    const navBar = document.createElement("nav");
-    const projects = document.createElement("div");
+    const navBar = document.createElement('nav');
+    const projects = document.createElement('div');
+    const heading = document.createElement('h2');
 
-    projects.classList.add("projects");
-    navBar.classList.add("projec-bar");
+
+    heading.textContent = 'Projects';
+    projects.classList.add('projects');
+    navBar.classList.add('projec-bar');
+    navBar.appendChild(heading);
     navBar.appendChild(projects);
     container.appendChild(navBar);
     modal.createProjectBtn();
