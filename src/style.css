@@ -6,6 +6,7 @@
 
   /*Colors*/
   --color-light-blue: #B3DEE5;
+  --color-medium-blue: #657e8c;
   --color-dark-blue:#31525B;
   --color-yellow:#FAE6B1;
   --color-orange:#FFA101;
@@ -14,6 +15,10 @@
 
   --todo-border-bottom: solid var(--color-dark-blue) 1px;
 
+  /*Shadows*/
+  --text-shadow-dark-blue: 0 0 1px var(--color-dark-blue);
+  --text-shadow-blue: 0 0 2px var(--color-medium-blue);
+
 }
 
 body  {
@@ -21,6 +26,11 @@ body  {
   padding: 0;
   margin: 0;
   font-family: 'Mozilla Text', 'Open Sans';
+  text-shadow: var(--text-shadow-blue);
+}
+
+h2 {
+  text-shadow: var(--text-shadow-dark-blue);
 }
 
 
@@ -84,7 +94,6 @@ header {grid-area: header;}
 .projec-bar {
   display: flex;
   flex-direction: column;
-  /*justify-content: flex-start;*/
   align-items:center;
   #projectModal {
     width: 125px;
