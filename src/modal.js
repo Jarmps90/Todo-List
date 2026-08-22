@@ -86,7 +86,7 @@ export const modal = (function() {
     closeButton.type = 'button';
 
     form.appendChild(prioritySelect);
-    form.appendChild(closeButton);
+    dialog.appendChild(closeButton);
     container.appendChild(dialog);
     dialog.appendChild(form);
   };
