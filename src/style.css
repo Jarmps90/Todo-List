@@ -362,11 +362,25 @@ button {
 
 #todoModal {
   display: grid;
-  grid-template-rows:1fr 6fr; 
+  grid-template-rows:50px 1fr; 
   background-color:var(--color-light-blue);
   box-shadow: 0 0 5px var(--color-yellow);
   border-radius: 5px;
   border: none;
+
+
+  #description {
+    resize: both;
+
+  }
+  #priority-select {
+    width: 150px;
+  }
+
+  #dueDate {
+    width: 150px;
+    height: 20px;
+  }
 
    #close-button {
     grid-column:1/2;
@@ -375,6 +389,7 @@ button {
 
 #todoForm {
   grid-row: 2/3;
-  display: grid; 
-  grid-template-rows: repeat(6, 1fr)
+  width:max-content;
+  display: flex;
+  flex-direction: column;
 }
