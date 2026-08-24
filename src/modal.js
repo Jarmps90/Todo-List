@@ -43,7 +43,7 @@ export const modal = (function() {
 
     const projectSubmitBtn = document.createElement('button');
     const closeButton = document.createElement('button');
-    const projectLabel = LabelElements('project', 'Project name: ');
+    const projectLabel = LabelElements('project', 'Project name ');
     const projectInput = InputElements('text', 'project', 'project-input');
 
     closeButton.id = 'close-button';
@@ -65,13 +65,13 @@ export const modal = (function() {
     const closeButton = document.createElement('button');
 
     prioritySelect.innerHTML = "";
-    LabelElements('title', 'Title:')
+    LabelElements('title', 'Title')
     InputElements('text', 'title', 'title');
-    LabelElements('description', 'Desctioption:');
+    LabelElements('description', 'Desctioption');
     InputElements('text', 'description', 'description');
-    LabelElements('dueDate', 'Due date:');
+    LabelElements('dueDate', 'Due date');
     InputElements('date', 'dueDate', 'dueDate');
-    LabelElements('priority-select', 'Select priority:');
+    LabelElements('priority-select', 'Select priority');
     CreateSelect("''", 'Please choose an option');
     CreateSelect('low', 'Low');
     CreateSelect('medium', 'Medium');
