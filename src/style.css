@@ -79,6 +79,8 @@ header {grid-area: header;}
  .expanded {
   display: grid;
   background: var(--color-yellow);
+  color: gray ;
+  font-weight: 600;
   border-radius: 10px;
   padding-bottom: 10px;
   grid-template-columns: 20px 1fr 80px 80px;
