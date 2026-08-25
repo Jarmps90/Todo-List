@@ -367,6 +367,8 @@ button {
 #todoModal {
   display: grid;
   grid-template-rows:50px 1fr; 
+  height: 55vh;
+  width: 35vh;
   background-color:var(--color-light-blue);
   box-shadow: 0 0 5px var(--color-yellow);
   border-radius: 5px;
@@ -382,11 +384,12 @@ button {
 
 
   #description {
-    resize: both;
-
+    field-sizing: content;
+    max-width: 300px;
+    height: max-content; 
   }
   #priority-select {
-    width: 150px;
+    field-sizing: content;
   }
 
   #dueDate {
@@ -399,7 +402,7 @@ button {
   }
 
   #submitBtn {
-
+    justify-self: center;
     width: 105px;
     height: 32px;
     margin:5px;
@@ -423,7 +426,5 @@ button {
 
 #todoForm {
   grid-row: 2/3;
-  width:max-content;
-  display: flex;
-  flex-direction: column;
+  display: grid;
 }
