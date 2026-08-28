@@ -12,11 +12,12 @@ export const modal = (function() {
   const userInputFunc = userInput();
 
   //To create input elements
-  function InputElements(type, id, name) {
+  function InputElements(type, id, name, required) {
     const el = document.createElement('input');
     el.type = type;
     el.id = id;
     el.name = name;
+    el.mambo = required;
 
     return form.appendChild(el);
   };
@@ -63,12 +64,12 @@ export const modal = (function() {
   const modalCreate = () => {
 
     const closeButton = document.createElement('button');
+    const description = document.createElement('textarea');
 
     prioritySelect.innerHTML = "";
     LabelElements('title', 'Title')
-    InputElements('text', 'title', 'title');
+    InputElements('text', 'title', 'title', true);
     LabelElements('description', 'Desctioption');
-    InputElements('text', 'description', 'description');
     LabelElements('dueDate', 'Due date');
     InputElements('date', 'dueDate', 'dueDate');
     LabelElements('priority-select', 'Select priority');
@@ -80,11 +81,14 @@ export const modal = (function() {
     dialog.id = 'todoModal';
     form.id = 'todoForm';
     prioritySelect.id = 'priority-select';
+    description.id = 'description';
+    description.name = 'description';
     prioritySelect.name = 'priority';
     closeButton.id = 'close-button';
     closeButton.textContent = 'X';
     closeButton.type = 'button';
 
+    form.appendChild(description);
     form.appendChild(prioritySelect);
     dialog.appendChild(closeButton);
     container.appendChild(dialog);
