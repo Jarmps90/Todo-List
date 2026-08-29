@@ -10,6 +10,7 @@
   --color-light-blue: #B3DEE5;
   --color-medium-blue: #657e8c;
   --color-dark-blue-100:#31525B;
+  --color-dark-blue-150: #27424a;
   --color-dark-blue-200: #18292e;
   --color-yellow:#FAE6B1;
   --color-orange:#FFA101;
@@ -79,7 +80,7 @@ header {grid-area: header;}
  .expanded {
   display: grid;
   background: var(--color-yellow);
-  color: gray ;
+  color: #424242 ;
   font-weight: 600;
   border-radius: 10px;
   padding-bottom: 10px;
@@ -367,8 +368,6 @@ button {
 #todoModal {
   display: grid;
   grid-template-rows:50px 1fr; 
-  min-height:70vh;
-  width: 35vh;
   background-color:var(--color-light-blue);
   box-shadow: 0 0 5px var(--color-yellow);
   border-radius: 5px;
@@ -376,33 +375,29 @@ button {
 
   label {
     font-weight: 500;
+    margin-top: 10px;
   }
 
   input {
-    margin-bottom: 15px;
+    border-radius: 5px;
+    height: 24px;
+    border: none;
+    max-width: 400px;
+    min-width: 300px;
   }  
-
-  #title {
-    width: 200px;
-    max-width: 300px;
-    height: max-content;
-  }
 
   #description {
     grid-row:4/5;
-    min-width: 200px;
-    max-width: 210px;
-    max-height: 250px;
+    border: none;
+    border-radius: 5px;
+    max-width: 400px;
+    max-height:201px;
+    min-width: 300px;
   }
   #priority-select {
-    field-sizing: content;
-    max-width: max-content;
+    border-radius: 5px;
+    border: none;
     height: 25px;
-  }
-
-  #dueDate {
-    width: 150px;
-    height: 20px;
   }
 
    #close-button {
