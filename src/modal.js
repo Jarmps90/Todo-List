@@ -17,7 +17,7 @@ export const modal = (function() {
     el.type = type;
     el.id = id;
     el.name = name;
-    el.mambo = required;
+    el.required = required;
 
     return form.appendChild(el);
   };
