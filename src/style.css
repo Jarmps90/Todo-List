@@ -37,6 +37,7 @@ h2 {
 }
 
 
+
 /*Grid areas*/
 
 /*Main area*/
@@ -58,7 +59,9 @@ header {grid-area: header;}
 
 
 
+
 /*TodoCard areas*/
+
 .toggle {grid-area: doneBtn;}
 .todo-title {grid-area: title;}
 .todo-description {grid-area: description;}
@@ -94,10 +97,11 @@ header {grid-area: header;}
   [class^='todo'] {margin: 5px;} 
 
 }
+
+
+
+
 /*Elements*/
-
-
-
 
 header {
     min-height: 100px;
@@ -134,7 +138,6 @@ header {
     background-color: var(--color-light-blue);
     box-shadow: 1px 1px 4px  var(--color-yellow);
 
-  
      > :last-child {
        border: none;
        padding-bottom: 5px;
@@ -143,11 +146,11 @@ header {
 
 .todoCard {
   border-bottom: var(--todo-border-bottom);
-  
-  
 }
 
 
+
+  
 /*Project Nav*/
 nav {
     padding-right: var(--padding-8);
@@ -161,8 +164,6 @@ nav {
     flex-direction: column;
     align-items:center;
     text-shadow: var(--text-shadow-blue);
-
-    
 }
 
 .projects {
@@ -173,7 +174,6 @@ nav {
   width: 100%;
 }
 
-
 .active {
   background: var(--color-orange);
   color: white;
@@ -181,7 +181,6 @@ nav {
   font-weight: bold;
   border-radius: 5px;
 }
-
 
 .project {
   display:grid;
@@ -209,7 +208,6 @@ button {
 .todo-title {
   cursor: pointer;
 }
-
 
 .addBtn, #projectModal {
   background: var(--color-orange);
@@ -244,7 +242,6 @@ button {
   box-shadow: 0 0 6px var(--color-dark-blue-100);
 }
 
-
 [class$='remove'] {
   width:24px;
   height: 24px;
@@ -274,6 +271,7 @@ button {
 
 
 
+
 /* Project modal */
 
 #projectModalDialog {
@@ -286,8 +284,6 @@ button {
   background-color:var(--color-light-blue);
   box-shadow: 0 0 5px var(--color-yellow);
   border-radius: 5px;
-
-
 
   label {
     justify-self: center;
@@ -361,6 +357,9 @@ button {
 #projectModalDialog > * {
   margin-bottom: 5px;
 }
+
+
+
 
 /* Todo modal */
 
