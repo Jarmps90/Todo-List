@@ -155,11 +155,17 @@ nav {
     padding-top: var(--padding-8);
     box-shadow:  1px 0 5px var(--color-yellow);
     background: var(--color-light-blue);
+    min-width: 200px;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    text-shadow: var(--text-shadow-blue);
 
     
 }
 
-nav > div {
+.projects {
   cursor: pointer;
   justify-items: center;
   font-size: var(--main-font500);
@@ -167,9 +173,6 @@ nav > div {
   width: 100%;
 }
 
-nav > div > div {
-  width: 70%;
-}
 
 .active {
   background: var(--color-orange);
@@ -179,50 +182,17 @@ nav > div > div {
   border-radius: 5px;
 }
 
-.projec-bar {
-  display: flex;
-  flex-direction: column;
-  align-items:center;
-  text-shadow: var(--text-shadow-blue);
-  flex-wrap: wrap;
-}
-
-
 
 .project {
   display:grid;
+  width: 70%;
   grid-template-columns: 4fr 1fr;
   align-items: center; 
   padding: 3px;
   padding-left: 10px;
 }
 
-[class$='remove'] {
-  width:24px;
-  height: 24px;
-  align-items: center;
-  padding: 0;
-  outline: none;
-  border: none;
-  background-image: url('./images/trash-can-solid.png');
-  background-color: inherit;
-  background-position: center;
-  background-repeat:no-repeat;
-  background-size: 20px 20px;
-}
 
-.edit {
-  width: 24px;
-  height: 24px;
-  outline: none;
-  border: none;
-  background: none;
-  background-image: url('./images/pen-to-square-solid.png');
-  background-color: inherit;
-  background-position: center;
-  background-repeat:no-repeat;
-  background-size: 20px 20px;
-}
 
 
 /*Buttons*/
@@ -272,6 +242,34 @@ button {
 
 #projectModal:hover {
   box-shadow: 0 0 6px var(--color-dark-blue-100);
+}
+
+
+[class$='remove'] {
+  width:24px;
+  height: 24px;
+  align-items: center;
+  padding: 0;
+  outline: none;
+  border: none;
+  background-image: url('./images/trash-can-solid.png');
+  background-color: inherit;
+  background-position: center;
+  background-repeat:no-repeat;
+  background-size: 20px 20px;
+}
+
+.edit {
+  width: 24px;
+  height: 24px;
+  outline: none;
+  border: none;
+  background: none;
+  background-image: url('./images/pen-to-square-solid.png');
+  background-color: inherit;
+  background-position: center;
+  background-repeat:no-repeat;
+  background-size: 20px 20px;
 }
 
 
