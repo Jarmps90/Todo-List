@@ -24,6 +24,7 @@
   --text-shadow-dark-blue: 0 0 1px var(--color-dark-blue-100);
   --text-shadow-blue: 0 0 2px var(--color-medium-blue);
   --modal-shadow-gray: 1px 1px 3px var(--color-gray-orange);
+  --task-shadew-yelow: 1px 1px 3px var(--color-yellow);
 
 }
 
@@ -138,7 +139,7 @@ header {
     margin-top: 5px;
     border-radius: 10px;
     background-color: var(--color-light-blue);
-    box-shadow: 1px 1px 4px  var(--color-yellow);
+    box-shadow: 1px 1px 3px 1px #a8916f;
 
      > :last-child {
        border: none;
