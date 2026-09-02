@@ -15,6 +15,7 @@
   --color-yellow:#FAE6B1;
   --color-orange:#FFA101;
   --color-gray-orange: #c9c0b3;
+  --color-gray-yellow: #e6d6be;
 
   /*Borders*/
 
@@ -24,7 +25,8 @@
   --text-shadow-dark-blue: 0 0 1px var(--color-dark-blue-100);
   --text-shadow-blue: 0 0 2px var(--color-medium-blue);
   --modal-shadow-gray: 1px 1px 3px var(--color-gray-orange);
-  --task-shadew-yelow: 1px 1px 3px var(--color-yellow);
+  --task-shadow-yellow: 1px 1px 3px 1px var(--color-gray-yellow);
+  --nav-shadow-yellow: 0 0 2px 1px var(--color-gray-yellow);
 
 }
 
@@ -139,7 +141,7 @@ header {
     margin-top: 5px;
     border-radius: 10px;
     background-color: var(--color-light-blue);
-    box-shadow: 1px 1px 3px 1px #a8916f;
+    box-shadow:  var(--task-shadow-yellow);
 
      > :last-child {
        border: none;
@@ -159,7 +161,7 @@ nav {
     padding-right: var(--padding-8);
     height: 100%;
     padding-top: var(--padding-8);
-    box-shadow:  1px 0 5px var(--color-yellow);
+    box-shadow:  var(--nav-shadow-yellow);
     background: var(--color-light-blue);
     min-width: 200px;
     max-width: 350px;
