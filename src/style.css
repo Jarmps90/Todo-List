@@ -377,7 +377,24 @@ button {
   margin-bottom: 5px;
 }
 
+#updateBtn {
+  justify-self: center;
+  width: 105px;
+  height: 32px;
+  margin:5px;
+  background: var(--color-orange);
+  color: white;
+  font-size: var(--text-size-1-2);
+  font-weight: 600;
+  outline: none;
+  border-radius: 5px ;
+  border:none;
+  box-shadow: 0 0 4px var(--color-dark-blue-200);
+}
 
+#updateBtn:hover {
+  box-shadow: 0 0 6px var(--color-dark-blue-200);
+}
 
 
 /* Todo modal */
