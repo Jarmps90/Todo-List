@@ -12,18 +12,20 @@
   --color-dark-blue-100:#31525B;
   --color-dark-blue-150: #27424a;
   --color-dark-blue-200: #18292e;
-  --color-yellow:#FAE6B1;
-  --color-orange:#FFA101;
-  --color-gray-orange: #c9c0b3;
-  --color-gray-yellow: #e6d6be;
+    --color-white: #b6b7b8;
+    --color-yellow:#FAE6B1;
+    --color-orange:#FFA101;
+    --color-gray-orange: #c9c0b3;
+    --color-gray-yellow: #e6d6be;
 
-  /*Borders*/
+    /*Borders*/
 
-  --todo-border-bottom: solid var(--color-dark-blue-100) 1px;
+    --todo-border-bottom: solid var(--color-dark-blue-100) 1px;
 
-  /*Shadows*/
-  --text-shadow-dark-blue: 0 0 1px var(--color-dark-blue-100);
-  --text-shadow-blue: 0 0 2px var(--color-medium-blue);
+    /*Shadows*/
+    --text-shadow-dark-blue: 0 0 1px var(--color-dark-blue-100);
+    --text-shadow-blue: 0 0 2px var(--color-medium-blue);
+    --text-shadow-white: 0 0 2px var(--color-white);
   --modal-shadow-gray: 1px 1px 3px var(--color-gray-orange);
   --task-shadow-yellow: 1px 1px 3px 1px var(--color-gray-yellow);
   --nav-shadow-yellow: 0 0 2px 1px var(--color-gray-yellow);
@@ -111,6 +113,13 @@ header {grid-area: header;}
 header {
     min-height: 100px;
     background-color: var(--color-dark-blue-100);
+    color: white;
+    align-content: center;
+    > h1 {
+      padding-left: 10px;
+      margin-left: 10px;
+      text-shadow: var(--text-shadow-white);
+    }
 }
 
   .button-bar {
@@ -316,6 +325,11 @@ button {
 
 }
 
+#projectModalDialog::backdrop {
+    opacity: 0.8;
+    background: gray;
+}
+
 #projectSubmitBtn {
   grid-row: 4/5;
   grid-column: 1/3;
@@ -429,6 +443,10 @@ button {
   }
 
 
+}
+#todoModal::backdrop {
+    opacity: 0.8;
+    background: gray;
 }
 
 #todoForm {
