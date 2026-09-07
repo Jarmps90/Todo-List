@@ -71,6 +71,7 @@ export function projectId() {
       document.querySelector('.active')?.classList.remove('active');
     };
     todoChecker();
+    doneCheck();
 
   });
 
@@ -99,6 +100,17 @@ function todoChecker() {
   modal.todoRemovBtn();
   modal.toggleButton();
   modal.expandButton();
+};
+
+const doneCheck = () => {
+  const button = document.querySelector('.toggle');
+  const todos = objects.getTodos();
+
+  todos.forEach((todo) => {
+   if(todo.completed === true) {
+    console.log(button);
+   } 
+  });
 };
 
 
