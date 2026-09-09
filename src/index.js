@@ -71,7 +71,6 @@ export function projectId() {
       document.querySelector('.active')?.classList.remove('active');
     };
     todoChecker();
-    doneCheck();
 
   });
 
@@ -100,6 +99,7 @@ function todoChecker() {
   modal.todoRemovBtn();
   modal.toggleButton();
   modal.expandButton();
+  doneCheck();
 };
 
 const doneCheck = () => {
@@ -108,7 +108,7 @@ const doneCheck = () => {
 
   todos.forEach((todo) => {
    if(todo.completed === true) {
-    console.log(button);
+     button.style.background = 'red';
    } 
   });
 };
