@@ -99,19 +99,19 @@ function todoChecker() {
   modal.todoRemovBtn();
   modal.toggleButton();
   modal.expandButton();
-  doneCheck();
+  //doneCheck();
 };
 
-const doneCheck = () => {
-  const button = document.querySelector('.toggle');
-  const todos = objects.getTodos();
-
-  todos.forEach((todo) => {
-   if(todo.completed === true) {
-     button.style.background = 'red';
-   } 
-  });
-};
+//function doneCheck() {
+//  const button = document.querySelector('.toggle');
+//  const todos = objects.getTodos();
+//
+//  todos.forEach((todo) => {
+//   if(todo.completed === true) {
+//      button.style.background = 'red';
+//   };
+//  });
+//};
 
 
 
