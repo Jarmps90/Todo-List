@@ -135,11 +135,18 @@ export const modal = (function() {
     const todoCards = document.querySelectorAll('.todoCard');
 
     todoCards.forEach((card) => {
-      const toggleBtn = document.createElement('div');
+      const toggleBtn = document.createElement('input');
+      const toggleBtnLabel = document.createElement('label');
+
+      toggleBtn.type = 'checkbox';
+      toggleBtn.id = 'toggle-btn';
       toggleBtn.classList.add('toggle');
+      toggleBtnLabel.htmlFor = 'toggle-btn';
+
       card.appendChild(toggleBtn);
+      card.appendChild(toggleBtnLabel);
+
       toggleBtn.addEventListener('click', (event) => {
-	toggleBtn.style.background = 'red';
 	userInputFunc.toggleDoneBtn(event);
       });
     });
