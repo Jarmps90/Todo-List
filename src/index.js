@@ -104,14 +104,11 @@ function todoChecker() {
 
 function doneCheck() {
   const todos = objects.getTodos();
-  const checkbox = document.getElementById('toggle-btn');
   
-  todos.forEach((todo) => {
-   if(todo.completed === true) {
-      console.log(todo.id);
-   };
-  });
-  console.log(todos);
+  const filterTrue = () => {
+
+  };
+
 };
 
 
