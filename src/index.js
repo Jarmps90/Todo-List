@@ -99,10 +99,10 @@ function todoChecker() {
   modal.todoRemovBtn();
   modal.toggleButton();
   modal.expandButton();
-  doneCheck();
+  getElement();
 };
 
-function doneCheck() {
+function fileterCompleted() {
   const todos = objects.getTodos();
   const result = todos.filter(filterTrue);
 
@@ -113,6 +113,16 @@ function doneCheck() {
   return result;
 };
 
+function getElement() {
+  const elements = document.querySelectorAll('input');
+  const doneTodos = fileterCompleted();
+  
+  elements.forEach((element, index) => {
+
+    element.dataset.id = doneTodos[index];
+    console.log(elements.parentNode);
+  });
+};
 
 
 function displayControl() {
