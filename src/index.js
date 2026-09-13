@@ -104,11 +104,13 @@ function todoChecker() {
 
 function doneCheck() {
   const todos = objects.getTodos();
-  
-  const filterTrue = () => {
+  const result = todos.filter(filterTrue);
 
+  function filterTrue(todo) {
+    return todo = todo.completed;
   };
 
+  console.log(result);
 };
 
 
