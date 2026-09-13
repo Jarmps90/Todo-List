@@ -110,7 +110,7 @@ function doneCheck() {
     return todo = todo.completed;
   };
 
-  console.log(result);
+  return result;
 };
 
 
