@@ -150,6 +150,7 @@ export const modal = (function() {
 	userInputFunc.toggleDoneBtn(event);
       });
     });
+    userInputFunc.toggleId();
   };
 
 
