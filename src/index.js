@@ -294,6 +294,16 @@ export function userInput() {
 
   };
 
+  const toggleId = () => {
+    const toggleButtons = document.querySelectorAll(".toggle");
+    const todos = objects.getTodos();
+    
+    toggleButtons.forEach((button, index) => {
+      button.dataset.id = todos[index].id;
+    });
+
+  };
+
   const toggleDoneBtn = (event) => {
     const todoCards = document.querySelectorAll('.todoCard'); 
     const todos = objects.getTodos();
@@ -393,7 +403,7 @@ export function userInput() {
 
 
 
-  return { submit, projectButtons, update, toggleDoneBtn, todoRemovBtn, expandBtn, getInputValues, getTodoIndex, projectRemoveBtn, todoModalClose };
+  return { submit, projectButtons, update, toggleId, toggleDoneBtn, todoRemovBtn, expandBtn, getInputValues, getTodoIndex, projectRemoveBtn, todoModalClose };
 };
 
 
