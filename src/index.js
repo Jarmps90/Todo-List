@@ -120,7 +120,6 @@ function getElement() {
   elements.forEach((element, index) => {
 
     element.dataset.id = doneTodos[index];
-    console.log(elements.parentNode);
   });
 };
 
@@ -301,7 +300,6 @@ export function userInput() {
     toggleButtons.forEach((button, index) => {
       button.dataset.id = todos[index].id;
     });
-
   };
 
   const toggleDoneBtn = (event) => {
