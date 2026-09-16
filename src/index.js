@@ -86,6 +86,7 @@ function todoChecker() {
   const mainBody = document.querySelector("#main-body");
   mainBody.innerHTML = "";
   todoDiv.innerHTML = "";
+  const input = userInput();
 
   todos.forEach((todo) => {
     if(todo.expanded === true) {
@@ -99,6 +100,7 @@ function todoChecker() {
   modal.todoRemovBtn();
   modal.toggleButton();
   modal.expandButton();
+  input.toggleId();
   getElement();
 };
 
