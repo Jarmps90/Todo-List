@@ -86,7 +86,6 @@ function todoChecker() {
   const mainBody = document.querySelector("#main-body");
   mainBody.innerHTML = "";
   todoDiv.innerHTML = "";
-  const input = userInput();
 
   todos.forEach((todo) => {
     if(todo.expanded === true) {
@@ -100,8 +99,7 @@ function todoChecker() {
   modal.todoRemovBtn();
   modal.toggleButton();
   modal.expandButton();
-  input.toggleId();
-  getElement();
+  setCheckbox();
 };
 
 function fileterCompleted() {
@@ -115,15 +113,16 @@ function fileterCompleted() {
   return result;
 };
 
-function getElement() {
-  const elements = document.querySelectorAll('input');
+function setCheckbox() {
   const doneTodos = fileterCompleted();
-  
-  elements.forEach((element, index) => {
+  const buttons = document.querySelectorAll("[data-id]");
+  let buttonIds = [];
 
-    element.dataset.id = doneTodos[index];
+  buttons.forEach((button) => {
+    buttonIds.push(button.dataset.id);
   });
-};
+  console.log(buttonIds, doneTodos);
+}; 
 
 
 function displayControl() {
