@@ -116,12 +116,17 @@ function fileterCompleted() {
 function setCheckbox() {
   const doneTodos = fileterCompleted();
   const buttons = document.querySelectorAll("[data-id]");
-  let buttonIds = [];
+  let doneId = [];
 
-  buttons.forEach((button) => {
-    buttonIds.push(button.dataset.id);
+  doneTodos.forEach((todo) => {
+    doneId.push(todo.id);
   });
-  console.log(buttonIds, doneTodos);
+;
+  buttons.forEach((button, index) => {
+    if(doneId[index] === button.dataset.id) {
+      button.checked = true;
+    };
+  });
 }; 
 
 
