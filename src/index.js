@@ -113,6 +113,7 @@ function fileterCompleted() {
   return result;
 };
 
+
 function setCheckbox() {
   const doneTodos = fileterCompleted();
   const buttons = document.querySelectorAll("[data-id]");
@@ -121,11 +122,13 @@ function setCheckbox() {
   doneTodos.forEach((todo) => {
     doneId.push(todo.id);
   });
-;
-  buttons.forEach((button, index) => {
-    if(doneId[index] === button.dataset.id) {
-      button.checked = true;
-    };
+
+  doneId.forEach((doneid) => {
+    buttons.forEach((button) => {
+      if(button.dataset.id === doneid) {
+        button.checked = true;
+      };
+    });
   });
 }; 
 
