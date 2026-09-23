@@ -100,7 +100,34 @@ function todoChecker() {
   modal.toggleButton();
   modal.expandButton();
   setCheckbox();
+  doneCheck();
 };
+
+function doneCheck() {
+  const checkBoxes = document.querySelectorAll("#toggle-btn");
+  const doneTodo = fileterCompleted();
+  let doneIds = [];
+
+  doneTodo.forEach((todo) => {
+    doneIds.push(todo.id);
+  });
+
+};
+
+function doneClass() {
+  const checkbox = document.querySelectorAll("#toggle-btn");
+
+  checkbox.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      if(event.target.id) {
+	document.querySelector(".done")?.classList.remove("done");
+	document.getElementById(event.target.id).classList.add("done");
+      } else {
+	document.querySelector(".done")?.classList.remove(".done");
+      };
+    });
+  });
+  };
 
 function fileterCompleted() {
   const todos = objects.getTodos();
