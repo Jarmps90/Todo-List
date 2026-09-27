@@ -100,7 +100,7 @@ function todoChecker() {
   modal.toggleButton();
   modal.expandButton();
   setCheckbox();
-  doneClass();
+  classChanger();
 };
 
 
@@ -109,17 +109,30 @@ function doneClass() {
   const checkbox = document.querySelectorAll("#toggle-btn");
 
   checkbox.forEach((button) => {
-    button.addEventListener("click", (event) => {
-      if(event.target.id) {
-	document.querySelector(".done")?.classList.remove("done");
-	document.getElementById(event.target.id).classList.add("done");
-      } else {
-	document.querySelector(".done")?.classList.remove(".done");
-      };
-      todoChecker();
+    button.addEventListener("click", () => {
+      classChanger();
     });
   });
-  };
+};
+
+function classChanger() {
+  const todoCards = document.querySelectorAll(".todoCard");
+  const doneTodos = fileterCompleted();
+  let todosIds = [];
+
+  doneTodos.forEach((todo) => {
+    todosIds.push(todo.id);
+  });
+  console.log(todosIds);
+    todosIds.forEach((id) => {
+      todoCards.forEach((card) => {
+	console.log(card.dataset.id)
+	if(card.dataset.id === id) {
+	  card.classList.add("done");
+	};
+      });
+    });
+};
 
 function fileterCompleted() {
   const todos = objects.getTodos();
@@ -146,7 +159,6 @@ function setCheckbox() {
     buttons.forEach((button) => {
       if(button.dataset.id === doneid) {
         button.checked = true;
-	button.classList.add("done");
       };
     });
   });
