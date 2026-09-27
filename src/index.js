@@ -123,10 +123,9 @@ function classChanger() {
   doneTodos.forEach((todo) => {
     todosIds.push(todo.id);
   });
-  console.log(todosIds);
+
     todosIds.forEach((id) => {
       todoCards.forEach((card) => {
-	console.log(card.dataset.id)
 	if(card.dataset.id === id) {
 	  card.classList.add("done");
 	};
