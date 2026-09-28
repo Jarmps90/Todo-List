@@ -136,9 +136,7 @@ function classChanger() {
       todoCards.forEach((card) => {
 	if(card.dataset.id === id) {
 	  card.classList.add("done");
-	}// else if(card.dataset.id !== id) {
-	 // card.classList.remove("done");
-	//};
+	};
       });
     });
 };
