@@ -101,6 +101,7 @@ function todoChecker() {
   modal.expandButton();
   setCheckbox();
   classChanger();
+  doneClass();
 };
 
 
@@ -111,14 +112,21 @@ function doneClass() {
   checkbox.forEach((button) => {
     button.addEventListener("click", () => {
       classChanger();
+      todoChecker();
     });
   });
 };
 
 function classChanger() {
   const todoCards = document.querySelectorAll(".todoCard");
+  const todos = objects.getTodos();
   const doneTodos = fileterCompleted();
   let todosIds = [];
+
+  todoCards.forEach((todo, index) => {
+    todo.dataset.id = todos[index].id
+    console.log(todo.dataset.id);
+  });
 
   doneTodos.forEach((todo) => {
     todosIds.push(todo.id);
@@ -128,7 +136,9 @@ function classChanger() {
       todoCards.forEach((card) => {
 	if(card.dataset.id === id) {
 	  card.classList.add("done");
-	};
+	}// else if(card.dataset.id !== id) {
+	 // card.classList.remove("done");
+	//};
       });
     });
 };
