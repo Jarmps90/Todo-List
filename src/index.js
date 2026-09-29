@@ -125,7 +125,6 @@ function classChanger() {
 
   todoCards.forEach((todo, index) => {
     todo.dataset.id = todos[index].id
-    console.log(todo.dataset.id);
   });
 
   doneTodos.forEach((todo) => {
@@ -259,7 +258,7 @@ export function userInput() {
           todoTitle,
           todoDescription,
           todoDueDate,
-          todoPriority,
+          todoPriority
         );
 	todoChecker();
         event.preventDefault();
@@ -278,12 +277,14 @@ export function userInput() {
          dialog.close();
        	 dialog.remove();
        	 container.removeEventListener('click', close);
+	 dialog.innerHTML = "";
         };
       });
       if(event.target.id === 'close-button') {
         dialog.close();
         dialog.remove();
         container.removeEventListener('click', close);
+	dialog.innerHTML = "";
       };
     });
   };
