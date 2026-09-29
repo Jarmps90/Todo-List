@@ -471,3 +471,11 @@ button {
   display: grid;
   gap: 10px;
 }
+
+.done {
+  color: gray;
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+  text-decoration-color: #404040;
+
+}
