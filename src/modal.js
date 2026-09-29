@@ -206,6 +206,7 @@ export const modal = (function() {
 	dialog.showModal();
 	const index = userInputFunc.getTodoIndex(event);
 	userInputFunc.getInputValues(index);
+	userInputFunc.todoModalClose();
 	updateBtn(index);
       });
     });
