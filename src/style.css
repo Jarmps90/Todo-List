@@ -43,6 +43,9 @@ h2 {
   text-shadow: var(--text-shadow-dark-blue-100);
 }
 
+input, select {
+  font-family: inherit;
+}
 
 
 /*Grid areas*/
