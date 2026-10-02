@@ -248,7 +248,8 @@ export function userInput() {
   const submit = () => {
     container.addEventListener("click", function addTodo(event) {
       if (event.target.id === "submitBtn") {
-        const dialog = document.querySelector("#todoModal");
+        const dialog = document.getElementById("todoModal");
+	if(dialog) {
         const todoTitle = document.getElementById("title").value;
         const todoDescription = document.getElementById("description").value;
         const todoDueDate = document.getElementById("dueDate").value;
@@ -263,31 +264,45 @@ export function userInput() {
 	todoChecker();
         event.preventDefault();
         dialog.close();
-        container.removeEventListener("click", addTodo);
         dialog.remove();
+	};
       };
     });
   };
 
+ // const todoModalClose = () => {
+ //   container.addEventListener('click', function close(event) {
+ //     const dialog = document.getElementById('todoModal');
+ //     container.addEventListener('keydown', (event) => {
+ //       if(event.key === 'Escape') {
+ //        dialog.close();
+ //      	 container.removeEventListener('click', close);
+ //      	 dialog.remove();
+ //        dialog.innerHTML = "";
+ //       };
+ //     });
+ //     if(event.target.id === 'close-button') {
+ //       dialog.close();
+ //       container.removeEventListener('click', close);
+ //       dialog.remove();
+ //       dialog.innerHTML = "";
+ //     };
+ //   });
+ // };
   const todoModalClose = () => {
-    container.addEventListener('click', function close(event) {
-      const dialog = document.querySelector('#todoModal');
-      container.addEventListener('keydown', (event) => {
-        if(event.key === 'Escape') {
-	 console.log(dialog);
-         dialog.close();
-       	 container.removeEventListener('click', close);
-       	 dialog.remove();
-	 //dialog.innerHTML = "";
-        };
-      });
-      if(event.target.id === 'close-button') {
-	console.log(dialog);
-        dialog.close();
-	
-        container.removeEventListener('click', close);
-        dialog.remove();
-	//dialog.innerHTML = "";
+    const dialog = document.getElementById("todoModal");
+    container.addEventListener("keydown",  (event) => {
+      if(event.key === "Escape") {
+	dialog.close();
+	dialog.remove();
+	dialog.innerHTML = "";
+      };
+    });
+    container.addEventListener("click", (event) => {
+      if(event.target.id === "close-button") {
+	dialog.close();
+	dialog.remove();
+	dialog.innerHTML = "";
       };
     });
   };
@@ -329,19 +344,21 @@ export function userInput() {
     const todo = todos[index];
     container.addEventListener("click", function updateTodo(event) {
       if (event.target.id === "updateBtn") {
-        const dialog = document.querySelector("#todoModal");
-        const todoTitle = document.getElementById("title").value;
-        const todoDescription = document.getElementById("description").value;
-        const todoDueDate = document.getElementById("dueDate").value;
-        const todoPriority = document.getElementById("priority-select").value;
+        const dialog = document.getElementById("todoModal");
+	if(dialog) {
+	 const todoTitle = document.getElementById("title")?.value;
+       	 const todoDescription = document.getElementById("description")?.value;
+       	 const todoDueDate = document.getElementById("dueDate")?.value;
+       	 const todoPriority = document.getElementById("priority-select")?.value;
 
-        objects.updateTodos(index, todoTitle, todoDescription, todoDueDate, todoPriority, todo.completed, todo.expanded, todo.id);
-
-	todoChecker();
-        event.preventDefault();
-        dialog.close();
-        container.removeEventListener("click", updateTodo);
-        dialog.remove();
+       	 objects.updateTodos(index, todoTitle, todoDescription, todoDueDate, todoPriority, todo.completed, todo.expanded, todo.id);
+       	 
+       	 todoChecker()
+       	 event.preventDefault();
+       	 dialog.close();
+       	 container.removeEventListener("click", updateTodo);
+       	 dialog.remove();
+	};
       };
     });
 
