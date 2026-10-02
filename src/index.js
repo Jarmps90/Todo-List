@@ -263,8 +263,8 @@ export function userInput() {
 	todoChecker();
         event.preventDefault();
         dialog.close();
-        dialog.remove();
         container.removeEventListener("click", addTodo);
+        dialog.remove();
       };
     });
   };
@@ -274,17 +274,20 @@ export function userInput() {
       const dialog = document.querySelector('#todoModal');
       container.addEventListener('keydown', (event) => {
         if(event.key === 'Escape') {
+	 console.log(dialog);
          dialog.close();
-       	 dialog.remove();
        	 container.removeEventListener('click', close);
-	 dialog.innerHTML = "";
+       	 dialog.remove();
+	 //dialog.innerHTML = "";
         };
       });
       if(event.target.id === 'close-button') {
+	console.log(dialog);
         dialog.close();
-        dialog.remove();
+	
         container.removeEventListener('click', close);
-	dialog.innerHTML = "";
+        dialog.remove();
+	//dialog.innerHTML = "";
       };
     });
   };
@@ -295,6 +298,7 @@ export function userInput() {
       
       container.addEventListener("keydown", (event) => {
         if (event.key === "Escape") {
+	  console.log(dialog);
           dialog.close();
           dialog.remove();
           container.removeEventListener("click", project);
@@ -308,13 +312,14 @@ export function userInput() {
         dpControl.projectDisplay();
         event.preventDefault();
         dialog.close();
-        dialog.remove();
         container.removeEventListener("click", project);
+        dialog.remove();
 
       } else if(event.target.id === 'close-button') {
+	console.log(dialog);
 	dialog.close();
-	dialog.remove();
         container.removeEventListener("click", project);
+	dialog.remove();
       };
     });
   };
@@ -335,8 +340,8 @@ export function userInput() {
 	todoChecker();
         event.preventDefault();
         dialog.close();
-        dialog.remove();
         container.removeEventListener("click", updateTodo);
+        dialog.remove();
       };
     });
 
