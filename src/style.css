@@ -44,7 +44,7 @@ h2 {
 }
 
 input, select {
-  font-family: inherit;
+  font-family: 'Mozilla Text', 'Open Sans';
 }
 
 
@@ -431,6 +431,8 @@ button {
     max-width: 400px;
     max-height:201px;
     min-width: 300px;
+    font-family: 'Mozilla Text', 'Open Sans';
+ 
   }
   #priority-select {
     border-radius: 5px;
