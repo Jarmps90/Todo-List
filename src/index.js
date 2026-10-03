@@ -313,7 +313,6 @@ export function userInput() {
       
       container.addEventListener("keydown", (event) => {
         if (event.key === "Escape") {
-	  console.log(dialog);
           dialog.close();
           dialog.remove();
           container.removeEventListener("click", project);
@@ -331,7 +330,6 @@ export function userInput() {
         dialog.remove();
 
       } else if(event.target.id === 'close-button') {
-	console.log(dialog);
 	dialog.close();
         container.removeEventListener("click", project);
 	dialog.remove();
@@ -341,28 +339,54 @@ export function userInput() {
 
   const update = (index) => {
     const todos = objects.getTodos();
-    const todo = todos[index];
-    container.addEventListener("click", function updateTodo(event) {
-      if (event.target.id === "updateBtn") {
-        const dialog = document.getElementById("todoModal");
-	if(dialog) {
-	 const todoTitle = document.getElementById("title")?.value;
-       	 const todoDescription = document.getElementById("description")?.value;
-       	 const todoDueDate = document.getElementById("dueDate")?.value;
-       	 const todoPriority = document.getElementById("priority-select")?.value;
+    const todo = todos[index]
 
-       	 objects.updateTodos(index, todoTitle, todoDescription, todoDueDate, todoPriority, todo.completed, todo.expanded, todo.id);
-       	 
-       	 todoChecker()
-       	 event.preventDefault();
-       	 dialog.close();
-       	 container.removeEventListener("click", updateTodo);
-       	 dialog.remove();
-	};
+    container.addEventListener("click", function updateTodo(event) {
+      if(event.target.id === "updateBtn") {
+	  const dialog = document.getElementById("todoModal");
+	if(dialog) {
+	  const todoTitle = document.getElementById("title").value;
+      	  const todoDescription = document.getElementById("description").value;
+      	  const todoDueDate = document.getElementById("dueDate").value;
+      	  const todoPriority = document.getElementById("priority-select").value;
+
+	  console.log(dialog, todoTitle, todoDescription, todoDueDate, todoPriority);
+
+	  objects.updateTodos(index, todoTitle, todoDescription, todoDueDate, todoPriority, todo.completed, todo.expanded, todo.id);
+	  event.preventDefault();
+	  todoChecker();
+	  container.removeEventListener("click", updateTodo);
+	  dialog.close();
+	  dialog.innerHTML = "";
+	  dialog.remove();
+	}
+      
       };
     });
-
   };
+
+ // const update = (index) => {
+ //   const todos = objects.getTodos();
+ //   const todo = todos[index];
+ //   container.addEventListener("click", function updateTodo(event) {
+ //     if (event.target.id === "updateBtn") {
+ //        const dialog = document.getElementById("todoModal");
+ //       if(dialog) {
+ //        const todoTitle = document.getElementById("title").value;
+ //      	 const todoDescription = document.getElementById("description").value;
+ //      	 const todoDueDate = document.getElementById("dueDate").value;
+ //      	 const todoPriority = document.getElementById("priority-select").value;
+
+ //      	 objects.updateTodos(index, todoTitle, todoDescription, todoDueDate, todoPriority, todo.completed, todo.expanded, todo.id);
+ //         console.log(index)
+ //        todoChecker()
+ //      	 event.preventDefault();
+ //      	 dialog.close();
+ //      	 dialog.remove();
+ //       };
+ //     };	 
+ //   });
+ // };
 
   const toggleId = () => {
     const toggleButtons = document.querySelectorAll(".toggle");
