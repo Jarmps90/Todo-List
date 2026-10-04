@@ -349,9 +349,6 @@ export function userInput() {
       	  const todoDescription = document.getElementById("description").value;
       	  const todoDueDate = document.getElementById("dueDate").value;
       	  const todoPriority = document.getElementById("priority-select").value;
-
-	  console.log(dialog, todoTitle, todoDescription, todoDueDate, todoPriority);
-
 	  objects.updateTodos(index, todoTitle, todoDescription, todoDueDate, todoPriority, todo.completed, todo.expanded, todo.id);
 	  event.preventDefault();
 	  todoChecker();
@@ -360,33 +357,9 @@ export function userInput() {
 	  dialog.innerHTML = "";
 	  dialog.remove();
 	}
-      
       };
     });
   };
-
- // const update = (index) => {
- //   const todos = objects.getTodos();
- //   const todo = todos[index];
- //   container.addEventListener("click", function updateTodo(event) {
- //     if (event.target.id === "updateBtn") {
- //        const dialog = document.getElementById("todoModal");
- //       if(dialog) {
- //        const todoTitle = document.getElementById("title").value;
- //      	 const todoDescription = document.getElementById("description").value;
- //      	 const todoDueDate = document.getElementById("dueDate").value;
- //      	 const todoPriority = document.getElementById("priority-select").value;
-
- //      	 objects.updateTodos(index, todoTitle, todoDescription, todoDueDate, todoPriority, todo.completed, todo.expanded, todo.id);
- //         console.log(index)
- //        todoChecker()
- //      	 event.preventDefault();
- //      	 dialog.close();
- //      	 dialog.remove();
- //       };
- //     };	 
- //   });
- // };
 
   const toggleId = () => {
     const toggleButtons = document.querySelectorAll(".toggle");
