@@ -265,30 +265,13 @@ export function userInput() {
         event.preventDefault();
         dialog.close();
         dialog.remove();
+	dialog.innerHTML = "";
 	};
       };
     });
   };
 
- // const todoModalClose = () => {
- //   container.addEventListener('click', function close(event) {
- //     const dialog = document.getElementById('todoModal');
- //     container.addEventListener('keydown', (event) => {
- //       if(event.key === 'Escape') {
- //        dialog.close();
- //      	 container.removeEventListener('click', close);
- //      	 dialog.remove();
- //        dialog.innerHTML = "";
- //       };
- //     });
- //     if(event.target.id === 'close-button') {
- //       dialog.close();
- //       container.removeEventListener('click', close);
- //       dialog.remove();
- //       dialog.innerHTML = "";
- //     };
- //   });
- // };
+
   const todoModalClose = () => {
     const dialog = document.getElementById("todoModal");
     container.addEventListener("keydown",  (event) => {
@@ -356,7 +339,9 @@ export function userInput() {
 	  dialog.close();
 	  dialog.innerHTML = "";
 	  dialog.remove();
-	}
+	} else {
+	  console.error("Above code don't work");
+	};
       };
     });
   };
@@ -364,7 +349,7 @@ export function userInput() {
   const toggleId = () => {
     const toggleButtons = document.querySelectorAll(".toggle");
     const todos = objects.getTodos();
-    
+    console.log(todos); 
     toggleButtons.forEach((button, index) => {
       button.dataset.id = todos[index].id;
     });
