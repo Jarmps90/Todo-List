@@ -93,11 +93,17 @@ export function objectControl() {
   const getTodos = () => {
     const id = projectID.getProjectId();
     let todoArray = [];
+    console.log(id, projetArray.length);
+
 
     if(id === '') {
       console.log('No projects selected');
-    } else {
+    } else if(id < projetArray.length) {
       todoArray = projetArray[id].todos;
+    } else {
+      console.error("Something went wrong");
+      updateLocalStroage();
+      console.log(id, todoArray);
     };
     return todoArray; };
   

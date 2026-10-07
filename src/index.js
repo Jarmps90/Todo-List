@@ -340,7 +340,8 @@ export function userInput() {
 	  dialog.innerHTML = "";
 	  dialog.remove();
 	} else {
-	  console.error("Above code don't work");
+	  console.error("Something went wrong");
+	  const dialog = document.querySelector("#todoModal");
 	};
       };
     });
@@ -349,7 +350,6 @@ export function userInput() {
   const toggleId = () => {
     const toggleButtons = document.querySelectorAll(".toggle");
     const todos = objects.getTodos();
-    console.log(todos); 
     toggleButtons.forEach((button, index) => {
       button.dataset.id = todos[index].id;
     });
