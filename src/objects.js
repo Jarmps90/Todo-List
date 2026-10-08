@@ -93,7 +93,6 @@ export function objectControl() {
   const getTodos = () => {
     const id = projectID.getProjectId();
     let todoArray = [];
-    console.log(id, projetArray.length);
 
 
     if(id === '') {
@@ -102,8 +101,6 @@ export function objectControl() {
       todoArray = projetArray[id].todos;
     } else {
       console.error("Something went wrong");
-      updateLocalStroage();
-      console.log(id, todoArray);
     };
     return todoArray; };
   

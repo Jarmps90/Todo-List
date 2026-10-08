@@ -59,7 +59,7 @@ function updateDisplay() {
 };
 
 export function projectId() {
- const projects = document.querySelector(".projects");
+  const projects = document.querySelector(".projects");
   let projectId = 0;
 
   projects.addEventListener("click", (event) => {
@@ -341,7 +341,6 @@ export function userInput() {
 	  dialog.remove();
 	} else {
 	  console.error("Something went wrong");
-	  const dialog = document.querySelector("#todoModal");
 	};
       };
     });
@@ -407,7 +406,9 @@ export function userInput() {
 
   const projectRemoveBtn = (event) => {
     const projectDivs = document.querySelectorAll('.project');
+    const projectsDiv = document.querySelector(".projects");
     const projects = objects.getProjects();
+    const dispay = displayControl();
     
     projectDivs.forEach((projectDivs, index) => {
       projectDivs.dataset.id = projects[index].id 
@@ -421,7 +422,11 @@ export function userInput() {
       projectDiv.remove();
       projects.splice(projectIndex, 1);
     };
+
     objects.updateLocalStroage();
+    projectsDiv.innerHTML = "";
+    dispay.projectDisplay();
+    
   };
 
   const getTodoIndex  = (event) => {
