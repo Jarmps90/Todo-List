@@ -246,10 +246,9 @@ export function userInput() {
 
 
   const submit = () => {
-    container.addEventListener("click", function addTodo(event) {
-      if (event.target.id === "submitBtn") {
+    container.addEventListener("submit", function addTodo(event) {
         const dialog = document.getElementById("todoModal");
-	if(dialog) {
+        if(dialog) {
         const todoTitle = document.getElementById("title").value;
         const todoDescription = document.getElementById("description").value;
         const todoDueDate = document.getElementById("dueDate").value;
@@ -261,15 +260,37 @@ export function userInput() {
           todoDueDate,
           todoPriority
         );
-	todoChecker();
+        todoChecker();
         event.preventDefault();
         dialog.close();
         dialog.remove();
-	dialog.innerHTML = "";
-	};
-      };
+        dialog.innerHTML = "";
+        };
     });
   };
+
+//const submit = () =>  {
+//
+//  const dialog = document.getElementById("todoModal");
+//	if(dialog) {
+//        const todoTitle = document.getElementById("title").value;
+//        const todoDescription = document.getElementById("description").value;
+//        const todoDueDate = document.getElementById("dueDate").value;
+//        const todoPriority = document.getElementById("priority-select").value;
+//
+//        objects.todoControl(
+//          todoTitle,
+//          todoDescription,
+//          todoDueDate,
+//          todoPriority
+//        );
+//	todoChecker();
+//        //event.preventDefault();
+//        dialog.close();
+//        dialog.remove();
+//	dialog.innerHTML = "";
+//	};
+//};
 
 
   const todoModalClose = () => {

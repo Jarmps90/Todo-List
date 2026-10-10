@@ -68,7 +68,7 @@ export const modal = (function() {
 
     prioritySelect.innerHTML = "";
     LabelElements('title', 'Title')
-    InputElements('text', 'title', 'title', true);
+    const title = InputElements('text', 'title', 'title');
     LabelElements('description', 'Desctioption');
     LabelElements('dueDate', 'Due date');
     InputElements('date', 'dueDate', 'dueDate');
@@ -80,6 +80,7 @@ export const modal = (function() {
 
     dialog.id = 'todoModal';
     form.id = 'todoForm';
+    title.required = true; 
     prioritySelect.id = 'priority-select';
     description.id = 'description';
     description.name = 'description';
@@ -124,9 +125,12 @@ export const modal = (function() {
       const submitButton = document.createElement('button');
       submitButton.id = 'submitBtn';
       submitButton.textContent = 'Add';
+      submitButton.setAttribute('type', 'submit');
       form.appendChild(submitButton);
-      dialog.showModal();
-      form.onsubmit = userInputFunc.submit();
+      dialog.showModal() 
+      //document.getElementById("todoForm").addEventListener("submit", userInputFunc.submit());
+      //form.onsubmit = userInputFunc.submit();
+      userInputFunc.submit();
       userInputFunc.todoModalClose();
     });
   };
@@ -215,7 +219,7 @@ export const modal = (function() {
   const updateBtn = (index) => {
     const updateBtn = document.createElement('button');
     updateBtn.id = 'updateBtn';
-    updateBtn.setAttribute('type', 'button');
+    updateBtn.setAttribute('type', 'submit');
     updateBtn.textContent = 'Update';
     form.appendChild(updateBtn);
     form.onsubmit = userInputFunc.update(index);
