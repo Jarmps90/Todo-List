@@ -269,29 +269,6 @@ export function userInput() {
     });
   };
 
-//const submit = () =>  {
-//
-//  const dialog = document.getElementById("todoModal");
-//	if(dialog) {
-//        const todoTitle = document.getElementById("title").value;
-//        const todoDescription = document.getElementById("description").value;
-//        const todoDueDate = document.getElementById("dueDate").value;
-//        const todoPriority = document.getElementById("priority-select").value;
-//
-//        objects.todoControl(
-//          todoTitle,
-//          todoDescription,
-//          todoDueDate,
-//          todoPriority
-//        );
-//	todoChecker();
-//        //event.preventDefault();
-//        dialog.close();
-//        dialog.remove();
-//	dialog.innerHTML = "";
-//	};
-//};
-
 
   const todoModalClose = () => {
     const dialog = document.getElementById("todoModal");

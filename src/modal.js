@@ -128,8 +128,6 @@ export const modal = (function() {
       submitButton.setAttribute('type', 'submit');
       form.appendChild(submitButton);
       dialog.showModal() 
-      //document.getElementById("todoForm").addEventListener("submit", userInputFunc.submit());
-      //form.onsubmit = userInputFunc.submit();
       userInputFunc.submit();
       userInputFunc.todoModalClose();
     });
